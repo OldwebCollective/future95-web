@@ -4,7 +4,6 @@ body {
   font-family: "MS Sans Serif", Arial, sans-serif;
 }
 
-
 /* MENU */
 .ie-menu {
   padding: 4px 6px;
@@ -37,6 +36,7 @@ body {
 
 /* CONTENT */
 .ie-content {
+  background-color: #f2eeee;
   flex: 1;
   overflow: auto;
 }
@@ -44,7 +44,7 @@ body {
 /* HEADER */
 .site-header {
   padding: 8px;
-  background: #c0c0c0;
+  background: #bfbcbc;
   border-bottom: 2px solid #808080;
 
   display: flex;
@@ -86,7 +86,7 @@ body {
 }
 
 .window-content {
-  background: #fff;
+  background: #bfbcbc;
   padding: 8px;
 }
 
@@ -149,12 +149,13 @@ a {
 }
 
 .post-image {
-  width: 300px;
+  width: 200px;
+  height: 100%;
   border: 2px inset #808080;
 }
 
 /* SEARCH */
 .search-box {
-  width: 100%;
+  width: 68%;
   margin-bottom: 5px;
 }
