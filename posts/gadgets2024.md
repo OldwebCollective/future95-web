@@ -4,6 +4,8 @@ Get ready for the future with these awesome gadgets! Here are 6 new devices you 
 
 ## 1. Smart Glasses
 
+![Smart Glasses](/images/smartglasses.webp)
+
 Experience the world like never before with smart glasses! These futuristic glasses bring augmented reality to your eyes. Whether you're navigating a new city or playing games in real time, smart glasses are the next big thing in personal tech.
 
 **Features:**

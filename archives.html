@@ -13,21 +13,17 @@
         <div id="header-container"></div>
 
         <div class="content">
-          <!-- SIDEBAR LEFT -->
           <div class="sidebar" id="sidebar-about"></div>
 
-          <!-- MAIN -->
           <div class="main">
             <div>
               <h2>Archives</h2>
               <p>Browse posts by date</p>
             </div>
 
-            <!-- Posts por fecha -->
             <div id="archives-container"></div>
           </div>
 
-          <!-- SIDEBAR RIGHT -->
           <div class="sidebar">
             <div id="follow-widget"></div>
             <div id="links-widget"></div>
@@ -48,16 +44,13 @@
 <script src="js/app.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", async () => {
-    // Cargar header
     const headerRes = await fetch("components/header.html");
     document.getElementById("header-container").innerHTML =
       await headerRes.text();
 
-    // Cargar about widget
     const aboutRes = await fetch("components/about-widget.html");
     document.getElementById("sidebar-about").innerHTML = await aboutRes.text();
 
-    // Cargar follow widget
     const followRes = await fetch("components/follow-widget.html");
     document.getElementById("follow-widget").innerHTML = await followRes.text();
 

@@ -13,27 +13,21 @@
         <div id="header-container"></div>
 
         <div class="layout">
-          <!-- MAIN CONTENT -->
           <div class="post-content">
-            <!-- TITLE WINDOW -->
             <div id="post-header" class="window">
               <div class="title-bar" id="post-title-bar">Loading...</div>
               <div class="window-content" id="post-meta"></div>
             </div>
 
-            <!-- POST CONTENT -->
             <div id="post-body"></div>
           </div>
 
-          <!-- SIDEBAR -->
           <div class="sidebar">
-            <!-- RELATED POSTS -->
             <div class="window">
               <div class="title-bar">RELATED POSTS</div>
               <div class="window-content" id="related-posts"></div>
             </div>
 
-            <!-- COOL LINKS -->
             <div id="links-widget"></div>
           </div>
         </div>
@@ -41,15 +35,17 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
-    
+
     <script src="js/app.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", async () => {
         const headerRes = await fetch("components/header.html");
-        document.getElementById("header-container").innerHTML = await headerRes.text();
+        document.getElementById("header-container").innerHTML =
+          await headerRes.text();
 
         const linksRes = await fetch("components/links-widget.html");
-        document.getElementById("links-widget").innerHTML = await linksRes.text();
+        document.getElementById("links-widget").innerHTML =
+          await linksRes.text();
 
         await initApp();
 
@@ -58,7 +54,7 @@
 
         if (!postId) {
           document.getElementById("post-body").innerHTML =
-            '<p>Post not found.</p>';
+            "<p>Post not found.</p>";
           return;
         }
 
@@ -66,7 +62,7 @@
 
         if (!post) {
           document.getElementById("post-body").innerHTML =
-            '<p>Post not found.</p>';
+            "<p>Post not found.</p>";
           return;
         }
 
@@ -79,37 +75,68 @@
         document.getElementById("post-title-bar").textContent = post.title;
         document.title = `${post.title} - mei's tech blog`;
 
-        document.getElementById("post-meta").innerHTML = `<p><b>By Mei</b> - ${post.date}</p>`;
+        document.getElementById("post-meta").innerHTML =
+          `<p><b>By Mei</b> - ${post.date}</p>`;
 
         try {
           const mdRes = await fetch(`/posts/${post.id}.md`);
           if (!mdRes.ok) {
-            document.getElementById("post-body").innerHTML = '<p>Post content not found.</p>';
+            document.getElementById("post-body").innerHTML =
+              "<p>Post content not found.</p>";
             return;
           }
 
           const mdContent = await mdRes.text();
-          
+
+          console.log("=== MARKDOWN CARGADO ===");
+          console.log("Primeras 500 chars del markdown:");
+          console.log(mdContent.substring(0, 500));
+          console.log("¿Contiene ![?", mdContent.includes("!["));
+
           const converter = new showdown.Converter({
             tables: true,
             strikethrough: true,
             tasklists: true,
-            smoothLivePreview: true
+            smoothLivePreview: true,
+            simpleLineBreaks: true,
+            ghCompatibleHeaderId: true,
+            openLinksInNewWindow: true,
+            parseImgDimensions: true,
+            literalMidWordUnderscores: true
           });
-          
+
           const htmlContent = converter.makeHtml(mdContent);
+
+          console.log("=== HTML GENERADO ===");
+          console.log("Primeros 1000 chars del HTML:");
+          console.log(htmlContent.substring(0, 1000));
+          console.log("¿Contiene <img?", htmlContent.includes("<img"));
           
           document.getElementById("post-body").innerHTML = htmlContent;
           
-          const tables = document.querySelectorAll('#post-body table');
-          tables.forEach(table => {
-            table.className = 'window';
+          setTimeout(() => {
+            console.log("=== BÚSQUEDA DE IMÁGENES EN DOM ===");
+            const images = document.querySelectorAll("#post-body img");
+            console.log("Total de imágenes encontradas:", images.length);
+            
+            images.forEach((img, idx) => {
+              console.log(`Imagen ${idx}: src="${img.src}", alt="${img.alt}"`);
+              img.style.maxWidth = "100%";
+              img.style.height = "auto";
+              img.style.border = "1px solid #808080";
+              img.style.margin = "10px 0";
+              img.loading = "lazy";
+            });
+          }, 100);
+
+          const tables = document.querySelectorAll("#post-body table");
+          tables.forEach((table) => {
+            table.className = "window";
           });
-          
         } catch (error) {
-          console.error('Error loading post:', error);
-          document.getElementById("post-body").innerHTML = 
-            '<p>Error loading post content. The markdown file may not exist.</p>';
+          console.error("Error loading post:", error);
+          document.getElementById("post-body").innerHTML =
+            "<p>Error loading post content. The markdown file may not exist.</p>";
         }
       }
     </script>

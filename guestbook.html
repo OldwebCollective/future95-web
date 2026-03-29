@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Guestbook - mei's tech blog</title>
+    <title>90's tech blog</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/components.css" />
   </head>
@@ -13,37 +13,35 @@
         <div id="header-container"></div>
 
         <div class="content">
-          <!-- SIDEBAR LEFT -->
           <div class="sidebar" id="sidebar-about"></div>
 
-          <!-- MAIN -->
           <div class="main">
             <div class="window">
               <div class="title-bar">Sign My Guestbook!</div>
               <div class="window-content">
                 <p>Thanks for visiting my tech blog! Leave a message below:</p>
-                
+
                 <form id="guestbook-form">
                   <div class="form-group">
                     <label>Name:</label>
                     <input type="text" name="name" required />
                   </div>
-                  
+
                   <div class="form-group">
                     <label>Email:</label>
                     <input type="email" name="email" />
                   </div>
-                  
+
                   <div class="form-group">
                     <label>Website:</label>
                     <input type="url" name="website" />
                   </div>
-                  
+
                   <div class="form-group">
                     <label>Message:</label>
                     <textarea name="message" rows="5" required></textarea>
                   </div>
-                  
+
                   <button type="submit">Sign Guestbook</button>
                 </form>
 
@@ -56,7 +54,6 @@
             </div>
           </div>
 
-          <!-- SIDEBAR RIGHT -->
           <div class="sidebar">
             <div id="follow-widget"></div>
             <div id="links-widget"></div>
@@ -67,62 +64,75 @@
 
     <script src="js/app.js"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', async () => {
-        const headerRes = await fetch('components/header.html');
-        document.getElementById('header-container').innerHTML = await headerRes.text();
-        
-        const aboutRes = await fetch('components/about-widget.html');
-        document.getElementById('sidebar-about').innerHTML = await aboutRes.text();
-        
-        const followRes = await fetch('components/follow-widget.html');
-        document.getElementById('follow-widget').innerHTML = await followRes.text();
-        
-        const linksRes = await fetch('components/links-widget.html');
-        document.getElementById('links-widget').innerHTML = await linksRes.text();
-        
+      document.addEventListener("DOMContentLoaded", async () => {
+        const headerRes = await fetch("components/header.html");
+        document.getElementById("header-container").innerHTML =
+          await headerRes.text();
+
+        const aboutRes = await fetch("components/about-widget.html");
+        document.getElementById("sidebar-about").innerHTML =
+          await aboutRes.text();
+
+        const followRes = await fetch("components/follow-widget.html");
+        document.getElementById("follow-widget").innerHTML =
+          await followRes.text();
+
+        const linksRes = await fetch("components/links-widget.html");
+        document.getElementById("links-widget").innerHTML =
+          await linksRes.text();
+
         await initApp();
       });
 
-      // Manejar envío de guestbook
-      document.getElementById('guestbook-form').addEventListener('submit', (e) => {
-        e.preventDefault();
-        const formData = new FormData(e.target);
-        const entry = {
-          name: formData.get('name'),
-          email: formData.get('email'),
-          website: formData.get('website'),
-          message: formData.get('message'),
-          date: new Date().toLocaleDateString()
-        };
-        
-        let entries = JSON.parse(localStorage.getItem('guestbook-entries') || '[]');
-        entries.unshift(entry);
-        localStorage.setItem('guestbook-entries', JSON.stringify(entries));
-        
-        e.target.reset();
-        renderGuestbookEntries();
-      });
+      document
+        .getElementById("guestbook-form")
+        .addEventListener("submit", (e) => {
+          e.preventDefault();
+          const formData = new FormData(e.target);
+          const entry = {
+            name: formData.get("name"),
+            email: formData.get("email"),
+            website: formData.get("website"),
+            message: formData.get("message"),
+            date: new Date().toLocaleDateString(),
+          };
+
+          let entries = JSON.parse(
+            localStorage.getItem("guestbook-entries") || "[]",
+          );
+          entries.unshift(entry);
+          localStorage.setItem("guestbook-entries", JSON.stringify(entries));
+
+          e.target.reset();
+          renderGuestbookEntries();
+        });
 
       function renderGuestbookEntries() {
-        const container = document.getElementById('guestbook-entries');
-        const entries = JSON.parse(localStorage.getItem('guestbook-entries') || '[]');
-        
+        const container = document.getElementById("guestbook-entries");
+        const entries = JSON.parse(
+          localStorage.getItem("guestbook-entries") || "[]",
+        );
+
         if (entries.length === 0) {
-          container.innerHTML = '<p><i>No entries yet. Be the first to sign!</i></p>';
+          container.innerHTML =
+            "<p><i>No entries yet. Be the first to sign!</i></p>";
           return;
         }
-        
-        container.innerHTML = entries.map(entry => `
+
+        container.innerHTML = entries
+          .map(
+            (entry) => `
           <div class="guestbook-entry">
             <strong>${entry.name}</strong> 
             <span class="entry-date">${entry.date}</span>
-            ${entry.website ? `<a href="${entry.website}" target="_blank">website</a>` : ''}
+            ${entry.website ? `<a href="${entry.website}" target="_blank">website</a>` : ""}
             <p>${entry.message}</p>
           </div>
-        `).join('');
+        `,
+          )
+          .join("");
       }
 
-      // Renderizar entries al cargar
       setTimeout(renderGuestbookEntries, 100);
     </script>
   </body>
