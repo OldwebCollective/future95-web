@@ -1,161 +1,230 @@
-body {
+/* ===================== */
+/* RESET Y ESTILOS BASE  */
+/* ===================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
   margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
   background: #c0c0c0;
   font-family: "MS Sans Serif", Arial, sans-serif;
+  font-size: 11px;
+  color: #000;
 }
 
-/* MENU */
-.ie-menu {
-  padding: 4px 6px;
-  border-bottom: 1px solid #808080;
-}
+/* ===================== */
+/* CONTENEDOR PRINCIPAL  */
+/* ===================== */
 
-/* TOOLBAR */
-.ie-toolbar {
-  padding: 4px;
-  border-bottom: 1px solid #808080;
-}
-
-.ie-toolbar button {
-  margin-right: 4px;
-}
-
-/* ADDRESS */
-.ie-address-bar {
+.ie-window {
   display: flex;
-  gap: 6px;
-  padding: 4px;
-  border-bottom: 2px solid #808080;
+  flex-direction: column;
+  height: 100vh;
+  background: #dfdfdf;
 }
 
-.ie-address-bar input {
-  flex: 1;
-  border: 2px inset #808080;
-  padding: 2px;
-}
-
-/* CONTENT */
 .ie-content {
-  background-color: #f2eeee;
+  background-color: #c0c0c0;
   flex: 1;
   overflow: auto;
-}
-
-/* HEADER */
-.site-header {
-  padding: 8px;
-  background: #bfbcbc;
-  border-bottom: 2px solid #808080;
-
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
 
-.nav a {
-  margin-left: 10px;
-}
+/* ===================== */
+/* LAYOUT PRINCIPAL      */
+/* ===================== */
 
-/* LAYOUT */
 .content {
   display: flex;
-}
-
-.sidebar {
-  width: 220px;
-  padding: 10px;
+  flex: 1;
+  gap: 5px;
+  padding: 5px;
 }
 
 .main {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 10px 10px 0;
+}
+
+.main h2 {
+  margin: 10px 0 5px 0;
+  font-size: 14px;
+}
+
+.main p {
+  margin: 5px 0;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.sidebar {
+  width: 250px;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-/* WINDOWS */
-.window {
-  background: #c0c0c0;
-  border: 2px solid;
-  border-color: #fff #404040 #404040 #fff;
-  margin-bottom: 10px;
+/* ===================== */
+/* POSTS                 */
+/* ===================== */
+
+.post {
+  margin-bottom: 8px;
 }
 
-.title-bar {
-  background: #000080;
-  color: white;
-  padding: 4px;
-  font-weight: bold;
-}
-
-.window-content {
-  background: #bfbcbc;
-  padding: 8px;
-}
-
-/* POSTS */
-.post a {
+.post .title-bar a {
   color: white;
   text-decoration: none;
+  cursor: pointer;
 }
 
-/* LINKS */
-a {
-  color: blue;
+.post .title-bar a:hover {
+  text-decoration: underline;
 }
 
-/* IMAGE */
-.avatar {
-  width: 100%;
-  margin-bottom: 5px;
+.post .window-content p {
+  margin: 3px 0;
+  font-size: 11px;
 }
 
-/* PAGE */
+/* Layout para post individual */
+.layout {
+  display: flex;
+  gap: 15px;
+  padding: 10px;
+  flex: 1;
+}
+
+.post-content {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.post-content h2 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+}
+
+.post-content h3 {
+  margin: 15px 0 10px 0;
+  font-size: 13px;
+}
+
+.post-content p {
+  margin: 5px 0;
+  line-height: 1.5;
+}
+
+.post-section {
+  display: flex;
+  gap: 15px;
+  margin: 15px 0;
+  align-items: flex-start;
+}
+
+.post-image {
+  width: 200px;
+  height: auto;
+  border: 2px inset #c0c0c0;
+  flex-shrink: 0;
+}
+
+/* ===================== */
+/* FORMULARIOS           */
+/* ===================== */
+
+.form-group {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 3px;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.form-group input,
+.form-group textarea {
+  border: 2px inset #808080;
+  padding: 3px 4px;
+  font-family: "MS Sans Serif", Arial, sans-serif;
+  font-size: 11px;
+  background: white;
+}
+
+.form-group textarea {
+  resize: vertical;
+  font-size: 10px;
+}
+
+/* ===================== */
+/* GUESTBOOK            */
+/* ===================== */
+
+.guestbook-entry {
+  border-left: 2px solid #808080;
+  padding: 8px;
+  margin: 8px 0;
+  background: #f2f2f2;
+}
+
+.guestbook-entry strong {
+  display: block;
+  margin-bottom: 3px;
+  color: #000080;
+}
+
+.entry-date {
+  font-size: 10px;
+  color: #808080;
+  margin-right: 10px;
+}
+
+.guestbook-entry p {
+  margin: 5px 0 0 0;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.guestbook-entry a {
+  font-size: 10px;
+  margin-right: 10px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #808080;
+  margin: 10px 0;
+}
+
+/* ===================== */
+/* UTILIDADES            */
+/* ===================== */
+
 .page {
   width: 1000px;
   margin: 20px auto;
 }
 
-/* BREADCRUMB */
 .breadcrumb {
   padding: 6px;
   margin-bottom: 10px;
   background: #c0c0c0;
   border: 2px solid;
   border-color: #fff #808080 #808080 #fff;
-}
-
-/* LAYOUT */
-.layout {
-  display: flex;
-  gap: 15px;
-}
-
-/* MAIN CONTENT */
-.post-content {
-  flex: 1;
-  background: #fff;
-  padding: 10px;
-  border: 2px solid #808080;
-}
-
-/* SIDEBAR */
-.sidebar {
-  width: 250px;
-}
-
-/* SECTION IMAGE + TEXT */
-.post-section {
-  display: flex;
-  gap: 15px;
-  margin: 15px 0;
-}
-
-.post-image {
-  width: 200px;
-  height: 100%;
-  border: 2px inset #808080;
-}
-
-/* SEARCH */
-.search-box {
-  width: 68%;
-  margin-bottom: 5px;
 }

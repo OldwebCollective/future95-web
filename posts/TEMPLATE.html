@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>TEMPLATE - Post Title</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+  </head>
+
+  <body>
+    <div class="ie-window">
+      <div class="ie-content">
+        <div id="header-container"></div>
+
+        <div class="layout">
+          <!-- MAIN CONTENT -->
+          <div class="post-content">
+            <!-- TITLE WINDOW -->
+            <div class="window">
+              <div class="title-bar">Post Title Here</div>
+              <div class="window-content">
+                <p><b>By Mei</b> - Month DD, YYYY</p>
+              </div>
+            </div>
+
+            <!-- CONTENT -->
+            <p>
+              Start writing your post content here. You can use paragraphs, 
+              headings, and other HTML elements.
+            </p>
+
+            <!-- HEADING -->
+            <h3>Section Title</h3>
+            <p>
+              More content here...
+            </p>
+
+            <!-- IMAGE + TEXT EXAMPLE -->
+            <div class="post-section">
+              <img src="../images/example.webp" class="post-image" alt="Description" />
+              <div>
+                <h3>Subtitle</h3>
+                <p>
+                  Text alongside image...
+                </p>
+              </div>
+            </div>
+
+            <!-- MORE SECTIONS -->
+            <h3>Another Section</h3>
+            <p>
+              Continue your content...
+            </p>
+          </div>
+
+          <!-- SIDEBAR -->
+          <div class="sidebar">
+            <!-- RELATED POSTS -->
+            <div class="window">
+              <div class="title-bar">RELATED POSTS</div>
+              <div class="window-content" id="related-posts"></div>
+            </div>
+
+            <!-- SEARCH -->
+            <div class="window">
+              <div class="title-bar">SEARCH</div>
+              <div class="window-content">
+                <input type="text" class="search-box" />
+                <button>Search</button>
+              </div>
+            </div>
+
+            <!-- COOL LINKS -->
+            <div id="links-widget"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+    <script>
+      // IMPORTANT: Change 'template' to your post ID!
+      const POST_ID = 'template';
+
+      document.addEventListener('DOMContentLoaded', async () => {
+        // Cargar header
+        const headerRes = await fetch('../components/header.html');
+        document.getElementById('header-container').innerHTML = await headerRes.text();
+        
+        // Cargar links widget
+        const linksRes = await fetch('../components/links-widget.html');
+        document.getElementById('links-widget').innerHTML = await linksRes.text();
+        
+        // Renderizar posts relacionados
+        setTimeout(() => renderRelatedPosts(POST_ID), 100);
+      });
+    </script>
+  </body>
+</html>

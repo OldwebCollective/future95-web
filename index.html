@@ -4,106 +4,37 @@
     <meta charset="UTF-8" />
     <title>mei's tech blog</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/components.css" />
   </head>
 
   <body>
     <div class="ie-window">
       <div class="ie-content">
-        <div class="site-header">
-          <b>📂 90's tech blog! :)</b>
-          <div class="nav">
-            <a href="#">home</a>
-            <a href="#">posts</a>
-            <a href="#">archives</a>
-            <a href="#">about</a>
-          </div>
-        </div>
+        <div id="header-container"></div>
 
         <div class="content">
           <!-- SIDEBAR LEFT -->
-          <div class="sidebar">
-            <div class="window">
-              <div class="title-bar"> ABOUT ME</div>
-              <div class="window-content">
-                <img src="images/pascal.jpeg" class="avatar" />
-                <p><b>Name:</b> p4sCl_GUI</p>
-                <p><b>Age:</b> 32</p>
-                <p><b>Pronouns:</b> My Lord</p>
-                <p>Amante de la tecnologia retro y gym bro consolidado.</p>
-              </div>
-            </div>
-          </div>
+          <div class="sidebar" id="sidebar-about"></div>
 
           <!-- MAIN -->
           <div class="main">
             <div>
               <h2>Welcome to my Tech Blog!</h2>
-                <p>
-                  Hi! I'm Mei, and here I share my love for all things tech.
-                </p>
-                <p>
-                  You'll find news, tips, and reviews on gadgets and retro
-                  software.
-                </p>
+              <p>Hi! I'm Mei, and here I share my love for all things tech.</p>
+              <p>
+                You'll find news, tips, and reviews on gadgets and retro
+                software.
+              </p>
             </div>
 
-            <div class="window post">
-              <div class="title-bar">
-                <a href="posts/gadgets2024.html"
-                  >6 Cool Gadgets You Need in 2024</a
-                >
-              </div>
-              <div class="window-content">
-                <p>April 15, 2024</p>
-                <p>A list of the most exciting new gadgets coming this year.</p>
-              </div>
-            </div>
-
-            <div class="window post">
-              <div class="title-bar">
-                <a href="posts/recycle.html"
-                  >How to Recycle Old Computers Properly</a
-                >
-              </div>
-              <div class="window-content">
-                <p>April 10, 2024</p>
-                <p>Learn how to recycle that old PC you have gathering dust.</p>
-              </div>
-            </div>
-
-            <div class="window post">
-              <div class="title-bar">
-                <a href="posts/win95.html">Windows 95 Tips & Tricks</a>
-              </div>
-              <div class="window-content">
-                <p>April 5, 2024</p>
-                <p>Unleash the power of Windows 95 with these tips!</p>
-              </div>
-            </div>
+            <!-- Posts dinámicos -->
+            <div id="posts-container"></div>
           </div>
 
           <!-- SIDEBAR RIGHT -->
           <div class="sidebar">
-            <div class="window">
-              <div class="title-bar">FOLLOW ME!</div>
-              <div class="window-content">
-                <p>@meitechblog</p>
-                <p><a href="#">Send me a mail!</a></p>
-                <p><a href="#">Sign my guestbook!</a></p>
-              </div>
-            </div>
-
-            <div class="window">
-              <div class="title-bar">COOL LINKS</div>
-              <div class="window-content">
-                <ul>
-                  <li><a href="#">Link Exchange Program</a></li>
-                  <li><a href="#">PC Games Forum</a></li>
-                  <li><a href="#">Retro Tech Zone</a></li>
-                </ul>
-              </div>
-            </div>
-
+            <div id="follow-widget"></div>
+            <div id="links-widget"></div>
             <div class="window">
               <div class="window-content">
                 <p>12345 visitors</p>
@@ -116,3 +47,30 @@
     </div>
   </body>
 </html>
+
+<script src="js/app.js"></script>
+<script>
+  // Cargar componentes específicos de index
+  document.addEventListener("DOMContentLoaded", async () => {
+    // Cargar header
+    const headerRes = await fetch("components/header.html");
+    document.getElementById("header-container").innerHTML =
+      await headerRes.text();
+
+    // Cargar about widget
+    const aboutRes = await fetch("components/about-widget.html");
+    document.getElementById("sidebar-about").innerHTML = await aboutRes.text();
+
+    // Cargar follow widget
+    const followRes = await fetch("components/follow-widget.html");
+    document.getElementById("follow-widget").innerHTML = await followRes.text();
+
+    // Cargar links widget
+    const linksRes = await fetch("components/links-widget.html");
+    document.getElementById("links-widget").innerHTML = await linksRes.text();
+
+    // Ahora cargar data y renderizar
+    await initApp();
+    renderPostsList();
+  });
+</script>

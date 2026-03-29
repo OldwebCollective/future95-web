@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>About - mei's tech blog</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/components.css" />
+  </head>
+
+  <body>
+    <div class="ie-window">
+      <div class="ie-content">
+        <div id="header-container"></div>
+
+        <div class="content">
+          <!-- SIDEBAR LEFT -->
+          <div class="sidebar" id="sidebar-about"></div>
+
+          <!-- MAIN -->
+          <div class="main">
+            <div class="window">
+              <div class="title-bar">About Me</div>
+              <div class="window-content">
+                <h2>Hi! I'm p4sCl_GUI (Mei)</h2>
+                <p>
+                  Welcome to my corner of the internet! I'm a 32-year-old tech enthusiast with a deep 
+                  passion for retro technology and vintage computing. My journey into tech started with 
+                  MS-DOS and Windows 95, and I've never looked back.
+                </p>
+                
+                <h3>What I Love</h3>
+                <ul>
+                  <li>Retro computers and vintage software</li>
+                  <li>Tech reviews and gadget analysis</li>
+                  <li>Sustainable computing and recycling old hardware</li>
+                  <li>The 90's aesthetic and era computing</li>
+                  <li>Gaming on classic platforms</li>
+                </ul>
+                
+                <h3>Why This Blog?</h3>
+                <p>
+                  This blog is my way of sharing knowledge about technology, both old and new. 
+                  I believe that understanding where technology came from helps us appreciate 
+                  where it's going. Here, you'll find reviews, tips, tutorials, and my thoughts 
+                  on everything tech.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- SIDEBAR RIGHT -->
+          <div class="sidebar">
+            <div id="follow-widget"></div>
+            <div id="links-widget"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', async () => {
+        // Cargar header
+        const headerRes = await fetch('components/header.html');
+        document.getElementById('header-container').innerHTML = await headerRes.text();
+        
+        // Cargar about widget
+        const aboutRes = await fetch('components/about-widget.html');
+        document.getElementById('sidebar-about').innerHTML = await aboutRes.text();
+        
+        // Cargar follow widget
+        const followRes = await fetch('components/follow-widget.html');
+        document.getElementById('follow-widget').innerHTML = await followRes.text();
+        
+        // Cargar links widget
+        const linksRes = await fetch('components/links-widget.html');
+        document.getElementById('links-widget').innerHTML = await linksRes.text();
+        
+        // Ahora cargar data y renderizar
+        await initApp();
+      });
+    </script>
+  </body>
+</html>

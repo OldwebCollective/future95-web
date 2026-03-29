@@ -4,23 +4,13 @@
     <meta charset="UTF-8" />
     <title>6 Cool Gadgets You Need in 2024</title>
     <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/components.css" />
   </head>
 
   <body>
     <div class="ie-window">
       <div class="ie-content">
-
-      </div>
-
-      <div class="site-header">
-        <b>📂 90's tech blog! :)</b>
-        <div class="nav">
-          <a href="../index.html">home</a>
-          <a href="#">posts</a>
-          <a href="#">archives</a>
-          <a href="#">about</a>
-        </div>
-      </div>
+        <div id="header-container"></div>
 
       <div class="layout">
         <!-- MAIN CONTENT -->
@@ -64,10 +54,7 @@
           <!-- RELATED POSTS -->
           <div class="window">
             <div class="title-bar">RELATED POSTS</div>
-            <div class="window-content">
-              <p><a href="win95.html">Windows 95 Tips & Tricks</a></p>
-              <p><a href="recycle.html">Recycle Old Computers</a></p>
-            </div>
+            <div class="window-content" id="related-posts"></div>
           </div>
 
           <!-- SEARCH -->
@@ -80,18 +67,27 @@
           </div>
 
           <!-- COOL LINKS -->
-          <div class="window">
-            <div class="title-bar">COOL LINKS</div>
-            <div class="window-content">
-              <ul>
-                <li><a href="#">Link Exchange</a></li>
-                <li><a href="#">PC Games Forum</a></li>
-                <li><a href="#">Retro Tech Zone</a></li>
-              </ul>
-            </div>
-          </div>
+          <div id="links-widget"></div>
         </div>
       </div>
     </div>
+
+    <script src="../js/app.js"></script>
+    <script>
+      // Cargar componentes específicos del post
+      document.addEventListener('DOMContentLoaded', async () => {
+        // Cargar header
+        const headerRes = await fetch('../components/header.html');
+        document.getElementById('header-container').innerHTML = await headerRes.text();
+        
+        // Cargar links widget
+        const linksRes = await fetch('../components/links-widget.html');
+        document.getElementById('links-widget').innerHTML = await linksRes.text();
+        
+        // Cargar data y renderizar
+        await initApp();
+        renderRelatedPosts('gadgets2024');
+      });
+    </script>
   </body>
 </html>
