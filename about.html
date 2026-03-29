@@ -13,13 +13,10 @@
         <div id="header-container"></div>
 
         <div class="content">
-          <!-- SIDEBAR LEFT -->
-          <div class="sidebar" id="sidebar-about"></div>
-
           <!-- MAIN -->
           <div class="main">
             <div class="window">
-              <div class="title-bar">About Me</div>
+              <div class="title-bar">About Us</div>
               <div class="window-content">
                 <h2>Hi! I'm p4sCl_GUI (Mei)</h2>
                 <p>
@@ -50,6 +47,7 @@
 
           <!-- SIDEBAR RIGHT -->
           <div class="sidebar">
+            <div id="sidebar-about"></div>
             <div id="follow-widget"></div>
             <div id="links-widget"></div>
           </div>
@@ -60,25 +58,16 @@
     <script src="js/app.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', async () => {
-        // Cargar header
         const headerRes = await fetch('components/header.html');
         document.getElementById('header-container').innerHTML = await headerRes.text();
         
-        // Cargar about widget
-        const aboutRes = await fetch('components/about-widget.html');
-        document.getElementById('sidebar-about').innerHTML = await aboutRes.text();
-        
-        // Cargar follow widget
         const followRes = await fetch('components/follow-widget.html');
         document.getElementById('follow-widget').innerHTML = await followRes.text();
         
-        // Cargar links widget
         const linksRes = await fetch('components/links-widget.html');
         document.getElementById('links-widget').innerHTML = await linksRes.text();
         
-        // Ahora cargar data y renderizar
         await initApp();
       });
     </script>
   </body>
-</html>

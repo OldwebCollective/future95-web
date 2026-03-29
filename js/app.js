@@ -1,14 +1,10 @@
-// Cargar datos globales
 let blogData = {};
 
-// Inicializar la aplicación
 async function initApp() {
   try {
-    // Cargar data.json desde la raíz
     const response = await fetch('/data.json');
     blogData = await response.json();
     
-    // Renderizar componentes
     renderNavigation();
     renderAuthor();
     renderLinks();
@@ -18,7 +14,6 @@ async function initApp() {
   }
 }
 
-// Renderizar navegación
 function renderNavigation() {
   const navContainer = document.getElementById('main-nav');
   if (!navContainer) return;
@@ -28,7 +23,6 @@ function renderNavigation() {
   ).join('');
 }
 
-// Renderizar widget de autor
 function renderAuthor() {
   const avatar = document.getElementById('avatar');
   const authorName = document.getElementById('author-name');
@@ -39,7 +33,6 @@ function renderAuthor() {
   if (authorDesc) authorDesc.textContent = blogData.blog.description;
 }
 
-// Renderizar links
 function renderLinks() {
   const linksList = document.getElementById('links-list');
   if (!linksList) return;
@@ -49,13 +42,11 @@ function renderLinks() {
   ).join('');
 }
 
-// Renderizar widget de seguimiento
 function renderFollowWidget() {
   const handle = document.getElementById('handle');
   if (handle) handle.textContent = blogData.contact.handle;
 }
 
-// Renderizar lista de posts
 function renderPostsList() {
   const container = document.getElementById('posts-container');
   if (!container) return;
@@ -63,7 +54,7 @@ function renderPostsList() {
   container.innerHTML = blogData.posts.map(post => `
     <div class="window post">
       <div class="title-bar">
-        <a href="${post.file}">${post.title}</a>
+        <a href="/post.html?id=${post.id}">${post.title}</a>
       </div>
       <div class="window-content">
         <p>${post.date}</p>
@@ -73,15 +64,12 @@ function renderPostsList() {
   `).join('');
 }
 
-// Renderizar posts relacionados (para páginas de post individual)
 function renderRelatedPosts(currentPostId) {
   const container = document.getElementById('related-posts');
   if (!container) return;
   
   const related = blogData.posts.filter(p => p.id !== currentPostId).slice(0, 2);
   container.innerHTML = related.map(post => 
-    `<p><a href="/posts/${post.slug}.html">${post.title}</a></p>`
+    `<p><a href="/post.html?id=${post.id}">${post.title}</a></p>`
   ).join('');
 }
-
-// NO ejecutar automáticamente - cada página controla cuándo ejecutar initApp()

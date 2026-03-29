@@ -1,4 +1,4 @@
-# 📚 Guía de Escalabilidad - 90's Tech Blog
+# 📚 Guía de Escalabilidad - Blog Retro 90's
 
 ## Arquitectura Mejorada
 

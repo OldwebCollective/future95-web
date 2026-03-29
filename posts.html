@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>mei's tech blog</title>
+    <title>Posts - mei's tech blog</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/components.css" />
   </head>
@@ -19,12 +19,8 @@
           <!-- MAIN -->
           <div class="main">
             <div>
-              <h2>Welcome to my Tech Blog!</h2>
-              <p>Hi! I'm Mei, and here I share my love for all things tech.</p>
-              <p>
-                You'll find news, tips, and reviews on gadgets and retro
-                software.
-              </p>
+              <h2>All Posts</h2>
+              <p>Explore all articles from my tech blog</p>
             </div>
 
             <!-- Posts dinámicos -->
@@ -36,9 +32,10 @@
             <div id="follow-widget"></div>
             <div id="links-widget"></div>
             <div class="window">
+              <div class="title-bar">QUICK LINKS</div>
               <div class="window-content">
-                <p>12345 visitors</p>
-                <p>Thanks for visiting!</p>
+                <p><a href="/archives.html">Browse Archives</a></p>
+                <p><a href="/about.html">About Me</a></p>
               </div>
             </div>
           </div>
@@ -52,8 +49,7 @@
 <script>
   document.addEventListener("DOMContentLoaded", async () => {
     const headerRes = await fetch("components/header.html");
-    document.getElementById("header-container").innerHTML =
-      await headerRes.text();
+    document.getElementById("header-container").innerHTML = await headerRes.text();
 
     const aboutRes = await fetch("components/about-widget.html");
     document.getElementById("sidebar-about").innerHTML = await aboutRes.text();

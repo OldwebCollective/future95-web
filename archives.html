@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Archives - mei's tech blog</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/components.css" />
+  </head>
+
+  <body>
+    <div class="ie-window">
+      <div class="ie-content">
+        <div id="header-container"></div>
+
+        <div class="content">
+          <!-- SIDEBAR LEFT -->
+          <div class="sidebar" id="sidebar-about"></div>
+
+          <!-- MAIN -->
+          <div class="main">
+            <div>
+              <h2>Archives</h2>
+              <p>Browse posts by date</p>
+            </div>
+
+            <!-- Posts por fecha -->
+            <div id="archives-container"></div>
+          </div>
+
+          <!-- SIDEBAR RIGHT -->
+          <div class="sidebar">
+            <div id="follow-widget"></div>
+            <div id="links-widget"></div>
+            <div class="window">
+              <div class="title-bar">STATS</div>
+              <div class="window-content">
+                <p><span id="total-posts">0</span> Total Posts</p>
+                <p><a href="/posts.html">View All Posts</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script src="js/app.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", async () => {
+    // Cargar header
+    const headerRes = await fetch("components/header.html");
+    document.getElementById("header-container").innerHTML =
+      await headerRes.text();
+
+    // Cargar about widget
+    const aboutRes = await fetch("components/about-widget.html");
+    document.getElementById("sidebar-about").innerHTML = await aboutRes.text();
+
+    // Cargar follow widget
+    const followRes = await fetch("components/follow-widget.html");
+    document.getElementById("follow-widget").innerHTML = await followRes.text();
+
+    const linksRes = await fetch("components/links-widget.html");
+    document.getElementById("links-widget").innerHTML = await linksRes.text();
+
+    await initApp();
+    renderArchives();
+  });
+
+  function renderArchives() {
+    const container = document.getElementById("archives-container");
+    const statContainer = document.getElementById("total-posts");
+
+    if (!container || !blogData.posts) return;
+
+    statContainer.textContent = blogData.posts.length;
+
+    const grouped = {};
+    blogData.posts.forEach((post) => {
+      const date = new Date(post.date);
+      const year = date.getFullYear();
+      const month = date.toLocaleString("en-US", { month: "long" });
+      const key = `${year}-${month}`;
+
+      if (!grouped[key]) grouped[key] = [];
+      grouped[key].push(post);
+    });
+
+    const sorted = Object.entries(grouped).sort((a, b) => {
+      const [aYear, aMonth] = a[0].split("-");
+      const [bYear, bMonth] = b[0].split("-");
+      const dateA = new Date(`${aMonth} 1, ${aYear}`);
+      const dateB = new Date(`${bMonth} 1, ${bYear}`);
+      return dateB - dateA;
+    });
+
+    container.innerHTML = sorted
+      .map(
+        ([key, posts]) => `
+      <div class="window">
+        <div class="title-bar">${key}</div>
+        <div class="window-content">
+          ${posts
+            .map(
+              (post) => `
+            <p style="margin: 5px 0;">
+              <a href="/post.html?id=${post.id}">${post.title}</a>
+              <br />
+              <span style="font-size: 10px; color: #808080;">${post.date}</span>
+            </p>
+          `,
+            )
+            .join("")}
+        </div>
+      </div>
+    `,
+      )
+      .join("");
+  }
+</script>
