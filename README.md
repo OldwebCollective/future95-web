@@ -194,3 +194,5 @@ Ver [ARCHITECTURE.md](ARCHITECTURE.md) para detalles técnicos completos.
 
 **¡Ahora tu blog es profesional, escalable y fácil de mantener! 🎊**
 
+# CÓMO LEVANTAR EL PROYECTO
+http-server -p 8080

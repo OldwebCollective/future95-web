@@ -11,27 +11,46 @@
       "title": "6 Cool Gadgets You Need in 2024",
       "slug": "gadgets2024",
       "date": "April 15, 2024",
-      "excerpt": "A list of the most exciting new gadgets coming this year."
+      "excerpt": "A list of the most exciting new gadgets coming this year.",
+      "editor": "Pascal"
     },
     {
       "id": "recycle",
       "title": "How to Recycle Old Computers Properly",
       "slug": "recycle",
       "date": "April 10, 2024",
-      "excerpt": "Learn how to recycle that old PC you have gathering dust."
+      "excerpt": "Learn how to recycle that old PC you have gathering dust.",
+      "editor": "Pascal"
     },
     {
       "id": "win95",
       "title": "Windows 95 Tips & Tricks",
       "slug": "win95",
       "date": "April 5, 2024",
-      "excerpt": "Unleash the power of Windows 95 with these tips!"
+      "excerpt": "Unleash the power of Windows 95 with these tips!",
+      "editor": "Pascal"
+    },
+    {
+      "id": "2026karate",
+      "title": "2026 Karate DSL",
+      "slug": "2026karate",
+      "date": "March 29, 2026",
+      "excerpt": "Novedades de este poderoso framework para API Testing!",
+      "editor": "Pascal"
+    },
+    {
+      "id": "2026postspruebas",
+      "title": "2026 Posts de Pruebas",
+      "slug": "2026postspruebas",
+      "date": "April 2, 2026",
+      "excerpt": "Novedades de este poderoso framework para API Testing!",
+      "editor": "Pascal"
     }
   ],
   "navigation": [
     { "label": "home", "href": "/" },
     { "label": "posts", "href": "/posts.html" },
-    { "label": "archives", "href": "/archives.html" },
+    { "label": "archives", "href": "/" },
     { "label": "about", "href": "/about.html" }
   ],
   "links": [

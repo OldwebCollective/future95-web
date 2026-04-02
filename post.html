@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Post - mei's tech blog</title>
+    <title>Post - 90's tech blog</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/components.css" />
   </head>
@@ -76,7 +76,7 @@
         document.title = `${post.title} - mei's tech blog`;
 
         document.getElementById("post-meta").innerHTML =
-          `<p><b>By Mei</b> - ${post.date}</p>`;
+          `<p><b>By ${post.editor}</b> - ${post.date}</p>`;
 
         try {
           const mdRes = await fetch(`/posts/${post.id}.md`);
@@ -102,7 +102,7 @@
             ghCompatibleHeaderId: true,
             openLinksInNewWindow: true,
             parseImgDimensions: true,
-            literalMidWordUnderscores: true
+            literalMidWordUnderscores: true,
           });
 
           const htmlContent = converter.makeHtml(mdContent);
@@ -111,14 +111,14 @@
           console.log("Primeros 1000 chars del HTML:");
           console.log(htmlContent.substring(0, 1000));
           console.log("¿Contiene <img?", htmlContent.includes("<img"));
-          
+
           document.getElementById("post-body").innerHTML = htmlContent;
-          
+
           setTimeout(() => {
             console.log("=== BÚSQUEDA DE IMÁGENES EN DOM ===");
             const images = document.querySelectorAll("#post-body img");
             console.log("Total de imágenes encontradas:", images.length);
-            
+
             images.forEach((img, idx) => {
               console.log(`Imagen ${idx}: src="${img.src}", alt="${img.alt}"`);
               img.style.maxWidth = "100%";

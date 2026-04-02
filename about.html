@@ -17,28 +17,39 @@
             <div class="window">
               <div class="title-bar">ABOUT US</div>
               <div class="window-content">
-                <h2>Hi! I'm p4sCl_GUI (Mei)</h2>
+                <h2>Hola, soy p4sCl_GUI</h2>
                 <p>
-                  Welcome to my corner of the internet! I'm a 32-year-old tech enthusiast with a deep 
-                  passion for retro technology and vintage computing. My journey into tech started with 
-                  MS-DOS and Windows 95, and I've never looked back.
+                  ¡Bienvenido a mi rincón de internet! Soy un entusiasta de la
+                  tecnología con 32 años y una profunda pasión por la tecnología
+                  retro y la informática vintage. Mi viaje en el mundo de la
+                  tecnología comenzó muy tarde, pero fue esa pequeña cajita
+                  negra que se volvió mi pasión, y generó intriga en cómo se
+                  manejaban MS-DOS y Windows 95. También soy un entusiasta
+                  de los videojuegos retro, y me encanta jugar en plataformas
+                  clásicas como la PlayStation original y la Sega Megadrive.
                 </p>
-                
-                <h3>What I Love</h3>
+
+                <h3>¿Qué me gusta?</h3>
                 <ul>
-                  <li>Retro computers and vintage software</li>
+                  <li>Computadoras retro computers y software vintage</li>
                   <li>Tech reviews and gadget analysis</li>
-                  <li>Sustainable computing and recycling old hardware</li>
-                  <li>The 90's aesthetic and era computing</li>
-                  <li>Gaming on classic platforms</li>
+                  <li>Computación sostenible y reciclaje de hardware viejo</li>
+                  <li>
+                    Los estilos visuales de los años 90 y la computación retro
+                  </li>
+                  <li>
+                    Gaming en plataformas clásicas, como el Sega Megadrive o la
+                    SNES
+                  </li>
                 </ul>
-                
-                <h3>Why This Blog?</h3>
+
+                <h3>¿Por qué este blog?</h3>
                 <p>
-                  This blog is my way of sharing knowledge about technology, both old and new. 
-                  I believe that understanding where technology came from helps us appreciate 
-                  where it's going. Here, you'll find reviews, tips, tutorials, and my thoughts 
-                  on everything tech.
+                  Este blog es mi forma de compartir conocimientos sobre
+                  tecnología, tanto antigua como nueva. Creo que entender de
+                  dónde viene la tecnología nos ayuda a apreciar hacia dónde va.
+                  Aquí encontrarás reseñas, consejos, tutoriales y mis
+                  pensamientos sobre todo lo relacionado con la tecnología.
                 </p>
               </div>
             </div>
@@ -56,17 +67,21 @@
 
     <script src="js/app.js"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', async () => {
-        const headerRes = await fetch('components/header.html');
-        document.getElementById('header-container').innerHTML = await headerRes.text();
-        
-        const followRes = await fetch('components/follow-widget.html');
-        document.getElementById('follow-widget').innerHTML = await followRes.text();
-        
-        const linksRes = await fetch('components/links-widget.html');
-        document.getElementById('links-widget').innerHTML = await linksRes.text();
-        
+      document.addEventListener("DOMContentLoaded", async () => {
+        const headerRes = await fetch("components/header.html");
+        document.getElementById("header-container").innerHTML =
+          await headerRes.text();
+
+        const followRes = await fetch("components/follow-widget.html");
+        document.getElementById("follow-widget").innerHTML =
+          await followRes.text();
+
+        const linksRes = await fetch("components/links-widget.html");
+        document.getElementById("links-widget").innerHTML =
+          await linksRes.text();
+
         await initApp();
       });
     </script>
   </body>
+</html>

@@ -4,11 +4,12 @@ Get ready for the future with these awesome gadgets! Here are 6 new devices you 
 
 ## 1. Smart Glasses
 
-![Smart Glasses](/images/smartglasses.webp)
-
+<!-- ![Smart Glasses](/images/smartglasses.webp) -->
+<img src="/images/smartglasses.webp" alt="smartglasses" width="200" />
 Experience the world like never before with smart glasses! These futuristic glasses bring augmented reality to your eyes. Whether you're navigating a new city or playing games in real time, smart glasses are the next big thing in personal tech.
 
 **Features:**
+
 - Real-time navigation overlay
 - Augmented reality gaming
 - Hands-free video calls
@@ -20,6 +21,7 @@ Experience the world like never before with smart glasses! These futuristic glas
 Forget about tangled cables forever! The latest wireless earbuds offer superior sound quality with active noise cancellation. Perfect for gaming, music, and staying connected on the go.
 
 **Specs:**
+
 - 48-hour total battery (with case)
 - 360° spatial audio
 - Adaptive noise cancellation

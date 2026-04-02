@@ -47,11 +47,21 @@ function renderFollowWidget() {
   if (handle) handle.textContent = blogData.contact.handle;
 }
 
-function renderPostsList() {
+function renderPostsList(limit = null) {
   const container = document.getElementById('posts-container');
   if (!container) return;
   
-  container.innerHTML = blogData.posts.map(post => `
+  // Ordenar posts del más reciente al más antiguo
+  const sortedPosts = [...blogData.posts].sort((a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+    return dateB - dateA;
+  });
+  
+  // Aplicar límite si se especifica
+  const postsToShow = limit ? sortedPosts.slice(0, limit) : sortedPosts;
+  
+  container.innerHTML = postsToShow.map(post => `
     <div class="window post">
       <div class="title-bar">
         <a href="/post.html?id=${post.id}">${post.title}</a>
@@ -69,7 +79,8 @@ function renderRelatedPosts(currentPostId) {
   if (!container) return;
   
   const related = blogData.posts.filter(p => p.id !== currentPostId).slice(0, 2);
-  container.innerHTML = related.map(post => 
+  container.innerHTML = related.map(post => {
     `<p><a href="/post.html?id=${post.id}">${post.title}</a></p>`
+  }
   ).join('');
 }

@@ -17,11 +17,14 @@
 
           <div class="main">
             <div>
-              <h2>Welcome to my Tech Blog!</h2>
-              <p>Hi! I'm Mei, and here I share my love for all things tech.</p>
+              <h2>Bienvenido a nuestro Tech Blog!</h2>
               <p>
-                You'll find news, tips, and reviews on gadgets and retro
-                software.
+                ¡Hola! Soy Pascal, y aquí comparto mi amor por toda la
+                tecnología retro.
+              </p>
+              <p>
+                Encontrarás noticias, consejos y reseñas sobre gadgets y
+                software retro.
               </p>
             </div>
 
@@ -61,6 +64,6 @@
     document.getElementById("links-widget").innerHTML = await linksRes.text();
 
     await initApp();
-    renderPostsList();
+    renderPostsList(4);
   });
 </script>
