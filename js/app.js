@@ -50,29 +50,29 @@ function renderFollowWidget() {
 function renderPostsList(limit = null) {
   const container = document.getElementById("posts-container");
   if (!container) return;
-
-  // Ordenar posts del más reciente al más antiguo
   const sortedPosts = [...blogData.posts].sort((a, b) => {
     const dateA = new Date(a.date);
     const dateB = new Date(b.date);
     return dateB - dateA;
   });
 
-  // Aplicar límite si se especifica
   const postsToShow = limit ? sortedPosts.slice(0, limit) : sortedPosts;
 
   container.innerHTML = postsToShow
     .map(
       (post) => `
-    <div class="window post">
-      <div class="title-bar">
-        <a href="/post.html?id=${post.id}">${post.title}</a>
-      </div>
-      <div class="window-content">
-        <p>${post.date}</p>
-        <p>${post.excerpt}</p>
-      </div>
-    </div>
+        <a href="/post.html?id=${post.id}" class="post-preview-link">
+          <div class="window post">
+            <div class="title-bar"> ${post.title} </div>
+            <div class="window-content">
+              <p>
+                <strong> ${post.categories.map((cat) => `[${cat}]`).join(" ")} </strong>
+              </p>
+              <p class="post-date">${post.date}</p>
+              <p>${post.excerpt}</p>
+            </div>
+          </div>
+        </a>
   `,
     )
     .join("");
@@ -96,7 +96,6 @@ function renderFeaturedPost() {
   const container = document.getElementById("featured-post-container");
   if (!container || !blogData.posts || blogData.posts.length === 0) return;
 
-  // Obtener el post más reciente
   const sortedPosts = [...blogData.posts].sort(
     (a, b) => new Date(b.date) - new Date(a.date),
   );

@@ -7,7 +7,6 @@
   align-items: center;
 }
 
-
 .site-header b {
   font-size: 14px;
 }
@@ -35,7 +34,9 @@
   border: 2px solid;
   border-color: #fff #404040 #404040 #fff;
   margin-bottom: 10px;
-  box-shadow: 1px 1px 0 #dfdfdf, 2px 2px 0 #808080;
+  box-shadow:
+    1px 1px 0 #dfdfdf,
+    2px 2px 0 #808080;
 }
 
 .title-bar {
@@ -113,4 +114,14 @@ input[type="text"],
 
 .sidebar .window {
   margin-bottom: 8px;
+}
+
+.post-preview-link {
+  color: inherit;
+  display: block;
+  text-decoration: none;
+}
+
+.post-preview-link:hover {
+  text-decoration: none;
 }

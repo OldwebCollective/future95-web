@@ -12,7 +12,8 @@
       "slug": "gadgets2024",
       "date": "April 15, 2024",
       "excerpt": "A list of the most exciting new gadgets coming this year.",
-      "editor": "Pascal"
+      "editor": "Pascal",
+      "categories": ["gadgets", "2024"]
     },
     {
       "id": "recycle",
@@ -20,7 +21,8 @@
       "slug": "recycle",
       "date": "April 10, 2024",
       "excerpt": "Learn how to recycle that old PC you have gathering dust.",
-      "editor": "Pascal"
+      "editor": "Pascal",
+      "categories": []
     },
     {
       "id": "win95",
@@ -28,7 +30,8 @@
       "slug": "win95",
       "date": "April 5, 2024",
       "excerpt": "Unleash the power of Windows 95 with these tips!",
-      "editor": "Pascal"
+      "editor": "Pascal",
+      "categories": []
     },
     {
       "id": "2026karate",
@@ -36,7 +39,8 @@
       "slug": "2026karate",
       "date": "March 29, 2026",
       "excerpt": "Novedades de este poderoso framework para API Testing!",
-      "editor": "Pascal"
+      "editor": "Pascal",
+      "categories": []
     },
     {
       "id": "2026postspruebas",
@@ -44,7 +48,8 @@
       "slug": "2026postspruebas",
       "date": "April 2, 2026",
       "excerpt": "Probé instalar Linux en una máquina olvidada... y esto fue lo que pasó.",
-      "editor": "Pascal"
+      "editor": "Pascal",
+      "categories": []
     }
   ],
   "navigation": [
