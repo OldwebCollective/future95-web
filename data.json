@@ -50,7 +50,7 @@
   "navigation": [
     { "label": "home", "href": "/" },
     { "label": "posts", "href": "/posts.html" },
-    { "label": "archives", "href": "#" },
+    { "label": "archives", "href": "/archives.html" },
     { "label": "about", "href": "/about.html" }
   ],
   "links": [
