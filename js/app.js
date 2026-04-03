@@ -58,24 +58,19 @@ function renderPostsList(limit = null) {
 
   const postsToShow = limit ? sortedPosts.slice(0, limit) : sortedPosts;
 
-  container.innerHTML = postsToShow
+  const linksList = postsToShow
     .map(
-      (post) => `
-        <a href="/post.html?id=${post.id}" class="post-preview-link">
-          <div class="window post">
-            <div class="title-bar"> ${post.title} </div>
-            <div class="window-content">
-              <p>
-                <strong> ${post.categories.map((cat) => `[${cat}]`).join(" ")} </strong>
-              </p>
-              <p class="post-date">${post.date}</p>
-              <p>${post.excerpt}</p>
-            </div>
-          </div>
-        </a>
-  `,
+      (post) => `<li><a href="/post.html?id=${post.id}">${post.title}</a></li>`,
     )
     .join("");
+
+  container.innerHTML = `
+        <div class="window-content">
+          <ul id="links-list">
+            ${linksList}
+          </ul>
+        </div>
+  `;
 }
 
 function renderRelatedPosts(currentPostId) {
