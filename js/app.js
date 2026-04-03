@@ -118,20 +118,16 @@ function renderFeaturedPost() {
   `;
 }
 
-// ...existing code...
-
 function renderLatestPostsHome() {
   const container = document.getElementById("posts-container");
   if (!container) return;
 
-  // Ordenar posts del más reciente al más antiguo
   const sortedPosts = [...blogData.posts].sort((a, b) => {
     const dateA = new Date(a.date);
     const dateB = new Date(b.date);
     return dateB - dateA;
   });
 
-  // Obtener los 3 últimos posts
   const latestPosts = sortedPosts.slice(0, 4);
 
   container.innerHTML = `
@@ -156,4 +152,27 @@ function renderLatestPostsHome() {
   `;
 }
 
-// ...existing code...
+function renderLatestSinglePost() {
+  const container = document.getElementById("latest-post-container");
+  if (!container || !blogData.posts || blogData.posts.length === 0) return;
+
+  const sortedPosts = [...blogData.posts].sort(
+    (a, b) => new Date(b.date) - new Date(a.date),
+  );
+
+  const latestPost = sortedPosts[1] || sortedPosts[0];
+
+  container.innerHTML = `
+    <div class="window">
+      <div class="title-bar">LATEST POST</div>
+      <div class="window-content">
+        <a href="/post.html?id=${latestPost.id}" style="text-decoration: none; color: #07070d; font-weight: bold; font-size: 12px; display: block; margin-bottom: 8px;">
+          📝 ${latestPost.title}
+        </a>
+        <p style="margin: 5px 0; font-size: 10px; color: #808080;">${latestPost.date}</p>
+        <p style="margin: 8px 0; font-size: 11px; line-height: 1.4;">${latestPost.excerpt}</p>
+        <a href="/post.html?id=${latestPost.id}" style="color: blue; font-size: 11px;">Read full post →</a>
+      </div>
+    </div>
+  `;
+}

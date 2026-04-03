@@ -14,6 +14,10 @@
 
         <div class="content">
           <div class="main">
+            <div id="featured-post-container"></div>
+
+            <div id="latest-post-container"></div>
+
             <div id="posts-container"></div>
           </div>
 
@@ -48,6 +52,9 @@
     document.getElementById("links-widget").innerHTML = await linksRes.text();
 
     await initApp();
+    
+    renderFeaturedPost();
+    renderLatestSinglePost();
     renderPostsList();
   });
 </script>

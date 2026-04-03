@@ -268,3 +268,22 @@ hr {
   font-size: 11px;
   line-height: 1.4;
 }
+
+/* POST HIGHLIGHT WINDOWS */
+#featured-post-container .window,
+#latest-post-container .window {
+  background: #dfdfdf;
+  border-color: #fff #404040 #404040 #fff;
+  box-shadow: 1px 1px 0 #dfdfdf, 2px 2px 0 #808080;
+  margin-bottom: 15px;
+}
+
+#featured-post-container .title-bar {
+  background: #d2c491;
+  color: #07070d;
+}
+
+#latest-post-container .title-bar {
+  background: #b5a3e8;
+  color: white;
+}
