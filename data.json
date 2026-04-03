@@ -13,7 +13,7 @@
       "date": "April 15, 2024",
       "excerpt": "A list of the most exciting new gadgets coming this year.",
       "editor": "Pascal",
-      "categories": ["gadgets", "2024"]
+      "categories": ["Gadgets"]
     },
     {
       "id": "recycle",
@@ -22,7 +22,7 @@
       "date": "April 10, 2024",
       "excerpt": "Learn how to recycle that old PC you have gathering dust.",
       "editor": "Pascal",
-      "categories": []
+      "categories": ["Recycle", "Sustainability"]
     },
     {
       "id": "win95",
@@ -31,7 +31,7 @@
       "date": "April 5, 2024",
       "excerpt": "Unleash the power of Windows 95 with these tips!",
       "editor": "Pascal",
-      "categories": []
+      "categories": ["Windows"]
     },
     {
       "id": "2026karate",
@@ -40,7 +40,7 @@
       "date": "March 29, 2026",
       "excerpt": "Novedades de este poderoso framework para API Testing!",
       "editor": "Pascal",
-      "categories": []
+      "categories": ["Testing", "Karate"]
     },
     {
       "id": "2026postspruebas",

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>90's tech blog</title>
+    <title>'95 Future</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/components.css" />
   </head>
@@ -28,12 +28,7 @@
                 <div id="site-info-widget"></div>
                 <div id="follow-widget"></div>
                 <div id="links-widget"></div>
-                <div class="window">
-                  <div class="window-content">
-                    <p>12345 visitors</p>
-                    <p>Thanks for visiting!</p>
-                  </div>
-                </div>
+                <div id="visitors-widget"></div>
               </div>
             </div>
           </div>
@@ -62,6 +57,11 @@
     const siteInfoRes = await fetch("components/site-info.html");
     document.getElementById("site-info-widget").innerHTML =
       await siteInfoRes.text();
+
+    const visitorsRes = await fetch("components/visitors-widget.html");
+    document.getElementById("visitors-widget").innerHTML =
+      await visitorsRes.text();
+
 
     await initApp();
     renderFeaturedPost();

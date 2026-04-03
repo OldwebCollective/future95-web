@@ -124,4 +124,6 @@ input[type="text"],
 
 .post-preview-link:hover {
   text-decoration: none;
+  cursor: pointer;
+  filter: brightness(1.05);
 }
