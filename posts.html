@@ -13,8 +13,6 @@
         <div id="header-container"></div>
 
         <div class="content">
-          <div class="sidebar" id="sidebar-about"></div>
-
           <div class="main">
             <div>
               <h2>All Posts</h2>
@@ -47,9 +45,6 @@
     const headerRes = await fetch("components/header.html");
     document.getElementById("header-container").innerHTML =
       await headerRes.text();
-
-    const aboutRes = await fetch("components/about-widget.html");
-    document.getElementById("sidebar-about").innerHTML = await aboutRes.text();
 
     const followRes = await fetch("components/follow-widget.html");
     document.getElementById("follow-widget").innerHTML = await followRes.text();
