@@ -84,14 +84,6 @@ button:active {
   border-color: #404040 #fff #fff #404040;
 }
 
-input[type="text"],
-.search-box {
-  border: 2px inset #808080;
-  padding: 3px 4px;
-  font-family: "MS Sans Serif", Arial, sans-serif;
-  font-size: 11px;
-}
-
 .avatar {
   width: 100%;
   margin-bottom: 8px;
@@ -114,16 +106,4 @@ input[type="text"],
 
 .sidebar .window {
   margin-bottom: 8px;
-}
-
-.post-preview-link {
-  color: inherit;
-  display: block;
-  text-decoration: none;
-}
-
-.post-preview-link:hover {
-  text-decoration: none;
-  cursor: pointer;
-  filter: brightness(1.05);
 }

@@ -1,7 +1,3 @@
-/* ===================== */
-/* RESET Y ESTILOS BASE  */
-/* ===================== */
-
 * {
   box-sizing: border-box;
 }
@@ -20,10 +16,6 @@ body {
   color: #000;
 }
 
-/* ===================== */
-/* CONTENEDOR PRINCIPAL  */
-/* ===================== */
-
 .ie-window {
   display: flex;
   flex-direction: column;
@@ -38,10 +30,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-
-/* ===================== */
-/* LAYOUT PRINCIPAL      */
-/* ===================== */
 
 .content {
   display: flex;
@@ -77,10 +65,6 @@ body {
   gap: 10px;
 }
 
-/* ===================== */
-/* POSTS                 */
-/* ===================== */
-
 .post {
   margin-bottom: 8px;
 }
@@ -100,7 +84,6 @@ body {
   font-size: 11px;
 }
 
-/* Layout para post individual */
 .layout {
   display: flex;
   gap: 15px;
@@ -143,10 +126,6 @@ body {
   flex-shrink: 0;
 }
 
-/* ===================== */
-/* FORMULARIOS           */
-/* ===================== */
-
 .form-group {
   margin-bottom: 10px;
   display: flex;
@@ -172,10 +151,6 @@ body {
   resize: vertical;
   font-size: 10px;
 }
-
-/* ===================== */
-/* GUESTBOOK            */
-/* ===================== */
 
 .guestbook-entry {
   border-left: 2px solid #808080;
@@ -231,7 +206,6 @@ hr {
   gap: 10px;
 }
 
-/* POSTS ITEMS */
 .post-item {
   margin-bottom: 12px;
   padding-bottom: 10px;
@@ -269,7 +243,6 @@ hr {
   line-height: 1.4;
 }
 
-/* POST HIGHLIGHT WINDOWS */
 #featured-post-container .window,
 #latest-post-container .window {
   background: #dfdfdf;
@@ -286,4 +259,15 @@ hr {
 #latest-post-container .title-bar {
   background: #b5a3e8;
   color: white;
+}
+
+.featured-window {
+  background: #dfdfdf;
+  border-color: #fff #404040 #404040 #fff;
+  box-shadow: 1px 1px 0 #dfdfdf, 2px 2px 0 #808080;
+}
+
+.featured-title-bar {
+  background: #d2c491;
+  color: #07070d;
 }

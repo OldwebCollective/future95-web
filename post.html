@@ -134,9 +134,16 @@
             table.className = "window";
           });
         } catch (error) {
-          console.error("Error loading post:", error);
-          document.getElementById("post-body").innerHTML =
-            "<p>Error loading post content. The markdown file may not exist.</p>";
+          console.error("Error:", error);
+          document.getElementById("post-body").innerHTML = `
+      <div class="window">
+        <div class="title-bar">ERROR</div>
+        <div class="window-content">
+          <p>❌ No se pudo cargar el post: ${error.message}</p>
+          <p><a href="/posts.html">← Volver al listado</a></p>
+        </div>
+      </div>
+    `;
         }
       }
     </script>
