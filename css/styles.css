@@ -6,14 +6,15 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
 }
 
 body {
-  background: #c0c0c0;
+  background: #bfb8b9;
   font-family: "MS Sans Serif", Arial, sans-serif;
   font-size: 11px;
   color: #000;
@@ -31,7 +32,7 @@ body {
 }
 
 .ie-content {
-  background-color: #c0c0c0;
+  background-color: #bfb8b9;
   flex: 1;
   overflow: auto;
   display: flex;
@@ -53,8 +54,8 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 0 10px 10px 0;
+  gap: 0px;
+  padding: 0px 0px 0px 10px;
 }
 
 .main h2 {
@@ -212,19 +213,58 @@ hr {
   margin: 10px 0;
 }
 
-/* ===================== */
-/* UTILIDADES            */
-/* ===================== */
-
-.page {
-  width: 1000px;
-  margin: 20px auto;
+.posts-and-widgets {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
 }
 
-.breadcrumb {
-  padding: 6px;
-  margin-bottom: 10px;
-  background: #c0c0c0;
-  border: 2px solid;
-  border-color: #fff #808080 #808080 #fff;
+.latest-posts-section {
+  flex: 1;
+}
+
+.right-sidebar {
+  width: 250px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* POSTS ITEMS */
+.post-item {
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px dotted #808080;
+}
+
+.post-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.post-link {
+  color: #000080;
+  text-decoration: none;
+  font-size: 12px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.post-link:hover {
+  text-decoration: underline;
+  color: blue;
+}
+
+.post-date {
+  margin: 2px 0;
+  font-size: 10px;
+  color: #808080;
+}
+
+.post-excerpt {
+  margin: 4px 0 0 0;
+  font-size: 11px;
+  line-height: 1.4;
 }

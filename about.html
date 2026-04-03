@@ -24,8 +24,8 @@
                   retro y la informática vintage. Mi viaje en el mundo de la
                   tecnología comenzó muy tarde, pero fue esa pequeña cajita
                   negra que se volvió mi pasión, y generó intriga en cómo se
-                  manejaban MS-DOS y Windows 95. También soy un entusiasta
-                  de los videojuegos retro, y me encanta jugar en plataformas
+                  manejaban MS-DOS y Windows 95. También soy un entusiasta de
+                  los videojuegos retro, y me encanta jugar en plataformas
                   clásicas como la PlayStation original y la Sega Megadrive.
                 </p>
 
@@ -55,10 +55,8 @@
             </div>
           </div>
 
-          <!-- SIDEBAR RIGHT -->
           <div class="sidebar">
-            <div id="sidebar-about"></div>
-            <div id="follow-widget"></div>
+            <div id="site-info-widget"></div>
             <div id="links-widget"></div>
           </div>
         </div>
@@ -72,13 +70,13 @@
         document.getElementById("header-container").innerHTML =
           await headerRes.text();
 
-        const followRes = await fetch("components/follow-widget.html");
-        document.getElementById("follow-widget").innerHTML =
-          await followRes.text();
-
         const linksRes = await fetch("components/links-widget.html");
         document.getElementById("links-widget").innerHTML =
           await linksRes.text();
+
+        const siteInfoRes = await fetch("components/site-info.html");
+        document.getElementById("site-info-widget").innerHTML =
+          await siteInfoRes.text();
 
         await initApp();
       });

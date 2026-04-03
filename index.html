@@ -13,31 +13,27 @@
         <div id="header-container"></div>
 
         <div class="content">
-          <div class="sidebar" id="sidebar-about"></div>
-
-          <div class="main">
-            <div>
-              <h2>Bienvenido a nuestro Tech Blog!</h2>
-              <p>
-                ¡Hola! Soy Pascal, y aquí comparto mi amor por toda la
-                tecnología retro.
-              </p>
-              <p>
-                Encontrarás noticias, consejos y reseñas sobre gadgets y
-                software retro.
-              </p>
-            </div>
-
-            <div id="posts-container"></div>
+          <div class="sidebar">
+            <div id="sidebar-about"></div>
+            <div id="follow-widget"></div>
           </div>
 
-          <div class="sidebar">
-            <div id="follow-widget"></div>
-            <div id="links-widget"></div>
-            <div class="window">
-              <div class="window-content">
-                <p>12345 visitors</p>
-                <p>Thanks for visiting!</p>
+          <div class="main">
+            <div id="featured-post-container"></div>
+
+            <div class="posts-and-widgets">
+              <div id="posts-container" class="latest-posts-section"></div>
+
+              <div class="sidebar right-sidebar">
+                <div id="site-info-widget"></div>
+                <div id="follow-widget"></div>
+                <div id="links-widget"></div>
+                <div class="window">
+                  <div class="window-content">
+                    <p>12345 visitors</p>
+                    <p>Thanks for visiting!</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -63,7 +59,12 @@
     const linksRes = await fetch("components/links-widget.html");
     document.getElementById("links-widget").innerHTML = await linksRes.text();
 
+    const siteInfoRes = await fetch("components/site-info.html");
+    document.getElementById("site-info-widget").innerHTML =
+      await siteInfoRes.text();
+
     await initApp();
-    renderPostsList(4);
+    renderFeaturedPost();
+    renderLatestPostsHome();
   });
 </script>

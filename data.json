@@ -40,17 +40,17 @@
     },
     {
       "id": "2026postspruebas",
-      "title": "2026 Posts de Pruebas",
+      "title": "Cómo revivir una PC del 2005 en 2026",
       "slug": "2026postspruebas",
       "date": "April 2, 2026",
-      "excerpt": "Novedades de este poderoso framework para API Testing!",
+      "excerpt": "Probé instalar Linux en una máquina olvidada... y esto fue lo que pasó.",
       "editor": "Pascal"
     }
   ],
   "navigation": [
     { "label": "home", "href": "/" },
     { "label": "posts", "href": "/posts.html" },
-    { "label": "archives", "href": "/archives.html" },
+    { "label": "archives", "href": "#" },
     { "label": "about", "href": "/about.html" }
   ],
   "links": [
@@ -59,7 +59,7 @@
     { "label": "Retro Tech Zone", "href": "#" }
   ],
   "contact": {
-    "handle": "@meitechblog",
+    "handle": "@90stechblog",
     "email": "#",
     "guestbook": "/guestbook.html"
   }
