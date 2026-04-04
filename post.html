@@ -79,7 +79,7 @@
           `<p><b>By ${post.editor}</b> - ${post.displayDate}</p>`;
 
         try {
-          const mdRes = await fetch(`/posts/${post.id}.md`);
+          const mdRes = await fetch(`./posts/${post.id}.md`);
           if (!mdRes.ok) {
             document.getElementById("post-body").innerHTML =
               "<p>Post content not found.</p>";
