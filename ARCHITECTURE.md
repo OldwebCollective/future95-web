@@ -377,7 +377,7 @@ const mdCache = {};
 async function getPostContent(postId) {
   if (mdCache[postId]) return mdCache[postId];
   
-  const response = await fetch(`/posts/${postId}.md`);
+  const response = await fetch(`./posts/${postId}.md`);
   const content = await response.text();
   mdCache[postId] = content;
   return content;

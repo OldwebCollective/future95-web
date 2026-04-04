@@ -2,7 +2,7 @@ let blogData = {};
 
 async function initApp() {
   try {
-    const response = await fetch("/data.json");
+    const response = await fetch("./data.json");
     blogData = await response.json();
 
     renderNavigation();
