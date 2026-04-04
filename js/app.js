@@ -1,9 +1,13 @@
 let blogData = {};
+let currentTrackIndex = 0;
+let playlist = [];
 
 async function initApp() {
   try {
     const response = await fetch("./data.json");
     blogData = await response.json();
+
+    playlist = blogData.playlist || [];
 
     renderNavigation();
     renderAuthor();
@@ -81,9 +85,7 @@ function renderRelatedPosts(currentPostId) {
     .filter((p) => p.id !== currentPostId)
     .slice(0, 2);
   container.innerHTML = related
-    .map(
-      (post) => `<p><a href="post.html?id=${post.id}">${post.title}</a></p>`,
-    )
+    .map((post) => `<p><a href="post.html?id=${post.id}">${post.title}</a></p>`)
     .join("");
 }
 
@@ -172,19 +174,6 @@ function renderLatestSinglePost() {
   `;
 }
 
-function playMusic() {
-  const audio = document.getElementById("audio-player");
-  audio.play();
-  document.getElementById("track").textContent =
-    "▶ Playing: Windows 95 Startup Sound";
-}
-
-function pauseMusic() {
-  const audio = document.getElementById("audio-player");
-  audio.pause();
-  document.getElementById("track").textContent = "⏸ Paused";
-}
-
 function renderRandomPost() {
   const container = document.getElementById("random-post");
   if (!container) return;
@@ -211,4 +200,44 @@ function renderLatestExperiment() {
     <p>${latest.excerpt}</p>
     <a href="post.html?id=${latest.id}">→ View experiment</a>
   `;
+}
+
+function playMusic() {
+  const audio = document.getElementById("audio-player");
+  if (playlist.length === 0) {
+    alert("No tracks available");
+    return;
+  }
+
+  const currentTrack = playlist[currentTrackIndex];
+  audio.src = currentTrack.path;
+  audio.play();
+  updateTrackDisplay();
+}
+
+function pauseMusic() {
+  const audio = document.getElementById("audio-player");
+  audio.pause();
+  document.getElementById("track").textContent = "⏸ Paused";
+}
+
+function nextTrack() {
+  currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
+  playMusic();
+}
+
+function prevTrack() {
+  currentTrackIndex =
+    (currentTrackIndex - 1 + playlist.length) % playlist.length;
+  playMusic();
+}
+
+function updateTrackDisplay() {
+  const currentTrack = playlist[currentTrackIndex];
+  const trackNum = currentTrackIndex + 1;
+  const totalTracks = playlist.length;
+
+  document.getElementById("track").textContent = `▶ ${currentTrack.title}`;
+  document.getElementById("track-info").textContent =
+    `Track ${trackNum} of ${totalTracks}`;
 }

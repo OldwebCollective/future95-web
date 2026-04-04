@@ -72,5 +72,19 @@
     "handle": "@futurein95",
     "email": "#",
     "guestbook": "#"
-  }
+  },
+  "playlist": [
+    {
+      "title": "Windows 95 Startup",
+      "path": "./assets/audio/o95.wav"
+    },
+    {
+      "title": "Windows NT 4.0 Startup",
+      "path": "./assets/audio/ont4.wav"
+    },
+    {
+      "title": "Windows 98 Startup",
+      "path": "./assets/audio/o98.wav"
+    }
+  ]
 }
