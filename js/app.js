@@ -60,7 +60,7 @@ function renderPostsList(limit = null) {
 
   const linksList = postsToShow
     .map(
-      (post) => `<li><a href="/post.html?id=${post.id}">${post.title}</a></li>`,
+      (post) => `<li><a href="post.html?id=${post.id}">${post.title}</a></li>`,
     )
     .join("");
 
@@ -82,7 +82,7 @@ function renderRelatedPosts(currentPostId) {
     .slice(0, 2);
   container.innerHTML = related
     .map(
-      (post) => `<p><a href="/post.html?id=${post.id}">${post.title}</a></p>`,
+      (post) => `<p><a href="post.html?id=${post.id}">${post.title}</a></p>`,
     )
     .join("");
 }
@@ -102,12 +102,12 @@ function renderFeaturedPost() {
         FEATURED POST
       </div>
       <div class="window-content">
-        <a href="/post.html?id=${featured.id}" style="text-decoration: none; color: #07070d; font-weight: bold; font-size: 12px; display: block; margin-bottom: 8px;">
+        <a href="post.html?id=${featured.id}" style="text-decoration: none; color: #07070d; font-weight: bold; font-size: 12px; display: block; margin-bottom: 8px;">
           🔥 ${featured.title}
         </a>
         <p style="margin: 5px 0; font-size: 10px; color: #808080;">${featured.displayDate}</p>
         <p style="margin: 8px 0; font-size: 11px; line-height: 1.4;">${featured.excerpt}</p>
-        <a href="/post.html?id=${featured.id}" style="color: blue; font-size: 11px;">Read full post →</a>
+        <a href="post.html?id=${featured.id}" style="color: blue; font-size: 11px;">Read full post →</a>
       </div>
     </div>
   `;
@@ -133,7 +133,7 @@ function renderLatestPostsHome() {
           .map(
             (post) => `
           <div class="post-item">
-            <a href="/post.html?id=${post.id}" class="post-link">
+            <a href="post.html?id=${post.id}" class="post-link">
               <strong>${post.title}</strong>
             </a>
             <p class="post-date">${post.displayDate}</p>
@@ -161,12 +161,12 @@ function renderLatestSinglePost() {
     <div class="window">
       <div class="title-bar">LATEST POST</div>
       <div class="window-content">
-        <a href="/post.html?id=${latestPost.id}" style="text-decoration: none; color: #07070d; font-weight: bold; font-size: 12px; display: block; margin-bottom: 8px;">
+        <a href="post.html?id=${latestPost.id}" style="text-decoration: none; color: #07070d; font-weight: bold; font-size: 12px; display: block; margin-bottom: 8px;">
           📝 ${latestPost.title}
         </a>
         <p style="margin: 5px 0; font-size: 10px; color: #808080;">${latestPost.displayDate}</p>
         <p style="margin: 8px 0; font-size: 11px; line-height: 1.4;">${latestPost.excerpt}</p>
-        <a href="/post.html?id=${latestPost.id}" style="color: blue; font-size: 11px;">Read full post →</a>
+        <a href="post.html?id=${latestPost.id}" style="color: blue; font-size: 11px;">Read full post →</a>
       </div>
     </div>
   `;
@@ -194,7 +194,7 @@ function renderRandomPost() {
 
   container.innerHTML = `
     <p>${random.title}</p>
-    <a href="/post.html?id=${random.id}">→ Read post</a>
+    <a href="post.html?id=${random.id}">→ Read post</a>
   `;
 }
 
@@ -209,6 +209,6 @@ function renderLatestExperiment() {
   container.innerHTML = `
     <p><strong>${latest.title}</strong></p>
     <p>${latest.excerpt}</p>
-    <a href="/post.html?id=${latest.id}">→ View experiment</a>
+    <a href="post.html?id=${latest.id}">→ View experiment</a>
   `;
 }
