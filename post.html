@@ -76,7 +76,7 @@
         document.title = `${post.title} - mei's tech blog`;
 
         document.getElementById("post-meta").innerHTML =
-          `<p><b>By ${post.editor}</b> - ${post.date}</p>`;
+          `<p><b>By ${post.editor}</b> - ${post.displayDate}</p>`;
 
         try {
           const mdRes = await fetch(`/posts/${post.id}.md`);

@@ -65,7 +65,7 @@ function renderPostsList(limit = null) {
         .join("");
 
     container.innerHTML = `
-        <div class="window-content">
+        <div class="window-content" style="border: 2px solid; border-color: #fff #404040 #404040 #fff; padding: 10px;">
           <ul id="links-list">
             ${linksList}
           </ul>
@@ -164,10 +164,26 @@ function renderLatestSinglePost() {
         <a href="/post.html?id=${latestPost.id}" style="text-decoration: none; color: #07070d; font-weight: bold; font-size: 12px; display: block; margin-bottom: 8px;">
           📝 ${latestPost.title}
         </a>
-        <p style="margin: 5px 0; font-size: 10px; color: #808080;">${latestPost.date}</p>
+        <p style="margin: 5px 0; font-size: 10px; color: #808080;">${latestPost.displayDate}</p>
         <p style="margin: 8px 0; font-size: 11px; line-height: 1.4;">${latestPost.excerpt}</p>
         <a href="/post.html?id=${latestPost.id}" style="color: blue; font-size: 11px;">Read full post →</a>
       </div>
     </div>
   `;
 }
+
+
+function playMusic() {
+  const audio = document.getElementById("audio-player");
+  audio.play();
+  document.getElementById("track").textContent =
+    "▶ Playing: Mi tema retro";
+}
+
+function pauseMusic() {
+  const audio = document.getElementById("audio-player");
+  audio.pause();
+  document.getElementById("track").textContent =
+    "⏸ Paused";
+}
+

@@ -33,6 +33,7 @@
             </div>
           </div>
         </div>
+        <div id="desktop-area-widget"></div>
       </div>
     </div>
   </body>
@@ -62,6 +63,9 @@
     document.getElementById("visitors-widget").innerHTML =
       await visitorsRes.text();
 
+    const desktopAreaRes = await fetch("components/desktop-area-widget.html");
+    document.getElementById("desktop-area-widget").innerHTML =
+      await desktopAreaRes.text();
 
     await initApp();
     renderFeaturedPost();
