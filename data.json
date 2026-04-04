@@ -2,7 +2,7 @@
   "blog": {
     "title": "mei's tech blog",
     "author": "p4sC4l_GUI",
-    "avatar": "/assets/img/avatars/pascal.webp",
+    "avatar": "./assets/img/avatars/pascal.webp",
     "description": "Amante de la tecnologia retro y gym bro consolidado."
   },
   "posts": [
@@ -58,10 +58,10 @@
     }
   ],
   "navigation": [
-    { "label": "home", "href": "/" },
-    { "label": "posts", "href": "/posts.html" },
+    { "label": "home", "href": "./" },
+    { "label": "posts", "href": "./posts.html" },
     { "label": "archives", "href": "#" },
-    { "label": "about", "href": "/about.html" }
+    { "label": "about", "href": "./about.html" }
   ],
   "links": [
     { "label": "Link Exchange Program", "href": "#" },
@@ -71,6 +71,6 @@
   "contact": {
     "handle": "@futurein95",
     "email": "#",
-    "guestbook": "/guestbook.html"
+    "guestbook": "#"
   }
 }
