@@ -1,15 +1,8 @@
 <div class="desktop-area">
-  <div class="window">
-    <div class="title-bar">GUESTBOOK MESSAGES</div>
-    <div class="window-content">
-      <p>“Cool retro site!” - user123</p>
-      <p>“Greetings from Brazil 🇧🇷” - anon</p>
-      <p>“Love the Windows 95 vibe” - hacker99</p>
-    </div>
-  </div>
 
+  <!-- Row 1 -->
   <div class="window">
-    <div class="title-bar">WINAMP</div>
+    <div class="title-bar">NOW PLAYING</div>
     <div class="window-content">
       <p id="track">▶ Nothing playing</p>
 
@@ -18,31 +11,18 @@
     </div>
   </div>
 
-  <audio id="audio-player" src="music/song.mp3"></audio>
-
-  <div class="window">
-    <div class="title-bar">SYSTEM STATUS</div>
-    <div class="window-content">
-      <p>User: p4sCI_GUI</p>
-      <p>Status: Online</p>
-      <p>Location: Argentina</p>
-      <p>Uptime: 3 days</p>
-    </div>
-  </div>
-
-  <div class="window">
-    <div class="title-bar">SITE STATS</div>
-    <div class="window-content">
-      <p>Posts: 4</p>
-      <p>Authors: 2</p>
-      <p>Last update: April 2026</p>
-    </div>
-  </div>
-
   <div class="window">
     <div class="title-bar">RANDOM POST</div>
-    <div class="window-content">
-      <a href="/post.html?id=1">→ How to recycle old computers properly</a>
-    </div>
+    <div class="window-content" id="random-post"></div>
   </div>
+
+  <!-- Row 2 (full width) -->
+  <div class="window full-width">
+    <div class="title-bar">LATEST EXPERIMENT</div>
+    <div class="window-content" id="latest-experiment"></div>
+  </div>
+
+  <!-- Audio -->
+  <audio id="audio-player" src="/assets/audio/o95.wav"></audio>
+
 </div>

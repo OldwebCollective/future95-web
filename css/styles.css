@@ -316,14 +316,17 @@ hr {
   margin-top: 20px;
 }
 
-/* Opcional: que no sean tan grandes */
-.desktop-area .window {
-  max-width: 100%;
+.full-width {
+  grid-column: span 2;
 }
 
-/* Responsive (por si achica pantalla) */
+/* Responsive */
 @media (max-width: 800px) {
   .desktop-area {
     grid-template-columns: 1fr;
+  }
+
+  .full-width {
+    grid-column: span 1;
   }
 }
