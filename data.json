@@ -85,6 +85,10 @@
     {
       "title": "Windows 98 Startup",
       "path": "./assets/audio/o98.wav"
+    },
+    {
+      "title": "Welcome98",
+      "path": "./assets/audio/welcome98.mp3"
     }
   ]
 }
