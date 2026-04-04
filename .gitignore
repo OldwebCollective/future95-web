@@ -1,1 +1,17 @@
 .DS_Store
+*.swp
+node_modules/
+dist/
+build/
+*.log
+*.tmp
+*.bak
+*.cache
+*.DS_Store
+*.vscode/
+*.idea/
+*.env
+*.env.local
+*.env.development
+*.env.production
+*.env.test

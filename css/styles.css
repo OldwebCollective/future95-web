@@ -320,7 +320,6 @@ hr {
   grid-column: span 2;
 }
 
-/* Responsive */
 @media (max-width: 800px) {
   .desktop-area {
     grid-template-columns: 1fr;
