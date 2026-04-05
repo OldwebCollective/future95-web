@@ -110,8 +110,11 @@
           <div class="sidebar">
             <div id="site-info-widget"></div>
             <div id="links-widget"></div>
+            <div id="latest-experiment-widget"></div>
+            <div id="random-post-widget"></div>
           </div>
         </div>
+
       </div>
     </div>
 
@@ -130,7 +133,20 @@
         document.getElementById("site-info-widget").innerHTML =
           await siteInfoRes.text();
 
+        const latestExperimentRes = await fetch(
+          "./components/latest-experiment-widget.html",
+        );
+        document.getElementById("latest-experiment-widget").innerHTML =
+          await latestExperimentRes.text();
+
+        const randomPostRes = await fetch("./components/random-post.html");
+        document.getElementById("random-post-widget").innerHTML =
+          await randomPostRes.text();
+
         await initApp();
+
+        renderLatestExperiment();
+        renderRandomPost();
       });
     </script>
   </body>
