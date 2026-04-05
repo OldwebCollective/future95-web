@@ -64,9 +64,9 @@
     { "label": "about", "href": "./about.html" }
   ],
   "links": [
-    { "label": "Link Exchange Program", "href": "#" },
-    { "label": "PC Games Forum", "href": "#" },
-    { "label": "Retro Tech Zone", "href": "#" }
+    { "label": "WinWorld", "href": "https://winworldpc.com/home" },
+    { "label": "Turbo Pascal", "href": "https://turbopascal.org/" },
+    { "label": "Pungas Space Radio", "href": "https://pungas.space/radio" }
   ],
   "contact": {
     "handle": "@futurein95",
