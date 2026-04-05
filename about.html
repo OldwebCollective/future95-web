@@ -26,7 +26,7 @@
                     <strong>p4sCAL_GUI</strong>
                     <p>Retro tech Enthusiast • Gym bro • Builder</p>
                     <p>
-                      <strong>Currently using:</strong> Arch BTW & Windows XP
+                      <strong>> Currently using:</strong> Arch BTW & Windows XP
                       (no es broma)
                     </p>
                   </div>
@@ -40,7 +40,7 @@
                   <div>
                     <strong>eternal_1917</strong>
                     <p>Retro gamer • Physics student • Glitch explorer</p>
-                    <p><strong>Currently breaking:</strong> Old games</p>
+                    <p><strong>> Currently breaking:</strong> Old games</p>
                   </div>
                 </div>
               </div>
@@ -51,14 +51,18 @@
               <div class="window-content">
                 <h3>¿Por qué este blog?</h3>
                 <p>
-                  Este blog nace como un espacio para explorar la tecnología
-                  desde dos mundos: lo retro y lo moderno.
+                  Este blog nace como un intento de responder una pregunta
+                  simple: ¿hasta dónde se puede llevar el software antiguo en
+                  hardware moderno?
                 </p>
 
                 <p>
                   Actualmente, junto a <strong>p4sCAL_GUI</strong>, estamos
                   investigando —de forma gradual pero constante— cómo rescatar
                   software antiguo y hacerlo convivir con hardware más reciente.
+                </p>
+
+                <p>
                   Nuestro foco principal está en Windows 98, el sistema con el
                   que crecimos.
                 </p>
@@ -112,9 +116,9 @@
             <div id="links-widget"></div>
             <div id="latest-experiment-widget"></div>
             <div id="random-post-widget"></div>
+            <div id="animation-widget"></div>
           </div>
         </div>
-
       </div>
     </div>
 
@@ -142,6 +146,10 @@
         const randomPostRes = await fetch("./components/random-post.html");
         document.getElementById("random-post-widget").innerHTML =
           await randomPostRes.text();
+
+        const animationRes = await fetch("./components/animation-widget.html");
+        document.getElementById("animation-widget").innerHTML =
+          await animationRes.text();
 
         await initApp();
 
