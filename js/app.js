@@ -79,13 +79,24 @@ function renderPostsList(limit = null) {
 
 function renderRelatedPosts(currentPostId) {
   const container = document.getElementById("related-posts");
+
   if (!container || !blogData.posts) return;
 
+  const currentId = String(currentPostId);
+
+  const currentPost = blogData.posts.find((p) => String(p.id) === currentId);
+
   const related = blogData.posts
-    .filter((p) => p.id !== currentPostId)
+    .filter((p) => String(p.id) !== currentId)
+    .filter((p) => p.category === currentPost?.category)
+    .sort(() => 0.5 - Math.random())
     .slice(0, 2);
+
   container.innerHTML = related
-    .map((post) => `<p><a href="post.html?id=${post.id}">${post.title}</a></p>`)
+    .map((post) => {
+      const safeTitle = post.title.replace(/[&<>"']/g, "");
+      return `<p><a href="post.html?id=${post.id}">${safeTitle}</a></p>`;
+    })
     .join("");
 }
 
