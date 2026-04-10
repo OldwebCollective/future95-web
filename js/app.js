@@ -64,6 +64,7 @@ function renderFollowWidget() {
   if (handle) handle.textContent = blogData.contact.handle;
 }
 
+/*
 function renderPostsList(limit = null) {
   const container = document.getElementById("posts-container");
   if (!container) return;
@@ -84,6 +85,42 @@ function renderPostsList(limit = null) {
   container.innerHTML = `
         <div class="window-content" style="border: 2px solid; border-color: #fff #404040 #404040 #fff; padding: 10px;">
           <ul id="links-list">
+            ${linksList}
+          </ul>
+        </div>
+  `;
+}
+  */
+
+function renderPostsList(limit = null) {
+  const container = document.getElementById("posts-container");
+  if (!container) return;
+
+  const sortedPosts = [...blogData.posts].sort((a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+    return dateB - dateA;
+  });
+
+  const postsToShow = limit ? sortedPosts.slice(0, limit) : sortedPosts;
+
+  const linksList = postsToShow
+    .map(
+      (post) => `<li>
+        <a href="post.html?id=${post.id}" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #000080;">
+          ${post.thumbnail ? `<img src="${post.thumbnail}" alt="" style="width: 40px; height: 40px; object-fit: cover; border: 1px solid #dfdfdf;">` : ""}
+          <span>
+            <strong>${post.title}</strong><br>
+            <small style="color: #808080; font-size: 10px;">${formatDate(post.date)}</small>
+          </span>
+        </a>
+      </li>`,
+    )
+    .join("");
+
+  container.innerHTML = `
+        <div class="window-content" style="border: 2px solid; border-color: #fff #404040 #404040 #fff; padding: 10px;">
+          <ul id="links-list" style="list-style: none; padding: 0; margin: 0;">
             ${linksList}
           </ul>
         </div>
