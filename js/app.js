@@ -15,6 +15,19 @@ async function initApp() {
     renderFollowWidget();
   } catch (error) {
     console.error("Error cargando datos:", error);
+  } finally {
+    hideLoadingScreen();
+  }
+}
+
+function hideLoadingScreen() {
+  const loadingOverlay = document.getElementById("loading-overlay");
+  if (loadingOverlay) {
+    loadingOverlay.classList.add("hidden");
+    
+    setTimeout(() => {
+      loadingOverlay.style.display = "none";
+    }, 300);
   }
 }
 

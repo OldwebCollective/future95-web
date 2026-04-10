@@ -8,6 +8,31 @@
   </head>
 
   <body>
+    <!-- Loading Screen -->
+    <div id="loading-overlay" class="loading-overlay">
+      <div class="loading-window">
+        <div class="loading-title-bar">⏳ CARGANDO...</div>
+        <div class="loading-content">
+          <p style="margin: 20px 0; text-align: center; font-size: 12px">
+            Por favor espera...
+          </p>
+          <div class="loading-bar-container">
+            <div class="loading-bar"></div>
+          </div>
+          <p
+            style="
+              text-align: center;
+              font-size: 10px;
+              color: #808080;
+              margin-top: 10px;
+            "
+          >
+            Inicializando aplicación...
+          </p>
+        </div>
+      </div>
+    </div>
+
     <div class="ie-window">
       <div class="ie-content">
         <div id="header-container"></div>
@@ -68,7 +93,9 @@
     document.getElementById("desktop-area-widget").innerHTML =
       await desktopAreaRes.text();
 
-    const webmasterStatusRes = await fetch("./components/webmaster-status-widget.html");
+    const webmasterStatusRes = await fetch(
+      "./components/webmaster-status-widget.html",
+    );
     document.getElementById("webmaster-status-widget").innerHTML =
       await webmasterStatusRes.text();
 
