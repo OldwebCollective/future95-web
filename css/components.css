@@ -90,15 +90,6 @@ button:active {
   border: 1px solid #808080;
 }
 
-.post .title-bar a {
-  color: white;
-  text-decoration: none;
-}
-
-.post .title-bar a:hover {
-  text-decoration: underline;
-}
-
 .sidebar {
   width: 250px;
   padding: 0px;

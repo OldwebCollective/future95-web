@@ -116,20 +116,6 @@ body {
   line-height: 1.5;
 }
 
-.post-section {
-  display: flex;
-  gap: 15px;
-  margin: 15px 0;
-  align-items: flex-start;
-}
-
-.post-image {
-  width: 200px;
-  height: auto;
-  border: 2px inset #c0c0c0;
-  flex-shrink: 0;
-}
-
 .form-group {
   margin-bottom: 10px;
   display: flex;
