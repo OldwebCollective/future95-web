@@ -1,3 +1,19 @@
+---
+id: recycle
+title: How to Recycle Old Computers Properly
+date: 2024-04-10
+displayDate: April 10, 2024
+categories:
+  - Recycle
+  - Sustainability
+tags:
+  - recycling
+  - e-waste
+  - environment
+excerpt: Learn how to recycle that old PC you have gathering dust.
+thumbnail: ./assets/img/posts/recycle/thumbnail/thumb.webp
+---
+
 # How to Recycle Old Computers Properly
 
 Learn how to recycle that old PC you have gathering dust in your office or basement. Proper e-waste disposal is crucial for the environment and your security!

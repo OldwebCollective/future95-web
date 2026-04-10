@@ -1,6 +1,7 @@
 let blogData = {};
 let currentTrackIndex = 0;
 let playlist = [];
+let postsMetadataCache = {}; // Cache para metadatos de front-matter
 
 async function initApp() {
   try {
@@ -16,6 +17,86 @@ async function initApp() {
   } catch (error) {
     console.error("Error cargando datos:", error);
   }
+}
+
+/**
+ * Parsea YAML front-matter de contenido markdown
+ * Extrae datos entre first --- hasta la siguiente ---
+ * Retorna objeto con metadata parseada y contenido sin front-matter
+ */
+function parseFrontMatter(mdContent) {
+  const frontmatterRegex = /^---\n([\s\S]*?)\n---\n([\s\S]*)$/;
+  const match = mdContent.match(frontmatterRegex);
+
+  if (!match) {
+    return { metadata: {}, content: mdContent };
+  }
+
+  const yamlContent = match[1];
+  const content = match[2];
+  const metadata = parseSimpleYAML(yamlContent);
+
+  return { metadata, content };
+}
+
+/**
+ * Parser minimalista de YAML para front-matter
+ * Soporta: key: value, arrays simples (- item), booleanos, números
+ */
+/**
+ * Formatea una fecha ISO (YYYY-MM-DD) a formato legible (Mmmm D, YYYY)
+ */
+function formatDate(isoDate) {
+  const date = new Date(isoDate + 'T00:00:00Z');
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return date.toLocaleDateString('en-US', options);
+}
+
+/**
+ * Obtiene posts por categoría
+ */
+function getPostsByCategory(category) {
+  return blogData.posts.filter(p => 
+    (p.categories || []).includes(category)
+  );
+}
+  const result = {};
+  const lines = yamlStr.split('\n').filter(line => line.trim());
+
+  let currentArray = null;
+  let currentKey = null;
+
+  for (const line of lines) {
+    const trimmed = line.trim();
+
+    // Array item (- value)
+    if (trimmed.startsWith('- ')) {
+      if (!currentArray) {
+        currentArray = [];
+        result[currentKey] = currentArray;
+      }
+      currentArray.push(trimmed.slice(2).trim());
+      continue;
+    }
+
+    // Key: value pair
+    if (line.includes(':')) {
+      currentArray = null;
+      const [key, ...valueParts] = line.split(':');
+      const keyTrimmed = key.trim();
+      const value = valueParts.join(':').trim();
+
+      // Parsear valores
+      if (value === 'true') result[keyTrimmed] = true;
+      else if (value === 'false') result[keyTrimmed] = false;
+      else if (!isNaN(value) && value !== '') result[keyTrimmed] = Number(value);
+      else result[keyTrimmed] = value;
+
+      currentKey = keyTrimmed;
+    }
+  }
+
+  return result;
 }
 
 function renderNavigation() {
@@ -54,6 +135,7 @@ function renderFollowWidget() {
 function renderPostsList(limit = null) {
   const container = document.getElementById("posts-container");
   if (!container) return;
+  
   const sortedPosts = [...blogData.posts].sort((a, b) => {
     const dateA = new Date(a.date);
     const dateB = new Date(b.date);
@@ -64,13 +146,21 @@ function renderPostsList(limit = null) {
 
   const linksList = postsToShow
     .map(
-      (post) => `<li><a href="post.html?id=${post.id}">${post.title}</a></li>`,
+      (post) => `<li>
+        <a href="post.html?id=${post.id}" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #000080;">
+          ${post.thumbnail ? `<img src="${post.thumbnail}" alt="" style="width: 40px; height: 40px; object-fit: cover; border: 1px solid #dfdfdf;">` : ''}
+          <span>
+            <strong>${post.title}</strong><br>
+            <small style="color: #808080; font-size: 10px;">${post.date}</small>
+          </span>
+        </a>
+      </li>`,
     )
     .join("");
 
   container.innerHTML = `
         <div class="window-content" style="border: 2px solid; border-color: #fff #404040 #404040 #fff; padding: 10px;">
-          <ul id="links-list">
+          <ul id="links-list" style="list-style: none; padding: 0; margin: 0;">
             ${linksList}
           </ul>
         </div>
@@ -83,16 +173,31 @@ function renderRelatedPosts(currentPostId) {
   if (!container || !blogData.posts) return;
 
   const currentId = String(currentPostId);
-
   const currentPost = blogData.posts.find((p) => String(p.id) === currentId);
 
+  if (!currentPost) return;
+
+  // Buscar posts con al menos una categoría en común
   const related = blogData.posts
     .filter((p) => String(p.id) !== currentId)
-    .filter((p) => p.category === currentPost?.category)
+    .filter((p) => {
+      const currentCategories = currentPost.categories || [];
+      const otherCategories = p.categories || [];
+      return currentCategories.some(cat => otherCategories.includes(cat));
+    })
     .sort(() => 0.5 - Math.random())
-    .slice(0, 2);
+    .slice(0, 3);
 
-  container.innerHTML = related
+  // Si no hay posts relacionados por categoría, mostrar posts recientes
+  let postsToShow = related;
+  if (postsToShow.length === 0) {
+    postsToShow = blogData.posts
+      .filter((p) => String(p.id) !== currentId)
+      .sort((a, b) => new Date(b.date) - new Date(a.date))
+      .slice(0, 3);
+  }
+
+  container.innerHTML = postsToShow
     .map((post) => {
       const safeTitle = post.title.replace(/[&<>"']/g, "");
       return `<p><a href="post.html?id=${post.id}">${safeTitle}</a></p>`;
@@ -118,7 +223,7 @@ function renderFeaturedPost() {
         <a href="post.html?id=${featured.id}" style="text-decoration: none; color: #07070d; font-weight: bold; font-size: 12px; display: block; margin-bottom: 8px;">
           🔥 ${featured.title}
         </a>
-        <p style="margin: 5px 0; font-size: 10px; color: #808080;">${featured.displayDate}</p>
+        <p style="margin: 5px 0; font-size: 10px; color: #808080;">${formatDate(featured.date)}</p>
         <p style="margin: 8px 0; font-size: 11px; line-height: 1.4;">${featured.excerpt}</p>
         <a href="post.html?id=${featured.id}" style="color: blue; font-size: 11px;">Read full post →</a>
       </div>
@@ -149,7 +254,7 @@ function renderLatestPostsHome() {
             <a href="post.html?id=${post.id}" class="post-link">
               <strong>${post.title}</strong>
             </a>
-            <p class="post-date">${post.displayDate}</p>
+            <p class="post-date">${formatDate(post.date)}</p>
             <p class="post-excerpt">${post.excerpt}</p>
           </div>
         `,
@@ -177,7 +282,7 @@ function renderLatestSinglePost() {
         <a href="post.html?id=${latestPost.id}" style="text-decoration: none; color: #07070d; font-weight: bold; font-size: 12px; display: block; margin-bottom: 8px;">
           📝 ${latestPost.title}
         </a>
-        <p style="margin: 5px 0; font-size: 10px; color: #808080;">${latestPost.displayDate}</p>
+        <p style="margin: 5px 0; font-size: 10px; color: #808080;">${formatDate(latestPost.date)}</p>
         <p style="margin: 8px 0; font-size: 11px; line-height: 1.4;">${latestPost.excerpt}</p>
         <a href="post.html?id=${latestPost.id}" style="color: blue; font-size: 11px;">Read full post →</a>
       </div>

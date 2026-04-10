@@ -1,3 +1,18 @@
+---
+id: gadgets2024
+title: 6 Cool Gadgets You Need in 2024
+date: 2024-04-15
+displayDate: April 15, 2024
+categories:
+  - Gadgets
+tags:
+  - gadgets
+  - tech
+  - 2024
+excerpt: A list of the most exciting new gadgets coming this year.
+thumbnail: ./assets/img/posts/gadgets2024/thumbnail/thumb.webp
+---
+
 # 6 Cool Gadgets You Need in 2024
 
 Get ready for the future with these awesome gadgets! Here are 6 new devices you will definitely want to check out for 2024.

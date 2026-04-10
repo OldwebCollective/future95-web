@@ -1,3 +1,19 @@
+---
+id: 2026karate
+title: 2026 Karate DSL
+date: 2026-03-29
+displayDate: March 29, 2026
+categories:
+  - Testing
+  - Karate
+tags:
+  - api-testing
+  - karate
+  - testing-framework
+excerpt: Novedades de este poderoso framework para API Testing!
+thumbnail: ./assets/img/posts/2026karate/thumbnail/thumb.webp
+---
+
 # 2026 - Karate Framework
 
 ## ¿Qué es Karate DSL?

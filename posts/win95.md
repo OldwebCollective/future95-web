@@ -1,3 +1,19 @@
+---
+id: win95
+title: Windows 95 Tips & Tricks
+date: 2024-04-05
+displayDate: April 5, 2024
+categories:
+  - Windows
+  - Retro
+tags:
+  - windows95
+  - optimization
+  - retro
+excerpt: Unleash the power of Windows 95 with these tips!
+thumbnail: ./assets/img/posts/win95/thumbnail/thumb.webp
+---
+
 # Windows 95 Tips & Tricks
 
 Unleash the power of Windows 95 with these tips! Whether you're running it in a VM for nostalgia or you've got an original machine, these tricks will optimize your experience.
