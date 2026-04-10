@@ -16,6 +16,21 @@ async function initApp() {
     renderFollowWidget();
   } catch (error) {
     console.error("Error cargando datos:", error);
+  } finally {
+    // Hide loading screen after App initialization
+    hideLoadingScreen();
+  }
+}
+
+// Hide loading screen with fade-out animation
+function hideLoadingScreen() {
+  const loadingOverlay = document.getElementById("loading-overlay");
+  if (loadingOverlay) {
+    loadingOverlay.classList.add("hidden");
+    // Remove from DOM after animation completes
+    setTimeout(() => {
+      loadingOverlay.style.display = "none";
+    }, 300);
   }
 }
 
