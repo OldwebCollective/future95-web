@@ -405,3 +405,20 @@ hr {
     width: 0%;
   }
 }
+
+.music-button {
+  /* Alineación interna */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Ajustes de tamaño para que sean uniformes */
+  width: 30px; 
+  height: 30px;
+  vertical-align: middle; /* Alinea los botones entre sí */
+  
+  /* Reset de fuente por si la del sistema deforma el símbolo */
+  font-family: Arial, sans-serif; 
+  line-height: 1;
+  padding: 0;
+}
