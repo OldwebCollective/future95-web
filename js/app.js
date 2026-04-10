@@ -111,7 +111,8 @@ function renderPostsList(limit = null) {
           ${post.thumbnail ? `<img src="${post.thumbnail}" alt="" style="width: 40px; height: 40px; object-fit: cover; border: 1px solid #dfdfdf;">` : ""}
           <span>
             <strong>${post.title}</strong><br>
-            <small style="color: #808080; font-size: 10px;">${formatDate(post.date)}</small>
+            <small style="color: #808080; font-size: 10px;">${formatDate(post.date)}</small></br>
+            <small style="color: #0080ff; font-size: 9px;">${(post.categories || []).join(", ")}</small>
           </span>
         </a>
       </li>`,
