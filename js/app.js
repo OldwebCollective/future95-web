@@ -131,7 +131,7 @@ function renderFeaturedPost() {
         <a href="post.html?id=${featured.id}" style="text-decoration: none; color: #07070d; font-weight: bold; font-size: 12px; display: block; margin-bottom: 8px;">
           🔥 ${featured.title}
         </a>
-        <p style="margin: 5px 0; font-size: 10px; color: #808080;">${featured.displayDate}</p>
+        <p style="margin: 5px 0; font-size: 10px; color: #808080;">${formatDate(featured.date)}</p>
         <p style="margin: 8px 0; font-size: 11px; line-height: 1.4;">${featured.excerpt}</p>
         <a href="post.html?id=${featured.id}" style="color: blue; font-size: 11px;">Read full post →</a>
       </div>
@@ -162,7 +162,7 @@ function renderLatestPostsHome() {
             <a href="post.html?id=${post.id}" class="post-link">
               <strong>${post.title}</strong>
             </a>
-            <p class="post-date">${post.displayDate}</p>
+            <p class="post-date">${formatDate(post.date)}</p>
             <p class="post-excerpt">${post.excerpt}</p>
           </div>
         `,
@@ -190,7 +190,7 @@ function renderLatestSinglePost() {
         <a href="post.html?id=${latestPost.id}" style="text-decoration: none; color: #07070d; font-weight: bold; font-size: 12px; display: block; margin-bottom: 8px;">
           📝 ${latestPost.title}
         </a>
-        <p style="margin: 5px 0; font-size: 10px; color: #808080;">${latestPost.displayDate}</p>
+        <p style="margin: 5px 0; font-size: 10px; color: #808080;">${formatDate(latestPost.date)}</p>
         <p style="margin: 8px 0; font-size: 11px; line-height: 1.4;">${latestPost.excerpt}</p>
         <a href="post.html?id=${latestPost.id}" style="color: blue; font-size: 11px;">Read full post →</a>
       </div>
@@ -264,4 +264,10 @@ function updateTrackDisplay() {
   document.getElementById("track").textContent = `▶ ${currentTrack.title}`;
   document.getElementById("track-info").textContent =
     `Track ${trackNum} of ${totalTracks}`;
+}
+
+function formatDate(isoDate) {
+  const date = new Date(isoDate + 'T00:00:00Z');
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return date.toLocaleDateString('en-US', options);
 }
