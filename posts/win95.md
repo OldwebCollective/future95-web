@@ -3,6 +3,7 @@ id: win95
 title: Windows 95 Tips & Tricks
 date: 2024-04-05
 displayDate: April 5, 2024
+author: p4sC4l_GUI
 categories:
   - Windows
   - Retro

@@ -1,21 +1,3 @@
-#!/usr/bin/env node
-
-/**
- * Post Validation Script
- * Validates consistency between data.json and markdown files with front-matter
- * 
- * Usage: node scripts/validate-posts.js
- * 
- * Checks:
- * - Each post in data.json has a corresponding .md file
- * - Each post .md has valid YAML front-matter
- * - Required fields are present in front-matter
- * - IDs are unique in data.json
- * - Dates are in valid ISO format
- * - Categories in data.json match front-matter
- * - Thumbnails exist (optional)
- */
-
 const fs = require('fs');
 const path = require('path');
 
@@ -24,7 +6,6 @@ const DATA_JSON_PATH = path.join(WORKSPACE_ROOT, 'data.json');
 const POSTS_DIR = path.join(WORKSPACE_ROOT, 'posts');
 const ASSETS_DIR = path.join(WORKSPACE_ROOT, 'assets', 'img', 'posts');
 
-// ANSI colors
 const colors = {
   reset: '\x1b[0m',
   red: '\x1b[31m',
@@ -41,9 +22,6 @@ const logInfo = (msg) => console.log(`${colors.blue}ℹ️  ${msg}${colors.reset
 let errorCount = 0;
 let warningCount = 0;
 
-/**
- * Simple YAML front-matter parser (mirrors app.js logic)
- */
 function parseFrontMatter(content) {
   const frontmatterRegex = /^---\n([\s\S]*?)\n---\n([\s\S]*)$/;
   const match = content.match(frontmatterRegex);
@@ -59,9 +37,6 @@ function parseFrontMatter(content) {
   return { metadata, content: contentBody };
 }
 
-/**
- * Minimal YAML parser (mirrors app.js logic)
- */
 function parseSimpleYAML(yamlStr) {
   const result = {};
   const lines = yamlStr.split('\n').filter(line => line.trim());
@@ -99,9 +74,6 @@ function parseSimpleYAML(yamlStr) {
   return result;
 }
 
-/**
- * Validate ISO date format
- */
 function isValidISODate(dateStr) {
   const regex = /^\d{4}-\d{2}-\d{2}$/;
   if (!regex.test(dateStr)) return false;
@@ -109,13 +81,9 @@ function isValidISODate(dateStr) {
   return !isNaN(date.getTime());
 }
 
-/**
- * Main validation
- */
 async function validate() {
   console.log(`\n${colors.blue}=== POST VALIDATION REPORT ===${colors.reset}\n`);
 
-  // 1. Load data.json
   let dataJson;
   try {
     const dataContent = fs.readFileSync(DATA_JSON_PATH, 'utf-8');
@@ -126,7 +94,6 @@ async function validate() {
     process.exit(1);
   }
 
-  // 2. Check for duplicate IDs
   const ids = new Set();
   for (const post of dataJson.posts) {
     if (ids.has(post.id)) {
@@ -136,11 +103,9 @@ async function validate() {
     ids.add(post.id);
   }
 
-  // 3. Validate each post
   for (const post of dataJson.posts) {
     logInfo(`Validating post: ${post.id}`);
 
-    // 3a. Check markdown file exists
     const mdPath = path.join(POSTS_DIR, `${post.id}.md`);
     if (!fs.existsSync(mdPath)) {
       logError(`  Missing markdown: ${post.id}.md`);
@@ -148,13 +113,11 @@ async function validate() {
       continue;
     }
 
-    // 3b. Check date format
     if (!isValidISODate(post.date)) {
       logError(`  Invalid date format: ${post.date} (expected YYYY-MM-DD)`);
       errorCount++;
     }
 
-    // 3c. Parse front-matter
     try {
       const mdContent = fs.readFileSync(mdPath, 'utf-8');
       const { metadata, error } = parseFrontMatter(mdContent);
@@ -166,7 +129,6 @@ async function validate() {
         logError(`  Could not parse front-matter`);
         errorCount++;
       } else {
-        // 3d. Check required front-matter fields
         const requiredFields = ['id', 'title', 'date', 'excerpt'];
         for (const field of requiredFields) {
           if (!metadata[field]) {
@@ -175,13 +137,11 @@ async function validate() {
           }
         }
 
-        // 3e. Check ID consistency
         if (metadata.id && metadata.id !== post.id) {
           logError(`  Front-matter ID mismatch: ${metadata.id} vs ${post.id}`);
           errorCount++;
         }
 
-        // 3f. Check category consistency (if present)
         if (metadata.categories && post.categories) {
           const mdCats = metadata.categories.sort().join(',');
           const djCats = post.categories.sort().join(',');
@@ -196,7 +156,6 @@ async function validate() {
       errorCount++;
     }
 
-    // 3g. Check thumbnail exists (optional but recommended)
     if (post.thumbnail) {
       const thumbPath = path.join(WORKSPACE_ROOT, post.thumbnail);
       if (!fs.existsSync(thumbPath)) {
@@ -206,7 +165,6 @@ async function validate() {
     }
   }
 
-  // 4. Check for orphaned markdown files
   try {
     const mdFiles = fs.readdirSync(POSTS_DIR)
       .filter(f => f.endsWith('.md') && f !== 'TEMPLATE.md');
@@ -222,7 +180,6 @@ async function validate() {
     logError(`Error checking markdown directory: ${err.message}`);
   }
 
-  // 5. Summary
   console.log(`\n${colors.blue}=== SUMMARY ===${colors.reset}`);
   console.log(`Total posts: ${dataJson.posts.length}`);
   logSuccess(`Errors: ${errorCount}`);
@@ -243,7 +200,6 @@ async function validate() {
   }
 }
 
-// Run validation
 validate().catch(err => {
   logError(`Unexpected error: ${err.message}`);
   process.exit(1);

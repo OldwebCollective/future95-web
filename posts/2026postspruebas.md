@@ -3,6 +3,7 @@ id: 2026postspruebas
 title: Cómo revivir una PC del 2005 en 2026
 date: 2026-04-02
 displayDate: April 2, 2026
+author: p4sC4l_GUI
 categories:
   - Retro
   - Linux

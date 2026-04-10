@@ -3,6 +3,7 @@ id: recycle
 title: How to Recycle Old Computers Properly
 date: 2024-04-10
 displayDate: April 10, 2024
+author: p4sC4l_GUI
 categories:
   - Recycle
   - Sustainability

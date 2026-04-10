@@ -3,6 +3,7 @@ id: 2026karate
 title: 2026 Karate DSL
 date: 2026-03-29
 displayDate: March 29, 2026
+author: p4sC4l_GUI
 categories:
   - Testing
   - Karate

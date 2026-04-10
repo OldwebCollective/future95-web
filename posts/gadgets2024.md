@@ -3,6 +3,7 @@ id: gadgets2024
 title: 6 Cool Gadgets You Need in 2024
 date: 2024-04-15
 displayDate: April 15, 2024
+author: p4sC4l_GUI
 categories:
   - Gadgets
 tags:

@@ -1,7 +1,7 @@
 let blogData = {};
 let currentTrackIndex = 0;
 let playlist = [];
-let postsMetadataCache = {}; // Cache para metadatos de front-matter
+let postsMetadataCache = {};
 
 async function initApp() {
   try {
@@ -19,11 +19,6 @@ async function initApp() {
   }
 }
 
-/**
- * Parsea YAML front-matter de contenido markdown
- * Extrae datos entre first --- hasta la siguiente ---
- * Retorna objeto con metadata parseada y contenido sin front-matter
- */
 function parseFrontMatter(mdContent) {
   const frontmatterRegex = /^---\n([\s\S]*?)\n---\n([\s\S]*)$/;
   const match = mdContent.match(frontmatterRegex);
@@ -39,10 +34,6 @@ function parseFrontMatter(mdContent) {
   return { metadata, content };
 }
 
-/**
- * Parser minimalista de YAML para front-matter
- * Soporta: key: value, arrays simples (- item), booleanos, números
- */
 function parseSimpleYAML(yamlStr) {
   const result = {};
   const lines = yamlStr.split('\n').filter(line => line.trim());
@@ -53,7 +44,6 @@ function parseSimpleYAML(yamlStr) {
   for (const line of lines) {
     const trimmed = line.trim();
 
-    // Array item (- value)
     if (trimmed.startsWith('- ')) {
       if (!currentArray) {
         currentArray = [];
@@ -63,14 +53,12 @@ function parseSimpleYAML(yamlStr) {
       continue;
     }
 
-    // Key: value pair
     if (line.includes(':')) {
       currentArray = null;
       const [key, ...valueParts] = line.split(':');
       const keyTrimmed = key.trim();
       const value = valueParts.join(':').trim();
 
-      // Parsear valores
       if (value === 'true') result[keyTrimmed] = true;
       else if (value === 'false') result[keyTrimmed] = false;
       else if (!isNaN(value) && value !== '') result[keyTrimmed] = Number(value);
@@ -83,20 +71,13 @@ function parseSimpleYAML(yamlStr) {
   return result;
 }
 
-/**
- * Formatea una fecha ISO (YYYY-MM-DD) a formato legible (Mmmm D, YYYY)
- */
 function formatDate(isoDate) {
-  // Parsear la fecha sin conversión de zona horaria
   const [year, month, day] = isoDate.split('-');
   const date = new Date(year, parseInt(month) - 1, day);
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   return date.toLocaleDateString('en-US', options);
 }
 
-/**
- * Obtiene posts por categoría
- */
 function getPostsByCategory(category) {
   return blogData.posts.filter(p => 
     (p.categories || []).includes(category)
@@ -181,7 +162,6 @@ function renderRelatedPosts(currentPostId) {
 
   if (!currentPost) return;
 
-  // Buscar posts con al menos una categoría en común
   const related = blogData.posts
     .filter((p) => String(p.id) !== currentId)
     .filter((p) => {
@@ -192,7 +172,6 @@ function renderRelatedPosts(currentPostId) {
     .sort(() => 0.5 - Math.random())
     .slice(0, 3);
 
-  // Si no hay posts relacionados por categoría, mostrar posts recientes
   let postsToShow = related;
   if (postsToShow.length === 0) {
     postsToShow = blogData.posts
