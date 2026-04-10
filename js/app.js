@@ -43,23 +43,7 @@ function parseFrontMatter(mdContent) {
  * Parser minimalista de YAML para front-matter
  * Soporta: key: value, arrays simples (- item), booleanos, números
  */
-/**
- * Formatea una fecha ISO (YYYY-MM-DD) a formato legible (Mmmm D, YYYY)
- */
-function formatDate(isoDate) {
-  const date = new Date(isoDate + 'T00:00:00Z');
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  return date.toLocaleDateString('en-US', options);
-}
-
-/**
- * Obtiene posts por categoría
- */
-function getPostsByCategory(category) {
-  return blogData.posts.filter(p => 
-    (p.categories || []).includes(category)
-  );
-}
+function parseSimpleYAML(yamlStr) {
   const result = {};
   const lines = yamlStr.split('\n').filter(line => line.trim());
 
@@ -97,6 +81,26 @@ function getPostsByCategory(category) {
   }
 
   return result;
+}
+
+/**
+ * Formatea una fecha ISO (YYYY-MM-DD) a formato legible (Mmmm D, YYYY)
+ */
+function formatDate(isoDate) {
+  // Parsear la fecha sin conversión de zona horaria
+  const [year, month, day] = isoDate.split('-');
+  const date = new Date(year, parseInt(month) - 1, day);
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return date.toLocaleDateString('en-US', options);
+}
+
+/**
+ * Obtiene posts por categoría
+ */
+function getPostsByCategory(category) {
+  return blogData.posts.filter(p => 
+    (p.categories || []).includes(category)
+  );
 }
 
 function renderNavigation() {
