@@ -73,10 +73,10 @@
 
       async function renderPost(post) {
         document.getElementById("post-title-bar").textContent = post.title;
-        document.title = `${post.title} - mei's tech blog`;
+        document.title = `${post.title} - Future in '95`;
 
         document.getElementById("post-meta").innerHTML =
-          `<p><b>By ${post.editor}</b> - ${post.displayDate}</p>`;
+          `<p><b>By ${post.editor}</b> - ${formatDate(post.date)}</p>`;
 
         try {
           const mdRes = await fetch(`./posts/${post.id}.md`);
