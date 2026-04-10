@@ -15,7 +15,7 @@
       "excerpt": "A list of the most exciting new gadgets coming this year.",
       "editor": "Pascal",
       "categories": ["Gadgets"],
-      "thumbnail": "./assets/img/posts/gadgets2024.jpg"
+      "thumbnail": "./assets/img/posts/gadgets2024/thumbnail/recycle.webp"
     },
     {
       "id": "recycle",
@@ -26,7 +26,7 @@
       "excerpt": "Learn how to recycle that old PC you have gathering dust.",
       "editor": "Pascal",
       "categories": ["Recycle", "Sustainability"],
-      "thumbnail": "./assets/img/posts/recycle.jpg"
+      "thumbnail": "./assets/img/posts/recycle/thumbnail/recycle.webp"
     },
     {
       "id": "win95",
@@ -37,7 +37,7 @@
       "excerpt": "Unleash the power of Windows 95 with these tips!",
       "editor": "Pascal",
       "categories": ["Windows"],
-      "thumbnail": "./assets/img/posts/win95.jpg"
+      "thumbnail": "./assets/img/posts/win95/thumbnail/recycle.webp"
     },
     {
       "id": "2026karate",
@@ -48,7 +48,7 @@
       "excerpt": "Novedades de este poderoso framework para API Testing!",
       "editor": "Pascal",
       "categories": ["Testing", "Karate"],
-      "thumbnail": "./assets/img/posts/karate2026.jpg"
+      "thumbnail": "./assets/img/posts/2026karate/thumbnail/recycle.webp"
     },
     {
       "id": "2026postspruebas",
@@ -59,7 +59,7 @@
       "excerpt": "Probé instalar Linux en una máquina olvidada... y esto fue lo que pasó.",
       "editor": "Pascal",
       "categories": [],
-      "thumbnail": "./assets/img/posts/2026postspruebas.jpg"
+      "thumbnail": "./assets/img/posts/2026postspruebas/thumbnail/recycle.webp"
     }
   ],
   "navigation": [
