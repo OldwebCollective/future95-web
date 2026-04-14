@@ -60,6 +60,17 @@
       "editor": "Pascal",
       "categories": [],
       "thumbnail": "./assets/img/posts/2026postspruebas/thumbnail/recycle.webp"
+    },
+    {
+      "id": "20260413loom",
+      "title": "Loom: El arte de tejer hechizos con el oído",
+      "slug": "20260413loom",
+      "date": "2026-04-13",
+      "author": "p4sC4l_GUI",
+      "excerpt": "¿Y si la magia no se hiciera con palabras, sino con música? Más de 30 años después, vuelvo a Loom: la aventura más atípica de LucasArts que conocimos gracias a un chiste en Monkey Island.",
+      "editor": "eternal_1917",
+      "categories": ["Juegos"],
+      "thumbnail": "./assets/img/posts/20260413loom/thumbnail/loom_miniatura.webp"
     }
   ],
   "navigation": [
