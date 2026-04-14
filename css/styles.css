@@ -42,6 +42,18 @@ body {
   background-attachment: fixed;
 }
 
+.ie-content.posts {
+  background-image: url("../assets/img/textures/Circles.bmp");
+  background-repeat: repeat;
+  background-size: auto;
+}
+
+.ie-content.post {
+  background-image: url("../assets/img/textures/Blue\ Rivets.bmp");
+  background-repeat: repeat;
+  background-size: auto;
+}
+
 .content {
   display: flex;
   flex: 1;
