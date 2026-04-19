@@ -7,7 +7,7 @@ Lo más increíble no es solo lo que hace, sino cómo lo hace. Aquí te cuento u
 <p align="center">
     <img src="./assets/img/posts/20260419taskmanager/content/taskmanager.webp"
          alt="loom.gif"
-         width="100"
+         width="400"
          />
 </p>
 
@@ -31,7 +31,7 @@ Si te gusta la tecnología, el nombre de David Plummer debería resultarte famil
 <p align="center">
     <img src="./assets/img/posts/20260419taskmanager/content/davidplummer.webp"
          alt="loom.gif"
-         width="100"
+         width="400"
          />
 </p>
 
