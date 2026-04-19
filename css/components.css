@@ -17,7 +17,7 @@
 }
 
 .nav a {
-  color: blue;
+  color: #000080;
   text-decoration: none;
   cursor: pointer;
   font-size: 12px;
@@ -53,7 +53,6 @@
 .window-content {
   background: #e2dcdc;
   padding: 8px;
-  font-size: 12px;
 }
 
 .window-content p {
@@ -97,15 +96,6 @@ button:active {
 
 .post .title-bar a:hover {
   text-decoration: underline;
-}
-
-.sidebar {
-  width: 250px;
-  padding: 0px;
-}
-
-.sidebar .window {
-  margin-bottom: 8px;
 }
 
 .animation-img {
