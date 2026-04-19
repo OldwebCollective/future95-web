@@ -350,6 +350,11 @@ body {
   .full-width {
     grid-column: span 1;
   }
+
+  #sidebar-about {
+    display: none;
+  }
+
 }
 
 /* ======================================
@@ -553,6 +558,10 @@ hr {
   }
 
   .hide-on-tablet {
+    display: none;
+  }
+
+  #sidebar-about {
     display: none;
   }
 }
