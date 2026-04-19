@@ -65,6 +65,16 @@
       "editor": "eternal_1917",
       "categories": ["Juegos"],
       "thumbnail": "./assets/img/posts/20260413loom/thumbnail/loom_miniatura.webp"
+    },
+    {
+      "id": "20260419taskmanager",
+      "title": "Demonios Gump, eres un genio: el Task Manager de Windows NT 4.0",
+      "slug": "20260419taskmanager",
+      "date": "2026-04-19",
+      "excerpt": "Una tarea tan simple como matar procesos se convirtió en un arte con el Task Manager de Windows NT 4.0.",
+      "editor": "Pascal",
+      "categories": ["Windows", "Retro"],
+      "thumbnail": "./assets/img/posts/20260419taskmanager/thumbnail/davidplummer.webp"
     }
   ],
   "navigation": [
