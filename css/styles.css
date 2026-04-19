@@ -57,7 +57,6 @@ body {
 
 .nav {
   display: flex;
-  gap: var(--space-md);
   flex-wrap: wrap;
 }
 
@@ -156,27 +155,6 @@ body {
   gap: var(--space-lg);
   padding: var(--space-lg);
   flex: 1;
-}
-
-.post-content {
-  flex: 1;
-  padding: var(--space-lg);
-  overflow-y: auto;
-}
-
-.post-content h2 {
-  margin: 0 0 var(--space-lg) 0;
-  font-size: 16px;
-}
-
-.post-content h3 {
-  margin: var(--space-lg) 0 var(--space-md) 0;
-  font-size: 13px;
-}
-
-.post-content p {
-  margin: var(--space-md) 0;
-  line-height: 1.5;
 }
 
 .post-section {
@@ -627,24 +605,6 @@ hr {
     flex-direction: column;
   }
 
-  .post-content {
-    padding: var(--space-lg);
-  }
-
-  .post-content h2 {
-    margin: 0 0 var(--space-lg) 0;
-    font-size: 14px;
-  }
-
-  .post-content h3 {
-    margin: var(--space-lg) 0 var(--space-md) 0;
-    font-size: 12px;
-  }
-
-  .post-content p {
-    margin: var(--space-md) 0;
-  }
-
   /* Post body responsive styles */
   #post-body h1 {
     font-size: 18px;
@@ -846,25 +806,6 @@ hr {
 
   .main p {
     margin: var(--space-md) 0;
-    font-size: 10px;
-  }
-
-  .post-content {
-    padding: var(--space-lg);
-  }
-
-  .post-content h2 {
-    margin: 0 0 var(--space-lg) 0;
-    font-size: 12px;
-  }
-
-  .post-content h3 {
-    margin: var(--space-lg) 0 var(--space-md) 0;
-    font-size: 10px;
-  }
-
-  .post-content p {
-    margin: var(--space-sm) 0;
     font-size: 10px;
   }
 
