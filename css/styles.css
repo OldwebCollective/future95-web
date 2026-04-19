@@ -617,7 +617,8 @@ hr {
   }
 
   /* Hide large widgets on tablet */
-  #webmaster-status-widget {
+
+  #sidebar-about {
     display: none;
   }
 
@@ -845,3 +846,4 @@ hr {
   .hide-on-small-mobile {
     display: none;
   }
+}
