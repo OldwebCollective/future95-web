@@ -2,7 +2,29 @@
   box-sizing: border-box;
 }
 
-/* GLOBAL STYLES */
+/* ======================================
+   CSS CUSTOM PROPERTIES (VARIABLES)
+   ====================================== */
+:root {
+  /* Spacing Scale */
+  --space-xs: 4px;   /* 0.25rem */
+  --space-sm: 8px;   /* 0.5rem */
+  --space-md: 12px;  /* 0.75rem */
+  --space-lg: 16px;  /* 1rem */
+  --space-xl: 24px;  /* 1.5rem */
+
+  /* Component spacing */
+  --gap-component: var(--space-sm);
+  --gap-layout: var(--space-lg);
+  --padding-component: var(--space-sm);
+  --padding-section: var(--space-lg);
+  --margin-component: var(--space-md);
+  --margin-section: var(--space-lg);
+}
+
+/* ======================================
+   GLOBAL STYLES
+   ====================================== */
 html,
 body {
   margin: 0;
@@ -21,11 +43,12 @@ body {
    HEADER & NAVIGATION
    ====================================== */
 .site-header {
-  padding: 8px;
+  padding: var(--space-sm);
   background: #bfbcbc;
   border-bottom: 2px solid #808080;
   display: flex;
   align-items: center;
+  gap: var(--space-xs);
 }
 
 .site-header b {
@@ -34,7 +57,8 @@ body {
 
 .nav {
   display: flex;
-  gap: 1px;
+  gap: var(--space-md);
+  flex-wrap: wrap;
 }
 
 .nav a {
@@ -42,7 +66,7 @@ body {
   text-decoration: none;
   cursor: pointer;
   font-size: 12px;
-  margin-left: 10px;
+  padding: var(--space-xs) var(--space-sm);
 }
 
 .nav a:hover {
@@ -94,8 +118,8 @@ body {
 .content {
   display: flex;
   flex: 1;
-  gap: 5px;
-  padding: 5px;
+  gap: var(--space-md);
+  padding: var(--space-md);
 }
 
 /* ======================================
@@ -105,60 +129,60 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0px;
-  padding: 0px 0px 0px 0px;
+  gap: var(--space-md);
+  padding: 0;
 }
 
 .main h2 {
-  margin: 10px 0 5px 0;
+  margin: var(--space-lg) 0 var(--space-sm) 0;
   font-size: 14px;
 }
 
 .main p {
-  margin: 5px 0;
+  margin: var(--space-md) 0;
   line-height: 1.4;
 }
 
 .post {
-  margin-bottom: 8px;
+  margin-bottom: var(--space-md);
 }
 
 .post .window-content p {
-  margin: 3px 0;
+  margin: var(--space-xs) 0;
 }
 
 .layout {
   display: flex;
-  gap: 15px;
-  padding: 10px;
+  gap: var(--space-lg);
+  padding: var(--space-lg);
   flex: 1;
 }
 
 .post-content {
   flex: 1;
-  padding: 10px;
+  padding: var(--space-lg);
   overflow-y: auto;
 }
 
 .post-content h2 {
-  margin: 0 0 10px 0;
+  margin: 0 0 var(--space-lg) 0;
   font-size: 16px;
 }
 
 .post-content h3 {
-  margin: 15px 0 10px 0;
+  margin: var(--space-lg) 0 var(--space-md) 0;
   font-size: 13px;
 }
 
 .post-content p {
-  margin: 5px 0;
+  margin: var(--space-md) 0;
   line-height: 1.5;
 }
 
 .post-section {
   display: flex;
-  gap: 15px;
-  margin: 15px 0;
+  gap: var(--space-lg);
+  margin: var(--space-lg) 0;
   align-items: flex-start;
 }
 
@@ -174,8 +198,8 @@ body {
    ====================================== */
 .posts-and-widgets {
   display: flex;
-  gap: 15px;
-  margin-top: 10px;
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
 }
 
 .latest-posts-section {
@@ -188,7 +212,7 @@ body {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--space-md);
 }
 
 @media (max-width: 800px) {
@@ -209,7 +233,7 @@ body {
   box-shadow:
     1px 1px 0 #dfdfdf,
     2px 2px 0 #808080;
-  margin-bottom: 15px;
+  margin-bottom: var(--space-lg);
 }
 
 #featured-post-container .title-bar {
@@ -223,10 +247,96 @@ body {
 }
 
 #post-body {
+  /* Remove window-specific styles - now using .window > .window-content structure */
+}
+
+#post-body h1 {
+  margin: var(--space-lg) 0 var(--space-md) 0;
+  font-size: 16px;
+  color: #000;
+}
+
+#post-body h2 {
+  margin: var(--space-lg) 0 var(--space-md) 0;
+  font-size: 14px;
+  color: #000080;
+  border-bottom: 1px solid #808080;
+  padding-bottom: var(--space-sm);
+}
+
+#post-body h3 {
+  margin: var(--space-md) 0 var(--space-sm) 0;
+  font-size: 12px;
+  color: #000080;
+  font-weight: bold;
+}
+
+#post-body p {
+  margin: var(--space-md) 0;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+#post-body img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #808080;
+  margin: var(--space-lg) 0;
+  display: block;
+}
+
+#post-body ul,
+#post-body ol {
+  margin: var(--space-md) 0;
+  padding-left: 24px;
+}
+
+#post-body li {
+  margin: var(--space-sm) 0;
+  line-height: 1.6;
+}
+
+#post-body blockquote {
+  border-left: 3px solid #000080;
+  padding-left: var(--space-lg);
+  margin: var(--space-md) 0;
+  color: #404040;
+  font-style: italic;
+}
+
+#post-body code {
   background: #e2dcdc;
-  padding: 5px 15px 5px 15px;
-  border: 2px solid;
-  border-color: #fff #404040 #404040 #fff;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 2px;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+}
+
+#post-body pre {
+  background: #e2dcdc;
+  padding: var(--space-lg);
+  border: 1px solid #808080;
+  overflow-x: auto;
+  margin: var(--space-md) 0;
+  border-radius: 2px;
+}
+
+#post-body table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: var(--space-lg) 0;
+}
+
+#post-body table td,
+#post-body table th {
+  border: 1px solid #808080;
+  padding: var(--space-md);
+  text-align: left;
+}
+
+#post-body table th {
+  background: #c0c0c0;
+  font-weight: bold;
 }
 
 /* ======================================
@@ -235,8 +345,9 @@ body {
 .desktop-area {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  margin-top: 20px;
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+  padding: 0 var(--space-lg);
 }
 
 .full-width {
@@ -259,7 +370,7 @@ body {
 hr {
   border: none;
   border-top: 1px solid #808080;
-  margin: 10px 0;
+  margin: var(--space-lg) 0;
 }
 
 /* ======================================
@@ -385,33 +496,33 @@ hr {
    RESPONSIVE DESIGN - TABLET (Max 1024px)
    ====================================== */
 @media (max-width: 1024px) {
+  :root {
+    --space-xs: 3px;
+    --space-sm: 6px;
+    --space-md: 10px;
+    --space-lg: 14px;
+    --space-xl: 20px;
+  }
+
   body {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .site-header {
     flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .nav {
-    flex-wrap: wrap;
   }
 
   .nav a {
-    margin-left: 5px;
-    padding: 3px 5px;
+    padding: var(--space-xs) var(--space-sm);
     font-size: 11px;
   }
 
   .content {
     flex-direction: column;
-    padding: 3px;
   }
 
   .layout {
-    gap: 10px;
-    padding: 8px;
+    flex-wrap: wrap;
   }
 
   .sidebar,
@@ -421,23 +532,18 @@ hr {
 
   .posts-and-widgets {
     flex-direction: column;
-    gap: 10px;
   }
 
   .post-image {
-    width: 150px;
+    width: 140px;
   }
 
-  .post-section {
-    gap: 10px;
-  }
-
-  .main {
-    padding: 0px;
+  .desktop-area {
+    grid-template-columns: 1fr;
   }
 
   .window {
-    margin-bottom: 8px;
+    margin-bottom: var(--space-md);
   }
 
   .loading-window {
@@ -445,7 +551,6 @@ hr {
     max-width: 300px;
   }
 
-  /* Reduce webmaster widget on tablet */
   #webmaster-status-widget img {
     max-width: 80px;
     height: auto;
@@ -460,8 +565,16 @@ hr {
    RESPONSIVE DESIGN - MOBILE (Max 768px)
    ====================================== */
 @media (max-width: 768px) {
+  :root {
+    --space-xs: 2px;
+    --space-sm: 4px;
+    --space-md: 8px;
+    --space-lg: 12px;
+    --space-xl: 16px;
+  }
+
   body {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .ie-window {
@@ -475,10 +588,8 @@ hr {
   }
 
   .site-header {
-    padding: 6px;
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
   }
 
   .site-header b {
@@ -486,61 +597,117 @@ hr {
   }
 
   .nav {
-    flex-direction: row;
     flex-wrap: wrap;
-    gap: 0;
+    gap: var(--space-md);
   }
 
   .nav a {
-    margin-left: 3px;
-    padding: 3px 4px;
+    padding: var(--space-xs) var(--space-sm);
     font-size: 10px;
   }
 
   .content {
     flex-direction: column;
-    gap: 3px;
-    padding: 3px;
   }
 
   .main {
-    gap: 0;
-    padding: 0;
+    gap: var(--space-md);
   }
 
   .main h2 {
-    margin: 8px 0 3px 0;
+    margin: var(--space-lg) 0 var(--space-sm) 0;
     font-size: 13px;
   }
 
   .main p {
-    margin: 3px 0;
+    margin: var(--space-md) 0;
   }
 
   .layout {
     flex-direction: column;
-    gap: 8px;
-    padding: 6px;
   }
 
   .post-content {
-    padding: 8px;
+    padding: var(--space-lg);
   }
 
   .post-content h2 {
-    margin: 0 0 8px 0;
+    margin: 0 0 var(--space-lg) 0;
     font-size: 14px;
   }
 
   .post-content h3 {
-    margin: 10px 0 8px 0;
+    margin: var(--space-lg) 0 var(--space-md) 0;
     font-size: 12px;
+  }
+
+  .post-content p {
+    margin: var(--space-md) 0;
+  }
+
+  /* Post body responsive styles */
+  #post-body h1 {
+    font-size: 18px;
+    margin: var(--space-lg) 0 var(--space-md) 0;
+  }
+
+  #post-body h2 {
+    font-size: 14px;
+    margin: var(--space-lg) 0 var(--space-md) 0;
+  }
+
+  #post-body h3 {
+    font-size: 12px;
+    margin: var(--space-md) 0 var(--space-sm) 0;
+  }
+
+  #post-body p {
+    margin: var(--space-md) 0;
+    line-height: 1.5;
+  }
+
+  #post-body img {
+    max-width: 100%;
+    margin: var(--space-md) 0;
+  }
+
+  #post-body ul,
+  #post-body ol {
+    margin: var(--space-md) 0;
+    padding-left: var(--space-lg);
+  }
+
+  #post-body li {
+    margin: var(--space-sm) 0;
+  }
+
+  #post-body blockquote {
+    margin: var(--space-md) 0;
+    padding-left: var(--space-md);
+  }
+
+  #post-body code {
+    font-size: 11px;
+  }
+
+  #post-body pre {
+    margin: var(--space-md) 0;
+    padding: var(--space-md);
+    font-size: 11px;
+  }
+
+  #post-body table {
+    margin: var(--space-md) 0;
+    font-size: 11px;
+  }
+
+  #post-body table td,
+  #post-body table th {
+    padding: var(--space-sm);
   }
 
   .post-section {
     flex-direction: column;
-    gap: 8px;
-    margin: 10px 0;
   }
 
   .post-image {
@@ -552,19 +719,14 @@ hr {
   .sidebar,
   .right-sidebar {
     width: 100%;
-    gap: 8px;
   }
 
   .posts-and-widgets {
     flex-direction: column;
-    gap: 8px;
-    margin-top: 8px;
   }
 
   .desktop-area {
     grid-template-columns: 1fr;
-    gap: 10px;
-    margin-top: 15px;
   }
 
   .full-width {
@@ -572,26 +734,26 @@ hr {
   }
 
   .window {
-    margin-bottom: 6px;
+    margin-bottom: var(--space-md);
   }
 
   .title-bar {
-    padding: 3px 2px;
+    padding: var(--space-xs) var(--space-sm);
     font-size: 10px;
   }
 
   .window-content {
-    padding: 6px;
+    padding: var(--space-md);
   }
 
   .form-group {
-    margin-bottom: 8px;
+    margin-bottom: var(--space-md);
   }
 
   .form-group input,
   .form-group textarea {
-    font-size: 12px;
-    padding: 4px 3px;
+    font-size: 11px;
+    padding: var(--space-xs) var(--space-sm);
   }
 
   .loading-window {
@@ -600,7 +762,7 @@ hr {
   }
 
   .loading-content {
-    padding: 12px;
+    padding: var(--space-lg);
   }
 
   .about-avatar {
@@ -640,17 +802,24 @@ hr {
    RESPONSIVE DESIGN - SMALL MOBILE (Max 600px)
    ====================================== */
 @media (max-width: 600px) {
+  :root {
+    --space-xs: 2px;
+    --space-sm: 3px;
+    --space-md: 4px;
+    --space-lg: 8px;
+    --space-xl: 12px;
+  }
+
   body {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .site-header {
-    padding: 4px;
-    gap: 4px;
+    padding: var(--space-sm);
   }
 
   .site-header b {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .nav {
@@ -658,153 +827,214 @@ hr {
   }
 
   .nav a {
-    margin-left: 2px;
-    padding: 2px 3px;
+    padding: var(--space-xs) var(--space-sm);
     font-size: 9px;
   }
 
   .content {
-    gap: 2px;
-    padding: 2px;
+    padding: var(--space-sm);
   }
 
   .layout {
-    gap: 6px;
-    padding: 4px;
+    padding: var(--space-md);
   }
 
   .main h2 {
-    margin: 6px 0 2px 0;
+    margin: var(--space-lg) 0 var(--space-xs) 0;
     font-size: 12px;
   }
 
   .main p {
-    margin: 2px 0;
-    font-size: 11px;
+    margin: var(--space-md) 0;
+    font-size: 10px;
   }
 
   .post-content {
-    padding: 6px;
+    padding: var(--space-lg);
   }
 
   .post-content h2 {
-    margin: 0 0 6px 0;
-    font-size: 13px;
+    margin: 0 0 var(--space-lg) 0;
+    font-size: 12px;
   }
 
   .post-content h3 {
-    margin: 8px 0 6px 0;
-    font-size: 11px;
+    margin: var(--space-lg) 0 var(--space-md) 0;
+    font-size: 10px;
   }
 
   .post-content p {
-    margin: 2px 0;
-    font-size: 11px;
+    margin: var(--space-sm) 0;
+    font-size: 10px;
+  }
+
+  /* Post body responsive styles - small mobile */
+  #post-body h1 {
+    font-size: 14px;
+    margin: var(--space-md) 0 var(--space-sm) 0;
+  }
+
+  #post-body h2 {
+    font-size: 12px;
+    margin: var(--space-md) 0 var(--space-sm) 0;
+  }
+
+  #post-body h3 {
+    font-size: 10px;
+    margin: var(--space-sm) 0 var(--space-xs) 0;
+  }
+
+  #post-body p {
+    margin: var(--space-sm) 0;
+    line-height: 1.4;
+    font-size: 10px;
+  }
+
+  #post-body img {
+    max-width: 100%;
+    margin: var(--space-sm) 0;
+  }
+
+  #post-body ul,
+  #post-body ol {
+    margin: var(--space-sm) 0;
+    padding-left: 12px;
+  }
+
+  #post-body li {
+    margin: var(--space-xs) 0;
+    font-size: 10px;
+  }
+
+  #post-body blockquote {
+    margin: var(--space-sm) 0;
+    padding-left: var(--space-sm);
+    font-size: 9px;
+  }
+
+  #post-body code {
+    font-size: 9px;
+  }
+
+  #post-body pre {
+    margin: var(--space-sm) 0;
+    padding: var(--space-sm);
+    font-size: 9px;
+    overflow-x: auto;
+  }
+
+  #post-body table {
+    margin: var(--space-sm) 0;
+    font-size: 9px;
+  }
+
+  #post-body table td,
+  #post-body table th {
+    padding: var(--space-xs);
   }
 
   .post-section {
-    gap: 6px;
-    margin: 8px 0;
+    margin: var(--space-lg) 0;
   }
 
   .window {
-    margin-bottom: 4px;
+    margin-bottom: var(--space-sm);
   }
 
   .title-bar {
-    padding: 2px 2px;
+    padding: var(--space-xs) var(--space-sm);
     font-size: 9px;
   }
 
   .window-content {
-    padding: 4px;
+    padding: var(--space-md);
   }
 
   .window-content p {
-    margin: 2px 0;
-    font-size: 10px;
+    margin: var(--space-xs) 0;
+    font-size: 9px;
   }
 
   .window-content ul {
-    margin: 3px 0;
-    padding-left: 15px;
+    margin: var(--space-sm) 0;
+    padding-left: 12px;
   }
 
   .window-content li {
-    margin: 1px 0;
-    font-size: 10px;
+    margin: var(--space-xs) 0;
+    font-size: 9px;
   }
 
   .form-group {
-    margin-bottom: 6px;
+    margin-bottom: var(--space-md);
   }
 
   .form-group label {
-    margin-bottom: 2px;
-    font-size: 10px;
+    margin-bottom: var(--space-xs);
+    font-size: 9px;
   }
 
   .form-group input,
   .form-group textarea {
-    font-size: 11px;
-    padding: 3px 2px;
+    font-size: 10px;
+    padding: var(--space-xs) var(--space-sm);
   }
 
   .form-group textarea {
     font-size: 9px;
+    min-height: 50px;
   }
 
   .post-link {
-    font-size: 11px;
-    margin-bottom: 2px;
+    font-size: 10px;
+    margin-bottom: var(--space-xs);
   }
 
   .post-date {
-    font-size: 9px;
-    margin: 1px 0;
+    font-size: 8px;
   }
 
   .post-excerpt {
-    margin: 2px 0 0 0;
-    font-size: 10px;
+    margin: var(--space-sm) 0 0 0;
+    font-size: 9px;
   }
 
   .guestbook-entry {
-    padding: 6px;
-    margin: 6px 0;
+    padding: var(--space-md);
+    margin: var(--space-md) 0;
   }
 
   .guestbook-entry strong {
-    margin-bottom: 2px;
-    font-size: 10px;
+    margin-bottom: var(--space-xs);
+    font-size: 9px;
   }
 
   .entry-date {
-    font-size: 9px;
-    margin-right: 5px;
+    font-size: 8px;
+    margin-right: var(--space-md);
   }
 
   .guestbook-entry p {
-    margin: 3px 0 0 0;
-    font-size: 9px;
+    margin: var(--space-sm) 0 0 0;
+    font-size: 8px;
   }
 
   .guestbook-entry a {
-    font-size: 9px;
-    margin-right: 5px;
+    font-size: 8px;
+    margin-right: var(--space-md);
   }
 
   .about-avatar {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
   }
 
   .author {
-    gap: 6px;
+    gap: var(--space-md);
   }
 
   .author div {
-    font-size: 10px;
+    font-size: 9px;
   }
 
   .loading-window {
@@ -813,25 +1043,25 @@ hr {
   }
 
   .loading-title-bar {
-    font-size: 10px;
-    height: 18px;
+    font-size: 9px;
+    height: 16px;
   }
 
   .loading-content {
-    padding: 10px;
+    padding: var(--space-lg);
   }
 
   .loading-bar-container {
-    height: 14px;
+    height: 12px;
   }
 
   hr {
-    margin: 6px 0;
+    margin: var(--space-lg) 0;
   }
 
   .music-button {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
   }
 
   /* Hide non-essential widgets on small mobile */

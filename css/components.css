@@ -1,11 +1,23 @@
 /* ======================================
+   SPACING VARIABLES REFERENCE
+   ====================================== */
+/* 
+  Variables defined in styles.css:
+  --space-xs: 4px
+  --space-sm: 8px
+  --space-md: 12px
+  --space-lg: 16px
+  --space-xl: 24px
+*/
+
+/* ======================================
    WINDOWS (Retro 90s Style)
    ====================================== */
 .window {
   background: #c0c0c0;
   border: 2px solid;
   border-color: #fff #404040 #404040 #fff;
-  margin-bottom: 10px;
+  margin-bottom: var(--space-md);
   box-shadow:
     1px 1px 0 #dfdfdf,
     2px 2px 0 #808080;
@@ -14,7 +26,7 @@
 .title-bar {
   background: #1c2175;
   color: white;
-  padding: 4px 2px;
+  padding: var(--space-xs) var(--space-sm);
   font-weight: bold;
   font-size: 11px;
   display: flex;
@@ -24,20 +36,20 @@
 
 .window-content {
   background: #e2dcdc;
-  padding: 8px;
+  padding: var(--space-md);
 }
 
 .window-content p {
-  margin: 4px 0;
+  margin: var(--space-xs) 0;
 }
 
 .window-content ul {
-  margin: 5px 0;
+  margin: var(--space-sm) 0;
   padding-left: 20px;
 }
 
 .window-content li {
-  margin: 3px 0;
+  margin: var(--space-xs) 0;
 }
 
 /* ======================================
@@ -47,7 +59,7 @@ button {
   background: #c0c0c0;
   border: 2px solid;
   border-color: #fff #404040 #404040 #fff;
-  padding: 4px 12px;
+  padding: var(--space-xs) var(--space-md);
   font-size: 11px;
   cursor: pointer;
   font-family: "MS Sans Serif", Arial, sans-serif;
@@ -62,7 +74,7 @@ button:active {
    ====================================== */
 .avatar {
   width: 100%;
-  margin-bottom: 8px;
+  margin-bottom: var(--space-md);
   border: 1px solid #808080;
 }
 
@@ -90,8 +102,8 @@ button:active {
    POST ITEM CARD
    ====================================== */
 .post-item {
-  margin-bottom: 12px;
-  padding-bottom: 10px;
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-md);
   border-bottom: 1px dotted #808080;
 }
 
@@ -106,7 +118,7 @@ button:active {
   text-decoration: none;
   font-size: 12px;
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: var(--space-xs);
 }
 
 .post-link:hover {
@@ -115,13 +127,13 @@ button:active {
 }
 
 .post-date {
-  margin: 2px 0;
+  margin: var(--space-xs) 0;
   font-size: 10px;
   color: #808080;
 }
 
 .post-excerpt {
-  margin: 4px 0 0 0;
+  margin: var(--space-sm) 0 0 0;
   line-height: 1.4;
 }
 
@@ -129,20 +141,20 @@ button:active {
    FORM GROUP
    ====================================== */
 .form-group {
-  margin-bottom: 10px;
+  margin-bottom: var(--space-md);
   display: flex;
   flex-direction: column;
 }
 
 .form-group label {
-  margin-bottom: 3px;
+  margin-bottom: var(--space-xs);
   font-weight: bold;
 }
 
 .form-group input,
 .form-group textarea {
   border: 2px inset #808080;
-  padding: 3px 4px;
+  padding: var(--space-xs) var(--space-sm);
   font-family: "MS Sans Serif", Arial, sans-serif;
   background: white;
 }
@@ -157,32 +169,32 @@ button:active {
    ====================================== */
 .guestbook-entry {
   border-left: 2px solid #808080;
-  padding: 8px;
-  margin: 8px 0;
+  padding: var(--space-md);
+  margin: var(--space-md) 0;
   background: #f2f2f2;
 }
 
 .guestbook-entry strong {
   display: block;
-  margin-bottom: 3px;
+  margin-bottom: var(--space-xs);
   color: #000080;
 }
 
 .entry-date {
   font-size: 10px;
   color: #808080;
-  margin-right: 10px;
+  margin-right: var(--space-md);
 }
 
 .guestbook-entry p {
-  margin: 5px 0 0 0;
+  margin: var(--space-sm) 0 0 0;
   font-size: 10px;
   line-height: 1.4;
 }
 
 .guestbook-entry a {
   font-size: 10px;
-  margin-right: 10px;
+  margin-right: var(--space-md);
 }
 
 /* ======================================
@@ -191,12 +203,12 @@ button:active {
 .authors {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: var(--space-lg);
 }
 
 .author {
   display: flex;
-  gap: 10px;
+  gap: var(--space-md);
   align-items: center;
 }
 
