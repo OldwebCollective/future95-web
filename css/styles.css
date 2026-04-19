@@ -225,7 +225,8 @@ body {
 }
 
 #post-body {
-  /* Remove window-specific styles - now using .window > .window-content structure */
+  padding: 20px;
+  align-items: flex-start;
 }
 
 #post-body h1 {
@@ -605,6 +606,10 @@ hr {
     flex-direction: column;
   }
 
+  #post-body {
+    padding: 5px;
+  }
+
   /* Post body responsive styles */
   #post-body h1 {
     font-size: 18px;
@@ -807,6 +812,10 @@ hr {
   .main p {
     margin: var(--space-md) 0;
     font-size: 10px;
+  }
+
+  #post-body {
+    padding: 5px;
   }
 
   /* Post body responsive styles - small mobile */
