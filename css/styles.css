@@ -263,6 +263,31 @@ hr {
 }
 
 /* ======================================
+   VISIBILITY UTILITIES
+   ====================================== */
+.hide-on-tablet {
+  display: block;
+}
+
+.hide-on-mobile {
+  display: block;
+}
+
+.hide-on-small-mobile {
+  display: block;
+}
+
+/* Webmaster widget specific optimization */
+#webmaster-status-widget marquee {
+  display: none !important;
+}
+
+#webmaster-status-widget img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ======================================
    LOADING OVERLAY
    ====================================== */
 .loading-overlay {
@@ -418,6 +443,16 @@ hr {
   .loading-window {
     width: 90vw;
     max-width: 300px;
+  }
+
+  /* Reduce webmaster widget on tablet */
+  #webmaster-status-widget img {
+    max-width: 80px;
+    height: auto;
+  }
+
+  .hide-on-tablet {
+    display: none;
   }
 }
 
@@ -579,6 +614,24 @@ hr {
 
   hr {
     margin: 8px 0;
+  }
+
+  /* Hide large widgets on tablet */
+  #webmaster-status-widget {
+    display: none;
+  }
+
+  #visitors-widget {
+    display: none;
+  }
+
+  /* Optimize remaining widgets */
+  #follow-widget {
+    margin-bottom: 8px;
+  }
+
+  .hide-on-tablet {
+    display: none;
   }
 }
 
@@ -779,4 +832,16 @@ hr {
     width: 24px;
     height: 24px;
   }
-}
+
+  /* Hide non-essential widgets on small mobile */
+  #desktop-area-widget {
+    display: none;
+  }
+
+  #links-widget {
+    display: none;
+  }
+
+  .hide-on-small-mobile {
+    display: none;
+  }
