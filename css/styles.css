@@ -55,6 +55,15 @@ body {
   font-size: 14px;
 }
 
+.site-header img {
+  width: 20px;
+  height: auto;
+}
+
+.site-header b {
+  line-height: 1;
+}
+
 .nav {
   display: flex;
   flex-wrap: wrap;
@@ -352,6 +361,12 @@ hr {
   margin: var(--space-lg) 0;
 }
 
+.header-separator {
+  display: none;
+  width: 100%;
+  margin: var(--space-md) 0;
+}
+
 /* ======================================
    VISIBILITY UTILITIES
    ====================================== */
@@ -569,8 +584,12 @@ hr {
   }
 
   .site-header {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .header-separator {
+    display: block;
   }
 
   .site-header b {
@@ -741,10 +760,6 @@ hr {
     gap: 8px;
   }
 
-  hr {
-    margin: 8px 0;
-  }
-
   /* Hide large widgets on tablet */
 
   #sidebar-about {
@@ -787,6 +802,10 @@ hr {
 
   .site-header b {
     font-size: 10px;
+  }
+
+  .header-separator {
+    margin: var(--space-sm) 0;
   }
 
   .nav {
