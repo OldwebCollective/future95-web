@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Post - Future in '95</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/components.css" />
@@ -13,13 +14,15 @@
         <div id="header-container"></div>
 
         <div class="layout">
-          <div class="post-content">
+          <div class="main">
             <div id="post-header" class="window">
               <div class="title-bar" id="post-title-bar">Loading...</div>
               <div class="window-content" id="post-meta"></div>
             </div>
 
-            <div id="post-body"></div>
+            <div class="window">
+              <div class="window-content" id="post-body"></div>
+            </div>
           </div>
 
           <div class="sidebar">
@@ -122,18 +125,9 @@
 
             images.forEach((img, idx) => {
               console.log(`Imagen ${idx}: src="${img.src}", alt="${img.alt}"`);
-              img.style.maxWidth = "100%";
-              img.style.height = "auto";
-              img.style.border = "1px solid #808080";
-              img.style.margin = "10px 0";
               img.loading = "lazy";
             });
           }, 100);
-
-          const tables = document.querySelectorAll("#post-body table");
-          tables.forEach((table) => {
-            table.className = "window";
-          });
         } catch (error) {
           console.error("Error:", error);
           document.getElementById("post-body").innerHTML = `
