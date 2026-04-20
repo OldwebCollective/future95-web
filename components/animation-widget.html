@@ -6,4 +6,19 @@
       src="./assets/img/animation/windows-flying.gif"
     />
   </div>
+    <div class="window-content">
+      <p id="track">▶ Nothing playing</p>
+
+      <button class="music-button" onclick="prevTrack()" style="margin-left: 5px">⏮</button>
+      <button class="music-button" onclick="playMusic()">▶</button>
+      <button class="music-button" onclick="pauseMusic()">⏸</button>
+      <button class="music-button" onclick="nextTrack()" style="margin-left: 5px">⏭</button>
+
+      <div style="margin-top: 10px; font-size: 10px; color: #808080">
+        <p id="track-info" style="margin: 3px 0">Track 1 of 5</p>
+      </div>
+    </div>
+  <!-- Audio -->
+  <audio id="audio-player" src="./assets/audio/o95.wav"></audio>
+
 </div>

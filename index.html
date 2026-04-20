@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Future in '95</title>
+    <title>Posts - Future in '95</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/components.css" />
   </head>
@@ -35,66 +35,50 @@
     </div>
 
     <div class="ie-window">
-      <div class="ie-content">
+      <div class="ie-content posts">
         <div id="header-container"></div>
 
         <div class="content">
-          <div class="sidebar">
-            <div id="sidebar-about"></div>
-            <div id="webmaster-status-widget"></div>
-            <div id="follow-widget"></div>
-          </div>
-
           <div class="main">
             <div id="featured-post-container"></div>
 
-            <div class="posts-and-widgets">
-              <div id="posts-container" class="latest-posts-section"></div>
+            <div id="latest-post-container"></div>
 
-              <div class="sidebar right-sidebar">
-                <div id="site-info-widget"></div>
-                <div id="follow-widget"></div>
-                <div id="links-widget"></div>
-                <div id="visitors-widget"></div>
+            <div id="posts-container"></div>
+          </div>
+
+          <div class="sidebar">
+            <div id="follow-widget"></div>
+            <div id="links-widget"></div>
+            <div class="window">
+              <div class="title-bar">QUICK LINKS</div>
+              <div class="window-content">
+                <p><a href="/archives.html">Browse Archives</a></p>
+                <p><a href="./about.html">About US</a></p>
               </div>
             </div>
+            <div id="webmaster-status-widget"></div>
           </div>
         </div>
-        <div id="desktop-area-widget"></div>
       </div>
     </div>
   </body>
 </html>
 
-<script src="js/app.js"></script>
 <script src="js/utils.js"></script>
+<script src="js/app.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", async () => {
     const headerRes = await fetch("./components/header.html");
     document.getElementById("header-container").innerHTML =
       await headerRes.text();
 
-    const aboutRes = await fetch("./components/about-widget.html");
-    document.getElementById("sidebar-about").innerHTML = await aboutRes.text();
-
     const followRes = await fetch("./components/follow-widget.html");
     document.getElementById("follow-widget").innerHTML = await followRes.text();
 
     const linksRes = await fetch("./components/links-widget.html");
     document.getElementById("links-widget").innerHTML = await linksRes.text();
-
-    const siteInfoRes = await fetch("./components/site-info.html");
-    document.getElementById("site-info-widget").innerHTML =
-      await siteInfoRes.text();
-
-    const visitorsRes = await fetch("./components/visitors-widget.html");
-    document.getElementById("visitors-widget").innerHTML =
-      await visitorsRes.text();
-
-    const desktopAreaRes = await fetch("./components/desktop-area-widget.html");
-    document.getElementById("desktop-area-widget").innerHTML =
-      await desktopAreaRes.text();
-
+    
     const webmasterStatusRes = await fetch(
       "./components/webmaster-status-widget.html",
     );
@@ -102,9 +86,9 @@
       await webmasterStatusRes.text();
 
     await initApp();
+
     renderFeaturedPost();
-    renderLatestPostsHome();
-    renderRandomPost();
-    renderLatestExperiment();
+    renderLatestSinglePost();
+    renderPostsList();
   });
 </script>
