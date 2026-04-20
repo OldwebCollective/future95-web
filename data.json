@@ -78,8 +78,7 @@
     }
   ],
   "navigation": [
-    { "label": "home", "href": "./" },
-    { "label": "posts", "href": "./posts.html" },
+    { "label": "what's new", "href": "./" },
     { "label": "archives", "href": "#" },
     { "label": "about", "href": "./about.html" }
   ],
