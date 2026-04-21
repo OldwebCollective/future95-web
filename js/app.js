@@ -200,7 +200,6 @@ function renderArchivePosts() {
   if (!container) return;
 
   const logs = getArchiveLogs();
-  console.log("Archive logs:", logs);
 
   container.innerHTML = logs
     .map((log) => {
