@@ -1,4 +1,4 @@
-# Demonios Gump, eres un genio: el Task Manager de Windows NT 4.0
+# "Demonios Gump, eres un genio": el Task Manager de Windows NT 4.0
 
 Si alguna vez sentiste que tu PC estaba a punto de explotar y el fiel Ctrl + Alt + Supr fue tu única tabla de salvación, le debés un café a David Plummer. Este veterano ingeniero de Microsoft no solo creó el Administrador de Tareas, sino que lo diseñó para ser, literalmente, indestructible.
 

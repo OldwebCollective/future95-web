@@ -9,12 +9,50 @@
   </head>
 
   <body>
+    <!-- Loading Screen -->
+    <div id="loading-overlay" class="loading-overlay">
+      <div class="loading-window">
+        <div class="title-bar">⏳ CARGANDO...</div>
+        <div class="loading-content">
+          <p style="margin: 20px 0; text-align: center; font-size: 12px">
+            Por favor espera...
+          </p>
+          <div class="loading-bar-container">
+            <div class="loading-bar"></div>
+          </div>
+          <p
+            style="
+              text-align: center;
+              font-size: 10px;
+              color: #808080;
+              margin-top: 10px;
+            "
+          >
+            Inicializando aplicación...
+          </p>
+        </div>
+      </div>
+    </div>
+
     <div class="ie-window">
-      <div class="ie-content">
+      <div class="ie-content archives">
         <div id="header-container"></div>
-        <div class="content">
-          <div class="sidebar" id="sidebar-about"></div>
-          <p>🚧 Site under construction 🚧</p>
+
+        <div class="layout">
+          <div class="main">
+            <div class="window">
+              <div class="window-content" id="archives-container"></div>
+            </div>
+          </div>
+
+          <div class="sidebar">
+            <div class="window">
+              <div class="title-bar">SIDEBAR</div>
+              <div class="window-content">
+                <p>Contenido del sidebar</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -22,6 +60,7 @@
 </html>
 
 <script src="js/app.js"></script>
+<script src="js/utils.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", async () => {
     const headerRes = await fetch("./components/header.html");
@@ -29,5 +68,6 @@
       await headerRes.text();
 
     await initApp();
+    renderArchivePosts();
   });
 </script>
