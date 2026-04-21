@@ -7,11 +7,11 @@
    ====================================== */
 :root {
   /* Spacing Scale */
-  --space-xs: 4px;   /* 0.25rem */
-  --space-sm: 8px;   /* 0.5rem */
-  --space-md: 12px;  /* 0.75rem */
-  --space-lg: 16px;  /* 1rem */
-  --space-xl: 24px;  /* 1.5rem */
+  --space-xs: 4px; /* 0.25rem */
+  --space-sm: 8px; /* 0.5rem */
+  --space-md: 12px; /* 0.75rem */
+  --space-lg: 16px; /* 1rem */
+  --space-xl: 24px; /* 1.5rem */
 
   /* Component spacing */
   --gap-component: var(--space-sm);
@@ -92,11 +92,7 @@ body {
 }
 
 .ie-content {
-  background-color: #bfb8b9;
-  background-image: url("../assets/img/background/clouds.webp");
-  background-repeat: repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  background-color: #008080;
   flex: 1;
   overflow: auto;
   display: flex;
@@ -119,6 +115,12 @@ body {
 
 .ie-content.post {
   background-image: url("../assets/img/textures/Blue\ Rivets.bmp");
+  background-repeat: repeat;
+  background-size: auto;
+}
+
+.ie-content.archives {
+  background-image: url("../assets/img/textures/Waves.bmp");
   background-repeat: repeat;
   background-size: auto;
 }
@@ -296,7 +298,7 @@ body {
   background: #e2dcdc;
   padding: var(--space-xs) var(--space-sm);
   border-radius: 2px;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   font-size: 11px;
 }
 
@@ -354,7 +356,6 @@ body {
   #sidebar-about {
     display: none;
   }
-
 }
 
 /* ======================================

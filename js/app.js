@@ -177,6 +177,44 @@ function renderFeaturedPost() {
   `;
 }
 
+function getArchiveLogs() {
+  const postLogs = blogData.posts.map((post) => ({
+    type: "post",
+    date: post.date,
+    data: post,
+  }));
+
+  const eventLogs = blogData.events.map((event) => ({
+    type: "event",
+    date: event.date,
+    data: event,
+  }));
+
+  return [...postLogs, ...eventLogs].sort(
+    (a, b) => new Date(b.date) - new Date(a.date),
+  );
+}
+
+function renderArchivePosts() {
+  const container = document.getElementById("archives-container");
+  if (!container) return;
+
+  const logs = getArchiveLogs();
+  console.log("Archive logs:", logs);
+
+  container.innerHTML = logs
+    .map((log) => {
+      const date = formatSlashDate(log.date);
+
+      if (log.type === "post") {
+        return `<p><span>${date}</span> - [POST] <a href="post.html?id=${log.data.id}">${log.data.title}</a></p>`;
+      }
+
+      return `<p><span>${date}</span> - [UPDATE] <em>${log.data.text}</em></p>`;
+    })
+    .join("");
+}
+
 function renderLatestPostsHome() {
   const container = document.getElementById("posts-container");
   if (!container) return;
