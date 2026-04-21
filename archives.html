@@ -46,10 +46,13 @@
           </div>
 
           <div class="sidebar">
+            <div id="webmaster-status-widget"></div>
+            <div id="follow-widget"></div>
             <div class="window">
-              <div class="title-bar">SIDEBAR</div>
+              <div class="title-bar">QUICK LINKS</div>
               <div class="window-content">
-                <p>Contenido del sidebar</p>
+                <p><a href="/archives.html">Browse Archives</a></p>
+                <p><a href="./about.html">About Us</a></p>
               </div>
             </div>
           </div>
@@ -66,6 +69,13 @@
     const headerRes = await fetch("./components/header.html");
     document.getElementById("header-container").innerHTML =
       await headerRes.text();
+
+    const followRes = await fetch("./components/follow-widget.html");
+    document.getElementById("follow-widget").innerHTML = await followRes.text();
+
+    const webmasterStatusRes = await fetch("./components/webmaster-status-widget.html");
+    document.getElementById("webmaster-status-widget").innerHTML =
+      await webmasterStatusRes.text();
 
     await initApp();
     renderArchivePosts();
