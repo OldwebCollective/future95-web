@@ -1,67 +1,14 @@
 let blogData = {};
 let currentTrackIndex = 0;
-let playlist = [];
+//let playlist = [];
 
 async function initApp() {
   try {
     const response = await fetch("./data.json");
     blogData = await response.json();
-
-    playlist = blogData.playlist || [];
-
-    renderNavigation();
-    renderAuthor();
-    renderLinks();
-    renderFollowWidget();
   } catch (error) {
     console.error("Error cargando datos:", error);
-  } finally {
-    hideLoadingScreen();
   }
-}
-
-function hideLoadingScreen() {
-  const loadingOverlay = document.getElementById("loading-overlay");
-  if (loadingOverlay) {
-    loadingOverlay.classList.add("hidden");
-
-    setTimeout(() => {
-      loadingOverlay.style.display = "none";
-    }, 300);
-  }
-}
-
-function renderNavigation() {
-  const navContainer = document.getElementById("main-nav");
-  if (!navContainer) return;
-
-  navContainer.innerHTML = blogData.navigation
-    .map((item) => `<a href="${item.href}">${item.label}</a>`)
-    .join("");
-}
-
-function renderAuthor() {
-  const avatar = document.getElementById("avatar");
-  const authorName = document.getElementById("author-name");
-  const authorDesc = document.getElementById("author-desc");
-
-  if (avatar) avatar.src = blogData.blog.avatar;
-  if (authorName) authorName.textContent = blogData.blog.author;
-  if (authorDesc) authorDesc.textContent = blogData.blog.description;
-}
-
-function renderLinks() {
-  const linksList = document.getElementById("links-list");
-  if (!linksList) return;
-
-  linksList.innerHTML = blogData.links
-    .map((link) => `<li><a href="${link.href}">${link.label}</a></li>`)
-    .join("");
-}
-
-function renderFollowWidget() {
-  const handle = document.getElementById("handle");
-  if (handle) handle.textContent = blogData.contact.handle;
 }
 
 function renderPostsList(limit = null) {
@@ -138,7 +85,6 @@ function renderFeaturedPost() {
   );
   const featured = sortedPosts[0];
 
-  // Usamos una tabla para estructurar el contenido
   container.innerHTML = `
     <table border="1" cellspacing="0" cellpadding="10" style="width: 100%; border-collapse: collapse; font-family: sans-serif;">
       <tbody>
@@ -228,97 +174,4 @@ function renderLatestPostsHome() {
       </div>
     </div>
   `;
-}
-
-function renderLatestSinglePost() {
-  const container = document.getElementById("latest-post-container");
-  if (!container || !blogData.posts || blogData.posts.length === 0) return;
-
-  const sortedPosts = [...blogData.posts].sort(
-    (a, b) => new Date(b.date) - new Date(a.date),
-  );
-
-  const latestPost = sortedPosts[1] || sortedPosts[0];
-
-  container.innerHTML = `
-    <div class="window">
-      <div class="title-bar">LATEST POST</div>
-      <div class="window-content">
-        <a href="post.html?id=${latestPost.id}" style="text-decoration: none; color: #07070d; font-weight: bold; font-size: 12px; display: block; margin-bottom: 8px;">
-          📝 ${latestPost.title}
-        </a>
-        <p style="margin: 5px 0; font-size: 10px; color: #808080;">${formatDate(latestPost.date)}</p>
-        <p style="margin: 8px 0; font-size: 11px; line-height: 1.4;">${latestPost.excerpt}</p>
-        <a href="post.html?id=${latestPost.id}" style="color: blue; font-size: 11px;">Read full post →</a>
-      </div>
-    </div>
-  `;
-}
-
-function renderRandomPost() {
-  const container = document.getElementById("random-post");
-  if (!container) return;
-
-  const posts = blogData.posts;
-  const random = posts[Math.floor(Math.random() * posts.length)];
-
-  container.innerHTML = `
-    <p>${random.title}</p>
-    <a href="post.html?id=${random.id}">→ Read post</a>
-  `;
-}
-
-function renderLatestExperiment() {
-  const container = document.getElementById("latest-experiment");
-  if (!container) return;
-
-  const latest = [...blogData.posts].sort((a, b) => {
-    return new Date(b.date) - new Date(a.date);
-  })[0];
-
-  container.innerHTML = `
-    <p><strong>${latest.title}</strong></p>
-    <p>${latest.excerpt}</p>
-    <a href="post.html?id=${latest.id}">→ View experiment</a>
-  `;
-}
-
-function playMusic() {
-  const audio = document.getElementById("audio-player");
-  if (playlist.length === 0) {
-    alert("No tracks available");
-    return;
-  }
-
-  const currentTrack = playlist[currentTrackIndex];
-  audio.src = currentTrack.path;
-  audio.play();
-  updateTrackDisplay();
-}
-
-function pauseMusic() {
-  const audio = document.getElementById("audio-player");
-  audio.pause();
-  document.getElementById("track").textContent = "⏸ Paused";
-}
-
-function nextTrack() {
-  currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
-  playMusic();
-}
-
-function prevTrack() {
-  currentTrackIndex =
-    (currentTrackIndex - 1 + playlist.length) % playlist.length;
-  playMusic();
-}
-
-function updateTrackDisplay() {
-  const currentTrack = playlist[currentTrackIndex];
-  const trackNum = currentTrackIndex + 1;
-  const totalTracks = playlist.length;
-
-  document.getElementById("track").textContent = `▶ ${currentTrack.title}`;
-  document.getElementById("track-info").textContent =
-    `Track ${trackNum} of ${totalTracks}`;
 }
