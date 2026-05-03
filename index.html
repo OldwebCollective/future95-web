@@ -49,7 +49,7 @@
               />
               <br />
               <br />
-              <blink>!!! BEST VIEWED IN NETSCAPE 4.0 !!!</blink>
+              <blink>¡¡¡ SE VE MEJOR EN INTERNET EXPLORER !!!</blink>
               <br />
             </center>
 
@@ -59,9 +59,10 @@
             <center>
               <b>NAVIGATION</b><br /><br />
 
-              <a href="./index.html">[ HOME ]</a> | <a href="#">[ POSTS ]</a> |
+              <a href="./index.html">[ HOME ]</a> |
+              <a href="./posts.html">[ POSTS ]</a> |
               <a href="./archives.html">[ ARCHIVES ]</a> |
-              <a href="./about.html">[ ABOUT ]</a> |
+              <a href="./about.html">[ ABOUT ]</a>
             </center>
 
             <hr />
@@ -165,12 +166,6 @@
 
             <hr />
 
-            <!-- ALL POSTS -->
-            <center><b>ALL POSTS</b><br /></center>
-            <div id="posts-container" style="margin: 10px 0"></div>
-
-            <hr />
-
             <!-- FOOTER -->
             <center>
               <small>
@@ -205,15 +200,8 @@
 
   document.addEventListener("DOMContentLoaded", async () => {
     await initApp();
-
-    // Render featured post
     renderFeaturedPost();
-
-    // Render latest posts list for "LATEST POSTS" section
     renderLatestPostsList();
-
-    // Render all posts
-    renderPostsList();
   });
 
   function renderLatestPostsList() {

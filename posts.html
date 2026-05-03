@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Archives - Future in '95</title>
+    <title>Posts - Future in '95</title>
     <style>
       body {
         margin: 0;
@@ -48,8 +48,8 @@
           <td>
             <!-- HEADER -->
             <center>
-              <h2>ARCHIVES</h2>
-              <h4>Browse all posts by date</h4>
+              <h2>Posts</h2>
+              <h4>Explora todas las publicaciones por fecha</h4>
             </center>
 
             <hr />
@@ -65,19 +65,17 @@
             <hr />
 
             <!-- ARCHIVE POSTS -->
-            <center><b>ALL POSTS</b></center>
-            <div id="archives-container">
+            <div id="posts-container" style="margin: 10px 0">
               <p><i>Loading posts...</i></p>
             </div>
-
             <hr />
 
             <!-- FOOTER -->
             <center>
               <small>
                 © 1995-2026 <b>FUTURE IN '95</b><br />
-                Archivo completo de todas las publicaciones<br />
-                Contenido no apto para celulares. 
+                Más publicaciones se vienen en camino<br />
+                Se recomienda ver la web en un monitor CRT
               </small>
             </center>
           </td>
@@ -93,5 +91,6 @@
   document.addEventListener("DOMContentLoaded", async () => {
     await initApp();
     renderArchivePosts();
+    renderPostsList();
   });
 </script>
