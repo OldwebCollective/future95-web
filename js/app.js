@@ -64,34 +64,6 @@ function renderFollowWidget() {
   if (handle) handle.textContent = blogData.contact.handle;
 }
 
-/*
-function renderPostsList(limit = null) {
-  const container = document.getElementById("posts-container");
-  if (!container) return;
-  const sortedPosts = [...blogData.posts].sort((a, b) => {
-    const dateA = new Date(a.date);
-    const dateB = new Date(b.date);
-    return dateB - dateA;
-  });
-
-  const postsToShow = limit ? sortedPosts.slice(0, limit) : sortedPosts;
-
-  const linksList = postsToShow
-    .map(
-      (post) => `<li><a href="post.html?id=${post.id}">${post.title}</a></li>`,
-    )
-    .join("");
-
-  container.innerHTML = `
-        <div class="window-content" style="border: 2px solid; border-color: #fff #404040 #404040 #fff; padding: 10px;">
-          <ul id="links-list">
-            ${linksList}
-          </ul>
-        </div>
-  `;
-}
-  */
-
 function renderPostsList(limit = null) {
   const container = document.getElementById("posts-container");
   if (!container) return;
@@ -104,27 +76,33 @@ function renderPostsList(limit = null) {
 
   const postsToShow = limit ? sortedPosts.slice(0, limit) : sortedPosts;
 
-  const linksList = postsToShow
+  const tableRows = postsToShow
     .map(
-      (post) => `<li>
-        <a href="post.html?id=${post.id}" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #000080;">
-          ${post.thumbnail ? `<img src="${post.thumbnail}" alt="" style="width: 40px; height: 40px; object-fit: cover; border: 1px solid #dfdfdf;">` : ""}
-          <span>
-            <strong>${post.title}</strong><br>
-            <small style="color: #808080; font-size: 10px;">${formatDate(post.date)}</small></br>
+      (post) => `
+      <tr style="border-bottom: 1px solid #dfdfdf;">
+        <td style="padding: 5px; width: 45px; vertical-align: middle;">
+          ${
+            post.thumbnail
+              ? `<img src="${post.thumbnail}" alt="" style="width: 40px; height: 40px; object-fit: cover; border: 1px solid #808080; display: block;">`
+              : `<div style="width: 40px; height: 40px; background: #eee; border: 1px solid #808080;"></div>`
+          }
+        </td>
+        <td style="padding: 5px; vertical-align: middle;">
+          <a href="post.html?id=${post.id}" style="text-decoration: none; color: blue; display: block;">
+            <strong style="font-size: 14px;">${post.title}</strong><br>
+            <small style="color: #808080; font-size: 10px;">${formatDate(post.date)}</small><br>
             <small style="color: #0080ff; font-size: 9px;">${(post.categories || []).join(", ")}</small>
-          </span>
-        </a>
-      </li>`,
+          </a>
+        </td>
+      </tr>`,
     )
     .join("");
-
   container.innerHTML = `
-        <div class="window-content" style="border: 2px solid; border-color: #fff #404040 #404040 #fff; padding: 10px;">
-          <ul id="links-list" style="list-style: none; padding: 0; margin: 0;">
-            ${linksList}
-          </ul>
-        </div>
+      <table width="100%" cellspacing="0" cellpadding="0" style="background-color: #000000; color: #e0e0e0; border-collapse: collapse; font-family: sans-serif;">
+        <tbody>
+          ${tableRows}
+        </tbody>
+      </table>
   `;
 }
 
@@ -160,20 +138,24 @@ function renderFeaturedPost() {
   );
   const featured = sortedPosts[0];
 
+  // Usamos una tabla para estructurar el contenido
   container.innerHTML = `
-    <div class="window featured-window">
-      <div class="title-bar featured-title-bar">
-        FEATURED POST
-      </div>
-      <div class="window-content">
-        <a href="post.html?id=${featured.id}" style="text-decoration: none; color: #07070d; font-weight: bold; font-size: 12px; display: block; margin-bottom: 8px;">
-          🔥 ${featured.title}
-        </a>
-        <p style="margin: 5px 0; font-size: 10px; color: #808080;">${formatDate(featured.date)}</p>
-        <p style="margin: 8px 0; font-size: 11px; line-height: 1.4;">${featured.excerpt}</p>
-        <a href="post.html?id=${featured.id}" style="color: blue; font-size: 11px;">Read full post →</a>
-      </div>
-    </div>
+    <table border="1" cellspacing="0" cellpadding="10" style="width: 100%; border-collapse: collapse; font-family: sans-serif;">
+      <tbody>
+        <tr>
+          <td>
+            <a href="post.html?id=${featured.id}" style="font-weight: bold; font-size: 18px; text-decoration: none; color: blue;">
+              ${featured.title}
+            </a>
+            <div style="margin: 5px 0; font-size: 10px; color: #808080;">
+              ${formatDate(featured.date)}
+            </div>
+            <p style="margin: 10px 0;">${featured.excerpt}</p>
+            <a href="post.html?id=${featured.id}" style="font-size: 12px;">Read full post →</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   `;
 }
 

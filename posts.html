@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Archives - Future in '95</title>
+    <title>Posts - Future in '95</title>
     <style>
       body {
         margin: 0;
@@ -17,7 +17,7 @@
         color: #ff00ff;
       }
       a:hover {
-        background-color: #ffff00;
+        background-color: #00FFFF;
         color: #000080;
       }
       hr {
@@ -48,8 +48,8 @@
           <td>
             <!-- HEADER -->
             <center>
-              <h2>ARCHIVOS DE LA WEB</h2>
-              <h4>Explora todas las novedades por fecha</h4>
+              <h2>POSTS</h2>
+              <h4>Explora todas las publicaciones</h4>
             </center>
 
             <hr />
@@ -65,18 +65,17 @@
             <hr />
 
             <!-- ARCHIVE POSTS -->
-            <div id="archives-container">
+            <div id="posts-container" style="margin: 10px 0">
               <p><i>Loading posts...</i></p>
             </div>
-
             <hr />
 
             <!-- FOOTER -->
             <center>
               <small>
                 © 1995-2026 <b>FUTURE IN '95</b><br />
-                Archivo completo de todas las publicaciones<br />
-                Contenido no apto para celulares. 
+                Más publicaciones se vienen en camino<br />
+                Se recomienda ver la web en un monitor CRT
               </small>
             </center>
           </td>
@@ -92,5 +91,6 @@
   document.addEventListener("DOMContentLoaded", async () => {
     await initApp();
     renderArchivePosts();
+    renderPostsList();
   });
 </script>
