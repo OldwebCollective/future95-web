@@ -1,182 +1,106 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About - Future in '95</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/components.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <title>About - Future in '95</title>
+  <style>
+    body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+    a { color: #00FFFF; text-decoration: underline; }
+    a:visited { color: #FF00FF; }
+    a:hover { background-color: #FFFF00; color: #000080; }
+    hr { border: 2px solid #000080; }
+    .author-box { border: 2px solid #FFFF00; padding: 10px; margin: 10px 0; background: #0a0a1a; }
+    .author-box strong { color: #FFFF00; }
+  </style>
+</head>
 
-  <body>
-    <!-- Loading Screen -->
-    <div id="loading-overlay" class="loading-overlay">
-      <div class="loading-window">
-        <div class="title-bar">⏳ CARGANDO...</div>
-        <div class="loading-content">
-          <p style="margin: 20px 0; text-align: center; font-size: 12px">
-            Por favor espera...
-          </p>
-          <div class="loading-bar-container">
-            <div class="loading-bar"></div>
-          </div>
-          <p
-            style="
-              text-align: center;
-              font-size: 10px;
-              color: #808080;
-              margin-top: 10px;
-            "
-          >
-            Inicializando aplicación...
-          </p>
-        </div>
-      </div>
-    </div>
+<body bgcolor="#000080" text="#FFFFFF" link="#00FFFF" vlink="#FF00FF">
 
-    <div class="ie-window">
-      <div class="ie-content about">
-        <div id="header-container"></div>
+<center>
 
-        <div class="content">
-          <div class="main">
-            <div class="window">
-              <div class="title-bar">AUTHORS</div>
-              <div class="window-content authors">
-                <div class="author">
-                  <img
-                    src="assets/img/avatars/pascal.webp"
-                    class="about-avatar"
-                  />
-                  <div>
-                    <strong>p4sCAL_GUI</strong>
-                    <p>
-                      Retro tech Enthusiast • Gym bro • SR Software Engineer
-                    </p>
-                    <p>
-                      <strong>> Currently using:</strong> Arch BTW & Windows XP
-                      (no es broma)
-                    </p>
-                  </div>
-                </div>
+<table border="4" cellpadding="8" cellspacing="0" width="760" bgcolor="#000000">
+<tr>
+<td>
 
-                <div class="author">
-                  <img
-                    src="assets/img/avatars/lenin.webp"
-                    class="about-avatar"
-                  />
-                  <div>
-                    <strong>eternal_1917</strong>
-                    <p>Retro gamer • Physics student • Glitch explorer</p>
-                    <p><strong>> Currently breaking:</strong> Old games</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+<!-- HEADER -->
+<center>
+  <h2>✦ ABOUT FUTURE IN '95 ✦</h2>
+  <h4>Meet the team behind the retro</h4>
+</center>
 
-            <div class="window">
-              <div class="title-bar">ABOUT THE BLOG</div>
-              <div class="window-content">
-                <h3>¿Por qué este blog?</h3>
-                <p>
-                  Este blog nace como un intento de responder una pregunta
-                  simple: ¿hasta dónde se puede llevar el software antiguo en
-                  hardware moderno?
-                </p>
+<hr>
 
-                <p>
-                  Actualmente, junto a <strong>p4sCAL_GUI</strong>, estamos
-                  investigando —de forma gradual pero constante— cómo rescatar
-                  software antiguo y hacerlo convivir con hardware más reciente.
-                </p>
+<!-- NAVEGACION -->
+<center>
+  <a href="./index.html">[ HOME ]</a> |
+  <a href="./archives.html">[ ARCHIVES ]</a> |
+  <a href="./about.html">[ ABOUT ]</a> |
+  <a href="./guestbook.html">[ GUESTBOOK ]</a>
+</center>
 
-                <p>
-                  Nuestro foco principal está en Windows 98, el sistema con el
-                  que crecimos.
-                </p>
+<hr>
 
-                <p>
-                  Hace unos años logramos un primer hito: correr un sistema dual
-                  con Windows 98 y Windows 7 en un mismo disco. Esto fue posible
-                  gracias a herramientas desarrolladas por la comunidad, y nos
-                  mostró que todavía hay mucho por descubrir en este campo.
-                </p>
+<!-- AUTHORS -->
+<center><b>★ THE AUTHORS ★</b></center>
+<div id="authors-container"></div>
 
-                <p>
-                  Nuestra idea es seguir experimentando, documentar lo que
-                  aprendemos y, en la medida de lo posible, aportar nuestro
-                  propio granito de arena a estos proyectos.
-                </p>
-              </div>
-            </div>
+<hr>
 
-            <div class="window">
-              <div class="title-bar">INTERESTS</div>
-              <div class="window-content">
-                <h3>¿Qué nos gusta?</h3>
-                <ul>
-                  <li>
-                    Retro computing y software vintage (especialmente Windows
-                    98)
-                  </li>
-                  <li>
-                    Análisis de tecnología, gadgets y herramientas modernas
-                  </li>
-                  <li>Reciclaje y reutilización de hardware antiguo</li>
-                  <li>
-                    Experimentación: correr software viejo en hardware más nuevo
-                  </li>
-                  <li>Documentación de procesos y “cuaderno de laboratorio”</li>
-                  <li>Método de prueba y error aplicado a tecnología</li>
-                  <li>
-                    Desarrollo y aporte de herramientas para la comunidad retro
-                  </li>
-                  <li>
-                    Gaming en plataformas clásicas (Mega Drive, SNES, etc.)
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+<!-- ABOUT THE BLOG -->
+<center><b>★ ABOUT THIS BLOG ★</b></center>
+<p>
+  <b>¿Por qué este blog?</b><br>
+  Este blog nace como un intento de responder una pregunta simple: ¿hasta dónde se puede llevar el software antiguo en hardware moderno? Actualmente, investigamos cómo rescatar software antiguo y hacerlo convivir con hardware más reciente, enfocándonos especialmente en Windows 98.
+</p>
 
-          <div class="sidebar">
-            <div id="site-info-widget"></div>
-            <div id="links-widget"></div>
-            <div id="random-post-widget"></div>
-            <div id="animation-widget"></div>
-          </div>
-        </div>
-      </div>
-    </div>
+<p>
+  <b>¿Qué nos gusta?</b>
+  <ul style="margin-left: 20px;">
+    <li>Retro computing y software vintage (especialmente Windows 98)</li>
+    <li>Análisis de tecnología, gadgets y herramientas modernas</li>
+    <li>Reciclaje y reutilización de hardware antiguo</li>
+    <li>Experimentación: correr software viejo en hardware más nuevo</li>
+    <li>Documentación de procesos y cuaderno de laboratorio</li>
+    <li>Gaming en plataformas clásicas (Mega Drive, SNES, etc.)</li>
+  </ul>
+</p>
 
-    <script src="js/app.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", async () => {
-        const headerRes = await fetch("./components/header.html");
-        document.getElementById("header-container").innerHTML =
-          await headerRes.text();
+<hr>
 
-        const linksRes = await fetch("./components/links-widget.html");
-        document.getElementById("links-widget").innerHTML =
-          await linksRes.text();
+<!-- FOOTER -->
+<center>
+  <small>
+    © 1995-2026 <b>FUTURE IN '95</b><br>
+    Handmade HTML • No CSS Frameworks • Pure Retro<br>
+    Best viewed in Internet Explorer on 800x600
+  </small>
+</center>
 
-        const siteInfoRes = await fetch("./components/site-info.html");
-        document.getElementById("site-info-widget").innerHTML =
-          await siteInfoRes.text();
+</td>
+</tr>
+</table>
 
+</center>
 
-        const randomPostRes = await fetch("./components/random-post.html");
-        document.getElementById("random-post-widget").innerHTML =
-          await randomPostRes.text();
-
-        const animationRes = await fetch("./components/animation-widget.html");
-        document.getElementById("animation-widget").innerHTML =
-          await animationRes.text();
-
-        await initApp();
-
-        renderRandomPost();
-      });
-    </script>
-  </body>
+</body>
 </html>
+
+<script src="js/app.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", async () => {
+    const authorsHTML = `
+      <div class="author-box">
+        <strong>> p4sCAL_GUI</strong><br>
+        Retro tech Enthusiast • Gym bro • SR Software Engineer<br>
+        <small>> Currently using: Arch BTW & Windows XP (no es broma)</small>
+      </div>
+      <div class="author-box">
+        <strong>> eternal_1917</strong><br>
+        Retro gamer • Physics student • Glitch explorer<br>
+        <small>> Currently breaking: Old games</small>
+      </div>
+    `;
+    document.getElementById("authors-container").innerHTML = authorsHTML;
+    await initApp();
+  });
+</script>
