@@ -25,56 +25,6 @@
   ],
   "posts": [
     {
-      "id": "gadgets2024",
-      "title": "6 Cool Gadgets You Need in 2024",
-      "slug": "gadgets2024",
-      "date": "2024-04-15",
-      "excerpt": "A list of the most exciting new gadgets coming this year.",
-      "editor": "Pascal",
-      "categories": ["Gadgets"],
-      "thumbnail": "./assets/img/posts/gadgets2024/thumbnail/recycle.webp"
-    },
-    {
-      "id": "recycle",
-      "title": "How to Recycle Old Computers Properly",
-      "slug": "recycle",
-      "date": "2024-04-10",
-      "excerpt": "Learn how to recycle that old PC you have gathering dust.",
-      "editor": "Pascal",
-      "categories": ["Recycle", "Sustainability"],
-      "thumbnail": "./assets/img/posts/recycle/thumbnail/recycle.webp"
-    },
-    {
-      "id": "win95",
-      "title": "Windows 95 Tips & Tricks",
-      "slug": "win95",
-      "date": "2024-04-05",
-      "excerpt": "Unleash the power of Windows 95 with these tips!",
-      "editor": "Pascal",
-      "categories": ["Windows"],
-      "thumbnail": "./assets/img/posts/win95/thumbnail/recycle.webp"
-    },
-    {
-      "id": "2026karate",
-      "title": "2026 Karate DSL",
-      "slug": "2026karate",
-      "date": "2026-03-29",
-      "excerpt": "Novedades de este poderoso framework para API Testing!",
-      "editor": "Pascal",
-      "categories": ["Testing", "Karate"],
-      "thumbnail": "./assets/img/posts/2026karate/thumbnail/recycle.webp"
-    },
-    {
-      "id": "2026postspruebas",
-      "title": "Cómo revivir una PC del 2005 en 2026",
-      "slug": "2026postspruebas",
-      "date": "2026-04-02",
-      "excerpt": "Probé instalar Linux en una máquina olvidada... y esto fue lo que pasó.",
-      "editor": "Pascal",
-      "categories": [],
-      "thumbnail": "./assets/img/posts/2026postspruebas/thumbnail/recycle.webp"
-    },
-    {
       "id": "20260413loom",
       "title": "Loom: El arte de tejer hechizos con el oído",
       "slug": "20260413loom",
