@@ -7,12 +7,12 @@
   },
   "events": [
     {
-      "date": "2026-04-12",
-      "text": "Update del sitio"
+      "date": "2026-03-28",
+      "text": "Creación del sitio web Future in '95"
     },
     {
-      "date": "2026-04-01",
-      "text": "April Fools' Day: Publicación de un artículo falso sobre Windows 95"
+      "date": "2026-04-12",
+      "text": "Update del sitio, mejoras en el diseño y corrección de errores"
     },
     {
       "date": "2026-04-21",
@@ -21,6 +21,14 @@
     {
       "date": "2026-05-03",
       "text": "Se actualiza el diseño del sitio con estética de los 90s"
+    },
+    {
+      "date": "2026-05-04",
+      "text": "Se agrega comportamiento dinámico de categorías y posts usando JS"
+    },
+    {
+      "date": "2026-05-04",
+      "text": "¡¡¡Feliz día de Star Wars!!!"
     }
   ],
   "posts": [
