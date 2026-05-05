@@ -186,7 +186,14 @@
     const container = document.getElementById("featured-posts-list");
     if (!container || !blogData.posts) return;
 
-    const latestPosts = blogData.posts.slice(0, 5);
+    const sortedPosts = [...blogData.posts].sort((a, b) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      return dateB - dateA;
+    });
+
+    const latestPosts = sortedPosts.slice(0, 5);
+
     container.innerHTML = latestPosts
       .map(
         (post) =>
