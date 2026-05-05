@@ -94,6 +94,13 @@
   document.addEventListener("DOMContentLoaded", async () => {
     await initApp();
     renderArchivePosts();
-    renderPostsList();
+    const category = getCategoryFromURL();
+    renderPostsList(category);
   });
+
+  function getCategoryFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("category");
+  }
+
 </script>

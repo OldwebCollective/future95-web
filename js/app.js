@@ -11,7 +11,7 @@ async function initApp() {
   }
 }
 
-function renderPostsList(limit = null) {
+function renderPostsList(category = null) {
   const container = document.getElementById("posts-container");
   if (!container) return;
 
@@ -21,7 +21,11 @@ function renderPostsList(limit = null) {
     return dateB - dateA;
   });
 
-  const postsToShow = limit ? sortedPosts.slice(0, limit) : sortedPosts;
+  const filteredPosts = sortedPosts.filter((post) => {
+    return post.categories && post.categories.includes(category);
+  });
+
+  const postsToShow = category ? filteredPosts : sortedPosts;
 
   const tableRows = postsToShow
     .map(
