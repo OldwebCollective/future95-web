@@ -51,7 +51,7 @@
       "date": "2026-05-02",
       "excerpt": "La experiencia de instalar Windows 98 en una ThinkPad T42: los desafíos, los errores y las soluciones que encontré en el camino.",
       "editor": "Pascal",
-      "categories": ["Windows", "Retro"],
+      "categories": ["Windows", "Retro", "ThinkPad"],
       "thumbnail": "./assets/img/posts/20260502t42windows98/thumbnail/t42.webp"
     }
   ],
