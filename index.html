@@ -87,10 +87,8 @@
 
               <td width="50%" valign="top">
                 <b>CATEGORIAS</b>
-                <ul>
-                  <li><a href="./archives.html">All Posts</a></li>
-                  <li><a href="./about.html">About & Authors</a></li>
-                  <li><a href="./archives.html">Browse Archive</a></li>
+                <ul id="categories-list">
+                  <li><a href="#">Loading...</a></li>
                 </ul>
               </td>
             </tr>
@@ -181,6 +179,7 @@
     await initApp();
     renderFeaturedPost();
     renderLatestPostsList();
+    renderCategoriesList();
   });
 
   function renderLatestPostsList() {
@@ -195,4 +194,28 @@
       )
       .join("");
   }
+
+  function renderCategoriesList() {
+    const container = document.getElementById("categories-list");
+    if (!container) return;
+    const categories = getCategories();
+    container.innerHTML = categories
+      .map(
+        (cat) =>
+          `<li><a href="./archives.html?category=${encodeURIComponent(cat)}">${cat}</a></li>`,
+      )
+      .join("");
+  }
+
+  function getCategories() {
+    if (!blogData.posts) return [];
+    const categories = new Set();
+    blogData.posts.forEach((post) => {
+      if (post.categories) {
+        post.categories.forEach((cat) => categories.add(cat));
+      }
+    });
+    return Array.from(categories);
+  }
+
 </script>
