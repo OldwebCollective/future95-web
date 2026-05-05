@@ -117,20 +117,16 @@
             <tr>
               <td width="50%" valign="top">
                 <b>NOVEDADES</b>
-                <ul>
-                  <li>Nuevo diseño para la web</li>
-                  <li>Actualización de contenido</li>
-                  <li>Trabajando en nuevas secciones</li>
-                </ul>
+                <div id="changelog">
+                  <p><i>Loading...</i></p>
+                </div>
               </td>
 
               <td width="50%" valign="top">
                 <b>INFO DEL SITIO</b>
-                <ul>
-                  <li>Web vainilla a gusto</li>
-                  <li>Sin frameworks</li>
-                  <li>Inspirado en 1995-2000</li>
-                </ul>
+                <p>Web vainilla a gusto</p>
+                <p>Sin frameworks JS</p>
+                <p>Inspirado en 1995-2000</p>
               </td>
             </tr>
           </table>
@@ -180,7 +176,29 @@
     renderFeaturedPost();
     renderLatestPostsList();
     renderCategoriesList();
+    renderChangelog();
   });
+
+  function renderChangelog() {
+    const container = document.getElementById("changelog");
+    if (!container || !blogData.events) return;
+
+    const sortedEvents = [...blogData.events].sort((a, b) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      return dateB - dateA;
+    });
+
+    const latestEvents = sortedEvents.slice(0, 3);
+
+    container.innerHTML = latestEvents
+      .map(
+        (event) =>
+          `<p>${event.text}</p>`,
+      )
+      .join("");
+
+  }
 
   function renderLatestPostsList() {
     const container = document.getElementById("featured-posts-list");
