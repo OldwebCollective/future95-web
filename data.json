@@ -14,15 +14,27 @@
     },
     {
       "date": "2026-05-03",
-      "text": "Se actualiza el diseño del sitio con estética de los 90s"
+      "text": "Se modifica diseño de la web"
     },
     {
       "date": "2026-05-04",
-      "text": "Se agrega comportamiento dinámico de categorías y posts usando JS"
+      "text": "Se habilitan categorías de posts"
     },
     {
       "date": "2026-05-04",
       "text": "¡¡¡Feliz día de Star Wars!!!"
+    },
+    {
+      "date": "2026-05-05",
+      "text": "Se corrige orden en últimas publicaciones"
+    },
+    {
+      "date": "2026-05-06",
+      "text": "Se actualiza descripción de autores en sección ABOUT"
+    },
+    {
+      "date": "2026-05-06",
+      "text": "Se modifica sección de novedades e info del sitio en HOME"
     }
   ],
   "posts": [
@@ -55,39 +67,6 @@
       "editor": "PASCAL",
       "categories": ["Windows", "Retro", "ThinkPad"],
       "thumbnail": "./assets/img/posts/20260502t42windows98/thumbnail/t42.webp"
-    }
-  ],
-  "navigation": [
-    { "label": "what's new", "href": "./" },
-    { "label": "archives", "href": "./archives.html" },
-    { "label": "about", "href": "./about.html" }
-  ],
-  "links": [
-    { "label": "WinWorld", "href": "https://winworldpc.com/home" },
-    { "label": "Turbo Pascal", "href": "https://turbopascal.org/" },
-    { "label": "Pungas Space Radio", "href": "https://pungas.space/radio" }
-  ],
-  "contact": {
-    "handle": "@futurein95",
-    "email": "#",
-    "guestbook": "#"
-  },
-  "playlist": [
-    {
-      "title": "Windows 95 Startup",
-      "path": "./assets/audio/o95.wav"
-    },
-    {
-      "title": "Windows NT 4.0 Startup",
-      "path": "./assets/audio/ont4.wav"
-    },
-    {
-      "title": "Windows 98 Startup",
-      "path": "./assets/audio/o98.wav"
-    },
-    {
-      "title": "Welcome98",
-      "path": "./assets/audio/welcome98.mp3"
     }
   ]
 }
