@@ -67,6 +67,16 @@
       "editor": "PASCAL",
       "categories": ["Windows", "Retro", "ThinkPad"],
       "thumbnail": "./assets/img/posts/20260502t42windows98/thumbnail/t42.webp"
+    },
+    {
+      "id": "20260507parser",
+      "title": "Hugo: De la pesadilla del parser al terror en 3D",
+      "slug": "20260507parser",
+      "date": "2026-05-07",
+      "excerpt": "Analizamos la evolución de David P. Gray: entre acertijos crípticos, el nefasto sistema parser y disparos en MS-DOS",
+      "editor": "eternal_1917",
+      "categories": ["Juegos", "MS-DOS"],
+      "thumbnail": "./assets/img/posts/20260507parser/thumbnail/hugosaga.webp"
     }
   ]
 }
