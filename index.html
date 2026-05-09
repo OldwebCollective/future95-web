@@ -14,7 +14,7 @@
 
     a {
       color: #00ffff;
-      text-decoration: none;
+      text-decoration: underline;
     }
 
     a:visited {
@@ -117,16 +117,18 @@
             <tr>
               <td width="50%" valign="top">
                 <b>NOVEDADES</b>
-                <div id="changelog">
-                  <p><i>Loading...</i></p>
-                </div>
+                <ul id="changelog">
+                  <li>Loading...</li>
+                </ul>
               </td>
 
               <td width="50%" valign="top">
                 <b>INFO DEL SITIO</b>
-                <p>Web vainilla a gusto</p>
-                <p>Sin frameworks JS</p>
-                <p>Inspirado en 1995-2000</p>
+                <ul>
+                  <li>Web vainilla a gusto</li>
+                  <li>Sin frameworks JS</li>
+                  <li>Inspirado en 1995-2000</li>
+                </ul>
               </td>
             </tr>
           </table>
@@ -194,7 +196,7 @@
     container.innerHTML = latestEvents
       .map(
         (event) =>
-          `<p>${event.text}</p>`,
+          `<li>${event.text}</li>`,
       )
       .join("");
 
